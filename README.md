@@ -1,5 +1,5 @@
 # MarioPowerUps 1.21.4 (WIP)
-A minecraft plugin (eventually a mod too) that adds various Mario PowerUps to your server (and to your personal world in the future).
+A minecraft plugin (will be a mod too) that adds various Mario PowerUps to your server (and to your personal world eventually).
 
 I wouldn´t consider myself a **fan** of Mario but all I played most of my childhood was Mario games and till this day I still enjoy playing some Mario games emulated on the PC.
 I like to use mario texture packs since I like to bring the world of Mario games into MC so I thought why not make a plugin/mod that will bring something that is more than just the visual
