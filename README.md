@@ -15,12 +15,13 @@ _The list doesnt show all the PoweUps that will be in the plugin/mod, but the on
 **WIP**: Work In Progress
 **NS**: Not Started
 **AF**: Almost Finished (Will still make some small adjustements to make it "perfect", 
-or maybe there are still some known but very rare (and hard to fix) bugs 
-that are still not fixed and left aside to progress with a new PowerUp)
+or maybe there are still some known but very rare (and hard to fix) bugs)
 **CF**: Completely Finished (Wont make any adjustement and there arent any known bugs left)
 
 # Flowers:
-- Fire Flower (**WIP**)
+- Fire Flower (**AF**)
+ [FireFlower](https://youtu.be/n-be35ggDfs)
+
 - Ice Flower (**NS**)
 - Golden Flower (**NS**)
 
