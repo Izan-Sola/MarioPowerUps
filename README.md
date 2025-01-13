@@ -15,9 +15,9 @@ PF: Partially/Almost Finished (Will still make some small adjustements to make i
 CF: Completely Finished (Wont make any adjustement and there arent any known bugs left)
 
 # Flowers:
-    - Fire Flower (WIP)
-    - Ice Flower (NS)
-    - Golden Flower (NS)
+- Fire Flower (WIP)
+- Ice Flower (NS)
+- Golden Flower (NS)
 
 
 # MushRooms:
