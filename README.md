@@ -20,7 +20,7 @@ or maybe there are still some known but very rare (and hard to fix) bugs)
 
 # Flowers:
 - Fire Flower (**AF**)
- [FireFlower](https://youtu.be/n-be35ggDfs)
+ [![Fire Flower](https://img.youtube.com/vi/n-be35ggDfs/0.jpg)](https://youtu.be/n-be35ggDfs)
 
 - Ice Flower (**NS**)
 - Golden Flower (**NS**)
