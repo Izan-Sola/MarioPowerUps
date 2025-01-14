@@ -20,7 +20,7 @@ public class FlowerFireBall {
     private Entity fireBall;
     private List<Block> lineOfSight;
     private BukkitTask task;
-    public int idkbro = 0;
+    public int curveOffset = 0;
     private Location lastBlock;
     private Location currentLocation;
     private Location curvePoint;
@@ -30,7 +30,7 @@ public class FlowerFireBall {
     private int bounceDistance = 5;
     private int bounceCount = 0;
     private double bounceHeightModifier = 2.8;
-    private double t = 0.0; // Progress along the curve
+    private double t = 0.0; 
 
     public FlowerFireBall(Location eyeLoc, Player player, JavaPlugin plugin) {
 
@@ -82,7 +82,7 @@ public class FlowerFireBall {
                     //idk maths, i just know this is called a beizer curve or something, and i just modify the start, curve and end point 
                     //to adjust the curve
                     double x = Math.pow(1 - t, 2) * startPoint.getX() + 2 * (1 - t) * t * curvePoint.getX() + Math.pow(t, 2) * endPoint.getX();
-                    double y = Math.pow(1 - t, 2) * startPoint.getY() + 2 * (1 - t) * t * curvePoint.getY() + Math.pow(t, 2) * endPoint.getY() + idkbro;
+                    double y = Math.pow(1 - t, 2) * startPoint.getY() + 2 * (1 - t) * t * curvePoint.getY() + Math.pow(t, 2) * endPoint.getY() + curveOffset;
                     double z = Math.pow(1 - t, 2) * startPoint.getZ() + 2 * (1 - t) * t * curvePoint.getZ() + Math.pow(t, 2) * endPoint.getZ();
 
                     Location currentLocation = new Location(fireBallPather.getWorld(), x, y, z);
@@ -148,7 +148,7 @@ public class FlowerFireBall {
         
             if(!endPoint.getBlock().getLocation().add(0, 0, 0).getBlock().isPassable()) {
                 endPoint = lastBlock.add(0, (-lastBlock.getY())+offSetY+1, 0);
-                idkbro = 1;
+                curveOffset = 1;
             }
 
         double test = lineOfSight.get(bounceDistance-1).getLocation().getY();
