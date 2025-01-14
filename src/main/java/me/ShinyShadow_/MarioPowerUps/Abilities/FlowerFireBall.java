@@ -121,7 +121,7 @@ public class FlowerFireBall {
         double offSetY = touchedBlock.getY();
 
         bounceDistance += 4;
-        //Prevent endpoint from being out of bounds withing the line of sight range
+        //Prevent endpoint from being out of bounds within the line of sight range
         if(bounceDistance > lineOfSight.size()-1) {
             bounceDistance = lineOfSight.size() - 1;
             lastBlock = lineOfSight.getLast().getLocation();
@@ -131,7 +131,7 @@ public class FlowerFireBall {
         }
         bounceCount+=1;
         
-        //If the Y level of the endpoint is different from the Y of the start point (i.e: you throw the fireball from a cliff)
+        //If the Y level of the new endpoint is different from the Y of the start point (previous end point) (i.e: you throw the fireball from a cliff)
         //substract the Y value of the endpoint to itself (i.e: lastblock Y = 60, so 60-60 = 0Y)
         //then add the Y of the new startpoint, (which would be the floor level, the block the fireball touched)
         //(i.e now the endpoint Y += start point Y --> 0 + 40 = 40Y) so now both the startpoint and the endpoint are at the same Y level.
