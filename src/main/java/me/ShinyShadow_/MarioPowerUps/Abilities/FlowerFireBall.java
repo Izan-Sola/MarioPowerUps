@@ -59,7 +59,7 @@ public class FlowerFireBall {
                     cancel();
                     return;
                 }
-                    //Check if the block under is passable, if it is, keep falling until touching the ground and set
+                    //Check if the block under the fireBallPather location is passable, if it is, keep falling until touching the ground and set
                     //new start, curve and end points
                     if (!endPoint.getBlock().getType().isSolid()) {
                         currentLocation = fireBallPather.getLocation().add(0, -0.5, 0);
