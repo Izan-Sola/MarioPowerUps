@@ -131,11 +131,11 @@ public class FlowerFireBall {
         }
         bounceCount+=1;
         
-        //If the Y level of the new endpoint is different from the Y of the start point (previous end point) (i.e: you throw the fireball from a cliff)
+        //If the Y level of the new endpoint is different from the Y of the new start point (previous end point) (i.e: you throw the fireball from a cliff)
         //substract the Y value of the endpoint to itself (i.e: lastblock Y = 60, so 60-60 = 0Y)
         //then add the Y of the new startpoint, (which would be the floor level, the block the fireball touched)
         //(i.e now the endpoint Y += start point Y --> 0 + 40 = 40Y) so now both the startpoint and the endpoint are at the same Y level.
-        //Then just add a bit of height to the curve (40 + 2 0 42Y) and done.
+        //Then just add a bit of height to the curve (40 + 2 = 42Y) and done.
         
         startPoint = fireBallPather.getLocation().getBlock().getLocation();
         endPoint = lastBlock.add(0, (-lastBlock.getY())+offSetY, 0);
