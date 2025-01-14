@@ -19,7 +19,7 @@ or maybe there are still some known but very rare (and hard to fix) bugs)
 **CF**: Completely Finished (Wont make any adjustement and there arent any known bugs left)
 
 # Flowers:
-- Fire Flower (**WIP**)
+- Fire Flower (**AF**)
 
 
 
