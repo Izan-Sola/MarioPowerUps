@@ -43,7 +43,7 @@ public class FireFlowerListener implements Listener{
             if (!powerUpActive) {
                 player.sendMessage("You feel empowered by the Fire Flower! (20s)");
                 powerUpActive = true;
-         //  empowerPlayer();
+
                 }
                 else if(powerUpActive && player.getCooldown(player.getInventory().getItemInMainHand()) <= 0) {
                      player.playSound(player.getLocation(), Sound.ITEM_FLINTANDSTEEL_USE, 0.1f, 0.1f);
@@ -54,10 +54,7 @@ public class FireFlowerListener implements Listener{
                 }
 
     }
-//    public void empowerPlayer() {
-//        if (powerUpActive  && powerUpDuration > 0) {
-//
-//        }
+
     }
 
 }
