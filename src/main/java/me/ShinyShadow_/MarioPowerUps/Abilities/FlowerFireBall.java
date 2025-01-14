@@ -79,6 +79,8 @@ public class FlowerFireBall {
                     }
                 }
                 if(t < 1.0) {
+                    //idk maths, i just know this is called a beizer curve or something, and i just modify the start, curve and end point 
+                    //to adjust the curve
                     double x = Math.pow(1 - t, 2) * startPoint.getX() + 2 * (1 - t) * t * curvePoint.getX() + Math.pow(t, 2) * endPoint.getX();
                     double y = Math.pow(1 - t, 2) * startPoint.getY() + 2 * (1 - t) * t * curvePoint.getY() + Math.pow(t, 2) * endPoint.getY() + idkbro;
                     double z = Math.pow(1 - t, 2) * startPoint.getZ() + 2 * (1 - t) * t * curvePoint.getZ() + Math.pow(t, 2) * endPoint.getZ();
