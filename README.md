@@ -14,7 +14,7 @@ _The list doesnt show all the PowerUps that will be in the plugin/mod, but the o
 
 **WIP**: Work In Progress
 **NS**: Not Started
-**CF**: Completely Finished (Wont make any adjustement and there arent any known bugs left)
+**F**: Completely Finished (Wont make any adjustement and there arent any known bugs left)
 
 # Flowers:
 - Fire Flower (**WIP**)
