@@ -1,4 +1,4 @@
-# MarioPowerUps 1.21.4 (WIP)
+# MarioPowerUps Plugin 1.21.4 (WIP)
 A minecraft plugin that adds various Mario PowerUps.
 
 I wouldn't consider myself a **fan** of Mario but all I played most of my childhood was Mario games and till this day I still enjoy playing some Mario games emulated on the PC.
