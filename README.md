@@ -12,16 +12,13 @@ Also, I will be making a custom texture for each PowerUp.
 
 _The list doesnt show all the PowerUps that will be in the plugin, but the ones im planning to make at the moment._
 
-**WIP**: Work In Progress
+**F**: Work In Progress
 **NS**: Not Started
 **F**: Finished
 
 # Flowers:
-- Fire Flower (**WIP**)
-
-
-
- [![Fire Flower](https://img.youtube.com/vi/n-be35ggDfs/0.jpg)](https://youtu.be/n-be35ggDfs)
+- Fire Flower (**F**)
+   [ShowCase]((https://youtu.be/_Bd3sv9p_Tk))
 
 - Ice Flower (**NS**)
 - Golden Flower (**NS**)
