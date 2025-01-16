@@ -32,7 +32,7 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 
 
 # MushRooms:
-   - Rock Mushroom (**NS**) 
+   - Rock Mushroom (**WIP**) 
  
 
 # Others:
