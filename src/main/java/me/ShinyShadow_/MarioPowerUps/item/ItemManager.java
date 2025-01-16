@@ -12,6 +12,7 @@ import java.util.Arrays;
 public class ItemManager {
 
 	public static ItemStack Fire_Flower;
+	public static ItemStack Rock_Mushroom;
 	public static void init() {
 
 		createItems();
@@ -19,25 +20,41 @@ public class ItemManager {
 	}
 	private static void createItems() {
 
-		ItemStack item = new ItemStack(Material.TORCHFLOWER, 1);
-		ItemMeta meta = item.getItemMeta();
-		meta.setDisplayName(ChatColor.RED +  "Fire Flower" + ChatColor.BOLD);
-		//meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-		//meta.setCustomModelData(2);
-		NamespacedKey a = new NamespacedKey("ec", "fireflower");
-		meta.setLore(Arrays.asList("This innocent looking flower ",
+		ItemStack FireFlower = new ItemStack(Material.TORCHFLOWER, 1);
+		ItemMeta FireFlowerMeta = FireFlower.getItemMeta();
+
+		ItemStack RockMushroom = new ItemStack(Material.APPLE, 1);
+		ItemMeta RockMushroomMeta = RockMushroom.getItemMeta();
+
+
+		FireFlowerMeta.setDisplayName(ChatColor.RED +  "Fire Flower" + ChatColor.BOLD);
+		NamespacedKey FireFlowerNS = new NamespacedKey("ec", "fireflower");
+		FireFlowerMeta.setLore(Arrays.asList("This innocent looking flower ",
 									"contains a powerful blazing ",
 									"heat that enables you to set ",
 									"enemies ablaze by launching ",
 									"fire balls.",
 									"",
 									"Its heat can be reanimated with blaze powder."));
-		meta.setItemModel(a);
-		meta.setMaxStackSize(1);
-		Damageable Ditem = (Damageable) meta;
-		((Damageable) meta).setMaxDamage(20);
+		FireFlowerMeta.setItemModel(FireFlowerNS);
+		FireFlowerMeta.setMaxStackSize(1);
+		((Damageable) FireFlowerMeta).setMaxDamage(20);
 
-		item.setItemMeta(meta);
-		Fire_Flower = item;
+
+		RockMushroomMeta.setDisplayName(ChatColor.DARK_GRAY +  "Rock Mushroom" + ChatColor.BOLD);
+		//NamespacedKey RockMushroomNS = new NamespacedKey("ec", "rockmushroom");
+		RockMushroomMeta.setLore(Arrays.asList("This mushroom, despite being ",
+											 "as hard as a rock, it's edible ",
+											 "(although it requires a strong bite) ",
+											 "and when consumed provides a great ",
+											 "strength and power such that you could ",
+											 "crumble walls with your body"));
+		//RockMushroomMeta.setItemModel(RockMushroomNS);
+
+
+		FireFlower.setItemMeta(FireFlowerMeta);
+		RockMushroom.setItemMeta(RockMushroomMeta);
+		Fire_Flower = FireFlower;
+		Rock_Mushroom = RockMushroom;
 	}
 }

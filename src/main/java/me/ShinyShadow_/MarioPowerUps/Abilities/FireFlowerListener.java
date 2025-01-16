@@ -22,9 +22,8 @@ public class FireFlowerListener implements Listener{
     private final JavaPlugin plugin;
     private Location eyeLoc;
     private Player player;
-    private float powerUpDuration = 20;
-    private boolean powerUpActive = false;
     private NamespacedKey ns = null;
+
     public FireFlowerListener(JavaPlugin plugin) {
         this.plugin = plugin;
     }
@@ -58,22 +57,27 @@ public class FireFlowerListener implements Listener{
     public void onBlockPlace(BlockPlaceEvent event) {
         player = event.getPlayer();
 
-        if(player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains("This innocent looking flower ")) {
+        if(player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().contains("Fire Flower")) {
             event.setCancelled(true);
         }
     }
     @EventHandler
     public void onRightClick(PlayerInteractEvent event) {
+
         player = event.getPlayer();
-        eyeLoc = player.getEyeLocation();
         onHandItem = player.getInventory().getItemInMainHand();
-        if(onHandItem.getItemMeta() == null) {
+
+        if(onHandItem.getItemMeta() == null || onHandItem.getItemMeta().getLore() == null) {
             return;
         }
+
+        eyeLoc = player.getEyeLocation();
+
 
         ItemStack offHandItem = player.getInventory().getItemInOffHand();
         Damageable onHandDMGMeta = (Damageable) onHandItem.getItemMeta();
 
+        //Recharge Fire Flower
         if(offHandItem.getType() == Material.BLAZE_POWDER && onHandItem.getItemMeta().getLore().contains("This innocent looking flower ") &&
                 onHandDMGMeta.getDamage() >= 5) {
 
@@ -91,6 +95,7 @@ public class FireFlowerListener implements Listener{
             return;
 
         }
+        //Shoot Fire Balls
         if (onHandItem.getItemMeta().getLore() != null &&  onHandItem.getItemMeta().getLore().contains("This innocent looking flower ")) {
             if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
 
@@ -113,13 +118,11 @@ public class FireFlowerListener implements Listener{
 
                     new FlowerFireBall(eyeLoc, player, plugin, spawn);
                     player.setCooldown(onHandItem, 20);
+
                 }
             }
         }
-//    public void empowerPlayer() {
-//        if (powerUpActive  && powerUpDuration > 0) {
-//
-//        }
+
     }
 
 

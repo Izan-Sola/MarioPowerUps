@@ -33,13 +33,15 @@ public class FlowerFireBall {
     private double t = 0.0; // Progress along the curve
 
     public FlowerFireBall(Location eyeLoc, Player player, JavaPlugin plugin, Location spawn) {
-
         Set<Material> ignoredBlocks = Set.of(Material.AIR, Material.GRASS_BLOCK, Material.TALL_GRASS);
         lineOfSight = player.getLineOfSight(ignoredBlocks, 13);
 
         Marker fireBallPather = (Marker) player.getWorld() .spawnEntity(spawn, EntityType.MARKER);
         //eyeLoc.add(0, -0.65, 0)
         startPoint = fireBallPather.getLocation();
+        if(bounceDistance > lineOfSight.size()-1) {
+            bounceDistance = lineOfSight.size()-1;
+        }
         curvePoint = lineOfSight.get(bounceDistance/2).getLocation().add(0, 2.5, 0);
         endPoint = lineOfSight.get(bounceDistance).getLocation().add(0, 0, 0);
 
