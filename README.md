@@ -30,7 +30,7 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 - Golden Flower (**NS**)
 
 
-# MushRooms:
+# Mushrooms:
    - Rock Mushroom (**WIP**) 
  
 
