@@ -11,7 +11,7 @@ Fire Flower throwing fire balls everywhere, jumping around by using the Metal Co
 
 _The list doesnt show all the PowerUps that will be in the plugin, but the ones im planning to make at the moment._
 
-**F**: Work In Progress
+**WIP**: Work In Progress
 **NS**: Not Started
 **F**: Finished
 
