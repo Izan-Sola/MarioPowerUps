@@ -6,7 +6,6 @@ I like to use mario texture packs since I like to bring the world of Mario games
 aspect from Mario games, something than you can interact with and feel like it is brought directly from one world to the other, like per example, various PowerUps so I can go around with my 
 Fire Flower throwing fire balls everywhere, jumping around by using the Metal Coil, or eat a Rock Mushroom and dash against enemies knocking them off or destroy walls...
 
-Also, I will be making a custom texture for each PowerUp.
 
 # List of PowerUps:
 
