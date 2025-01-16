@@ -46,6 +46,10 @@ public class FlowerFireBall {
         task = new BukkitRunnable() {
             @Override
             public void run() {
+                if(fireBallPather.getLocation().getBlock().getType() == Material.WATER) {
+                    t = 2;
+                    bounceCount = 2;
+                }
                 if (t > 1.0) {
                     //Check if block under is air, if it is, keep falling until touching ground and bounce
                 if (bounceCount == 2) {

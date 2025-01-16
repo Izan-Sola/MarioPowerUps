@@ -18,7 +18,7 @@ import org.bukkit.util.Vector;
 import java.util.List;
 
 public class FireFlowerListener implements Listener{
-    List<String> lore = null;
+    private ItemStack onHandItem;
     private final JavaPlugin plugin;
     private Location eyeLoc;
     private Player player;
@@ -53,11 +53,12 @@ public class FireFlowerListener implements Listener{
                  plugin.getServer().getScheduler().runTask(plugin, () -> event.getInventory().setRepairCost(1));
         }
     }
+
     @EventHandler
     public void onBlockPlace(BlockPlaceEvent event) {
         player = event.getPlayer();
 
-        if(player.getInventory().getItemInMainHand().getItemMeta().getLore().contains("This innocent looking flower ")) {
+        if(player.getInventory().getItemInMainHand().getItemMeta().getLore() != null && player.getInventory().getItemInMainHand().getItemMeta().getLore().contains("This innocent looking flower ")) {
             event.setCancelled(true);
         }
     }
@@ -65,28 +66,41 @@ public class FireFlowerListener implements Listener{
     public void onRightClick(PlayerInteractEvent event) {
         player = event.getPlayer();
         eyeLoc = player.getEyeLocation();
-
-        if(player.getInventory().getItemInMainHand().getItemMeta() == null) {
+        onHandItem = player.getInventory().getItemInMainHand();
+        if(onHandItem.getItemMeta() == null) {
             return;
         }
-        else {
-             lore = player.getInventory().getItemInMainHand().getItemMeta().getLore();
-        }
 
-        if (lore != null && lore.contains("This innocent looking flower ")) {
+        ItemStack offHandItem = player.getInventory().getItemInOffHand();
+        Damageable onHandDMGMeta = (Damageable) onHandItem.getItemMeta();
+
+        if(offHandItem.getType() == Material.BLAZE_POWDER && onHandItem.getItemMeta().getLore().contains("This innocent looking flower ") &&
+                onHandDMGMeta.getDamage() >= 5) {
+
+            float angle = player.getLocation().add(0, 0.25, 0).getYaw() / 60;
+            Location rechargeEffect = player.getLocation().clone().add(new Vector(Math.cos(angle), 0, Math.sin(angle)).normalize().multiply(-1));
+
+            player.getWorld().spawnParticle(Particle.FLAME, rechargeEffect.add(0, 1, 0), 21, 0.02, 0.02, 0.02, 0.05);
+
+            //ItemStack rItem = player.getInventory().getItemInMainHand();
+            Damageable rMeta = (Damageable) onHandItem.getItemMeta();
+            rMeta.setDamage(rMeta.getDamage() - 5);
+            onHandItem.setItemMeta(rMeta);
+            offHandItem.setAmount(offHandItem.getAmount()-1);
+
+            return;
+
+        }
+        if (onHandItem.getItemMeta().getLore() != null &&  onHandItem.getItemMeta().getLore().contains("This innocent looking flower ")) {
             if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
 
-                ItemStack inHandItem = player.getInventory().getItemInMainHand();
-                ItemMeta meta = inHandItem.getItemMeta();
 
-                if (!powerUpActive) {
-                    //player.sendMessage("You feel empowered by the Fire Flower! (20s)");
-                    powerUpActive = true;
-                    //  empowerPlayer();
-                } else if (powerUpActive && player.getCooldown(player.getInventory().getItemInMainHand()) <= 0) {
+                ItemMeta meta = (Damageable) onHandItem.getItemMeta();
+                Damageable rMeta = (Damageable) onHandItem.getItemMeta();
+                if (player.getCooldown(onHandItem) <= 0 && rMeta.getDamage() != 20) {
 
                     ((Damageable) meta).setDamage( ((Damageable) meta).getDamage()+1);
-                    inHandItem.setItemMeta(meta);
+                    onHandItem.setItemMeta(meta);
                     player.playSound(player.getLocation(), Sound.ITEM_FLINTANDSTEEL_USE, 0.1f, 0.1f);
                     player.playSound(player.getLocation(), Sound.BLOCK_LAVA_POP, 0.6f, 0.3f);
                     player.getWorld().playSound(player.getLocation(), Sound.ENTITY_BLAZE_SHOOT, 0.5f, 0.4f);
@@ -98,9 +112,8 @@ public class FireFlowerListener implements Listener{
                     player.getWorld().spawnParticle(Particle.FALLING_LAVA, spawn, 21, 0.11, 0.11, 0.11, 1);
 
                     new FlowerFireBall(eyeLoc, player, plugin, spawn);
-                    player.setCooldown(player.getInventory().getItemInMainHand(), 20);
+                    player.setCooldown(onHandItem, 20);
                 }
-
             }
         }
 //    public void empowerPlayer() {

@@ -29,8 +29,11 @@ public class ItemManager {
 									"contains a powerful blazing ",
 									"heat that enables you to set ",
 									"enemies ablaze by launching ",
-									"fire balls."));
+									"fire balls.",
+									"",
+									"Its heat can be reanimated with blaze powder."));
 		meta.setItemModel(a);
+		meta.setMaxStackSize(1);
 		Damageable Ditem = (Damageable) meta;
 		((Damageable) meta).setMaxDamage(20);
 
