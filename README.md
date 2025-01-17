@@ -17,7 +17,7 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 
 # Flowers:
 - Fire Flower (**F**)
-   [ShowCase](https://youtu.be/_Bd3sv9p_Tk)
+   [(ShowCase)](https://youtu.be/_Bd3sv9p_Tk)
 
   Details:
      - You can recharge right it by clicking with blaze powder on your off hand and the Fire Flower in your main hand.
@@ -31,7 +31,10 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 
 
 # Mushrooms:
-   - Rock Mushroom (**WIP**) 
+   - Rock Mushroom (**WIP**)
+        Details:
+           - Once consumed, the Power Up lasts for 20 seconds.
+           - To dash, you have to shift and right click.
  
 
 # Others:
