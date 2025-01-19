@@ -42,14 +42,14 @@ public class ItemManager {
 
 
 		RockMushroomMeta.setDisplayName(ChatColor.DARK_GRAY +  "Rock Mushroom" + ChatColor.BOLD);
-		//NamespacedKey RockMushroomNS = new NamespacedKey("ec", "rockmushroom");
+		NamespacedKey RockMushroomNS = new NamespacedKey("ec", "rockmushroom");
 		RockMushroomMeta.setLore(Arrays.asList("This mushroom, despite being ",
 											 "as hard as a rock, it's edible ",
 											 "(although it requires a strong bite) ",
 											 "and when consumed provides a great ",
 											 "strength and power such that you could ",
 											 "crumble walls with your body"));
-		//RockMushroomMeta.setItemModel(RockMushroomNS);
+		RockMushroomMeta.setItemModel(RockMushroomNS);
 
 
 		FireFlower.setItemMeta(FireFlowerMeta);

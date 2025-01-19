@@ -31,9 +31,10 @@ public class FlowerFireBall {
     private int bounceCount = 0;
     private double bounceHeightModifier = 2.8;
     private double t = 0.0; // Progress along the curve
+    Set<Material> ignoredBlocks = Set.of(Material.AIR, Material.GRASS_BLOCK, Material.TALL_GRASS);
 
     public FlowerFireBall(Location eyeLoc, Player player, JavaPlugin plugin, Location spawn) {
-        Set<Material> ignoredBlocks = Set.of(Material.AIR, Material.GRASS_BLOCK, Material.TALL_GRASS);
+
         lineOfSight = player.getLineOfSight(ignoredBlocks, 13);
 
         Marker fireBallPather = (Marker) player.getWorld() .spawnEntity(spawn, EntityType.MARKER);

@@ -13,7 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class PowerUps extends JavaPlugin {
 
-	
+
 	public void onEnable() {
 
 		ItemManager.init();
