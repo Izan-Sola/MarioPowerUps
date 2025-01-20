@@ -31,13 +31,13 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
   Details:
 
   - Jump, shift and left click to summon a cloud. Up to 3 per charge.
-  - With the addition of this Power Up there are also 2 new custom items, bottle with air and cloud bucket. To fill a bucket with cloud you need to be
-    atleast at XXY and hold right click pointing to the air until it is filled. To fill the bottles with air you can do it at any Y level, and fill it the
-    same way as the bucket.
+  - With the addition of this Power Up there are also 2 new custom items, bottle with air and cloud bucket.
+    To fill a bucket with cloud you need to be atleast at 100Y and hold right click pointing to the air until it is filled.
+    To fill the bottles with air you need to be aleast at Y50 and fill it the same way as the bucket.
 
        
 - Ice Flower (**NS**)
-- Golden Flower (**NS**)
+- Gold Flower (**NS**)
 
 
 # Mushrooms:
@@ -46,7 +46,7 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
   Details:
 
   - Once consumed, the Power Up lasts for 30 seconds.
-  - To dash, you have to shift for like 1.5s and release.
+  - To dash, you have to shift for 2s and release.
  
 
 # Others:
