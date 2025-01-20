@@ -47,6 +47,7 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 
   - Once consumed, the Power Up lasts for 30 seconds.
   - To dash, you have to shift for 2s and release.
+  - Hitting enemies will push them away with force and colliding with the terrain, walls etc... will cause break them.
  
 
 # Others:
