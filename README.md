@@ -21,7 +21,7 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 
   Details:
   
-     - You can recharge right it by clicking with blaze powder on your off hand and the Fire Flower in your main hand.
+     - You can recharge it by right clicking with blaze powder on your off hand and the Fire Flower in your main hand.
      - 1 blaze powder = 5 fireballs. The blaze powder wont be used while the Fire Flower durability is above 15, meaning
       you can have blaze powder on your off hand while you shoot fireballs without wasting it, and having it ready to recharge
       your Fire Flower when its durability drops to 15.
