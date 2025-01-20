@@ -40,6 +40,7 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 
 # Mushrooms:
    - Rock Mushroom (**WIP**)
+     
         Details:
            - Once consumed, the Power Up lasts for 30 seconds.
            - To dash, you have to shift for like 1.5s and release.
