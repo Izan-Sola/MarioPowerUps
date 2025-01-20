@@ -20,6 +20,7 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
    [(ShowCase)](https://youtu.be/_Bd3sv9p_Tk)
 
   Details:
+  
      - You can recharge right it by clicking with blaze powder on your off hand and the Fire Flower in your main hand.
      - 1 blaze powder = 5 fireballs. The blaze powder wont be used while the Fire Flower durability is above 15, meaning
       you can have blaze powder on your off hand while you shoot fireballs without wasting it, and having it ready to recharge
@@ -28,6 +29,7 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 - Cloud Flower (**Next**)
 
   Details:
+  
      - Jump, shift and left click to summon a cloud. Up to 3 per charge.
      - With the addition of this Power Up there are also 2 new custom items, bottle with air and cloud bucket. To fill a bucket with cloud you need to be
        atleast at XXY and hold right click pointing to the air until it is filled. To fill the bottles with air you can do it at any Y level, and fill it the
@@ -42,6 +44,7 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
    - Rock Mushroom (**WIP**)
      
         Details:
+     
            - Once consumed, the Power Up lasts for 30 seconds.
            - To dash, you have to shift for like 1.5s and release.
  
