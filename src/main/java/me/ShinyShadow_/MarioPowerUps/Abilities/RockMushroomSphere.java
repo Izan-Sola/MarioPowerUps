@@ -63,7 +63,7 @@ public class RockMushroomSphere {
 
             @Override
             public void run() {
-                powerUpBar.setProgress(powerUpBar.getProgress()-0.00162);
+                powerUpBar.setProgress(powerUpBar.getProgress()-0.00166);
                 duration -= 0.05;
                 if(duration <= 0) {
                     RockMushroomListener.isRockMushRoomPowerActive = false;
@@ -88,6 +88,10 @@ public class RockMushroomSphere {
 
                     chargeTime += 0.2D;
                 }
+                if (chargeTime > 3D && chargeTime < 4D) {
+                    player.playSound(player.getLocation(), Sound.BLOCK_WOODEN_TRAPDOOR_OPEN, 2f, 0.6f);
+                    chargeTime = 5D;
+                }
 
                 if (chargeTime >= 3D && !player.isSneaking()) {
                     lineOfSight = player.getLineOfSight(ignoredBlocks, 18);
@@ -108,7 +112,9 @@ public class RockMushroomSphere {
     }
 
     public void doDash(Player player, JavaPlugin plugin) {
-
+        player.getWorld().spawnParticle(Particle.SMOKE, player.getLocation(), 220, 0.3, 0.3, 0.3, 0.16);
+        player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 0.2f, 3.f);
+        player.playSound(player.getLocation(), Sound.BLOCK_WOODEN_DOOR_OPEN, 3f, 0.2f);
         task2 = new BukkitRunnable() {
 
             double distance = 12;
@@ -139,9 +145,8 @@ public class RockMushroomSphere {
                     //player.teleport(currentLocation);
                     player.setVelocity(direction);
                 } else if (breakBlocks) {
-                    player.sendMessage("wall");
+                    player.getWorld().spawnParticle(Particle.SMOKE, player.getLocation(), 460, 0.35, 0.35, 0.35, 0.2);
                     player.setVelocity(new Vector(0, 0, 0));
-                    player.sendMessage("" + lineOfSight.getLast().getType());
                     //   player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_DESTROY, 1.5f, 0.6f);
                     for (int i = 4; i > 0; i--) {
                         player.playSound(player.getLocation(), Sound.BLOCK_STONE_BREAK, 2.5f, 0.7f);
