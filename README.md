@@ -50,8 +50,13 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
   - Hitting enemies will push them away with force and colliding with the terrain, walls etc... will cause them to break.
  
 
+# Stars:
+   - Rainbow Star (**NS**)
+   - Red Star (**NS**)
+
 # Others:
-   - Invincibility Star (**NS**)
-   - Metal Coil (**NS**)
+   - Metal Coil
+
+
 
 
