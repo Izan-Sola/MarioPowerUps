@@ -26,11 +26,11 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
       you can have blaze powder on your off hand while you shoot fireballs without wasting it, and having it ready to recharge
       your Fire Flower when its durability drops to 15.
       
-- Cloud Flower (**Next**)
+- Cloud Flower (**WIP**)
 
   Details:
 
-  - Jump, shift and left click to summon a cloud. Up to 3 per charge. You gain a jump boost while using this Power Up.
+  - First hold right click to activate it. When active jump, shift and left click to summon a cloud. Up to 3 per charge. You gain a jump boost while using this Power Up.
   - With the addition of this Power Up there are also 2 new custom items, bottle with air and cloud bucket.
     To fill a bucket with cloud you need to be atleast at 100Y and hold right click pointing to the air until it is filled.
     To fill the bottles with air you need to be aleast at Y50 and fill it the same way as the bucket.
@@ -43,7 +43,7 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 # Mushrooms:
 - Spring Mushroom (**NS**)
 - 1-UP Mushroom
-- Rock Mushroom (**WIP**)
+- Rock Mushroom (**F**)
   
   Details:
 
