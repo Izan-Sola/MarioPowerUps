@@ -42,7 +42,8 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 
 # Mushrooms:
 - Rock Mushroom (**WIP**)
-
+- Spring Mushroom (**NS**)
+  
   Details:
 
   - Once consumed, the Power Up lasts for 30 seconds.
@@ -54,8 +55,6 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
    - Rainbow Star (**NS**)
    - Red Star (**NS**)
 
-# Others:
-   - Metal Coil
 
 
 
