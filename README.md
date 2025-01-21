@@ -41,8 +41,8 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 
 
 # Mushrooms:
-- Rock Mushroom (**WIP**)
 - Spring Mushroom (**NS**)
+- Rock Mushroom (**WIP**)
   
   Details:
 
