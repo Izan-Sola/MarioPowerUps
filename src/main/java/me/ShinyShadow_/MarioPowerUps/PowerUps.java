@@ -1,5 +1,6 @@
 package me.ShinyShadow_.MarioPowerUps;
 
+import me.ShinyShadow_.MarioPowerUps.Abilities.CustomItemRecipeListener;
 import me.ShinyShadow_.MarioPowerUps.Abilities.FireFlowerListener;
 import me.ShinyShadow_.MarioPowerUps.Abilities.RockMushroomListener;
 import me.ShinyShadow_.MarioPowerUps.Commands.Commands;
@@ -19,9 +20,14 @@ public final class PowerUps extends JavaPlugin {
 		ItemManager.init();
 		getCommand("givefireflower").setExecutor(new Commands());
 		getCommand("giverockmushroom").setExecutor(new Commands());
+		getCommand("givecloudflower").setExecutor(new Commands());
+		getCommand("giveairbottle").setExecutor(new Commands());
+		getCommand("givecloudbucket").setExecutor(new Commands());
+
 
 		Bukkit.getPluginManager().registerEvents(new FireFlowerListener(this), this);
 		Bukkit.getPluginManager().registerEvents(new RockMushroomListener(this), this);
+		Bukkit.getPluginManager().registerEvents(new CustomItemRecipeListener( this), this);
 
 		ShapedRecipe FireFlowerRecipe = new ShapedRecipe(new NamespacedKey(this, "fireflowerrecipe"), ItemManager.Fire_Flower);
 		FireFlowerRecipe.shape("FFF", "FTF", "BMB");
@@ -37,6 +43,16 @@ public final class PowerUps extends JavaPlugin {
 		RockMushroomRecipe.setIngredient('G', Material.GRAVEL);
 		RockMushroomRecipe.setIngredient('R', Material.RAW_IRON_BLOCK);
 
+		ShapedRecipe CloudFlowerRecipe = new ShapedRecipe(new NamespacedKey(this, "cloudflowerrecipe"), ItemManager.Cloud_Flower);
+		CloudFlowerRecipe.shape("AAA", "FOF", "FCF");
+		CloudFlowerRecipe.setIngredient('A', Material.GLASS_BOTTLE);
+		CloudFlowerRecipe.setIngredient('F', Material.FEATHER);
+		CloudFlowerRecipe.setIngredient('O', Material.OXEYE_DAISY);
+		CloudFlowerRecipe.setIngredient('C', Material.BUCKET);
+
+
+
+		Bukkit.addRecipe(CloudFlowerRecipe);
 		Bukkit.addRecipe(FireFlowerRecipe);
      	Bukkit.addRecipe(RockMushroomRecipe);
 	}

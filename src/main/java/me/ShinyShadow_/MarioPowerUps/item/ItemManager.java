@@ -13,11 +13,14 @@ public class ItemManager {
 
 	public static ItemStack Fire_Flower;
 	public static ItemStack Rock_Mushroom;
+	public static ItemStack Cloud_Flower;
+	public static ItemStack Cloud_Bucket;
+	public static ItemStack Air_Bottle;
 	public static void init() {
 
 		createItems();
-		//getCommand("givefirebow").setExecutor(new fireBowCommand());
 	}
+
 	private static void createItems() {
 
 		ItemStack FireFlower = new ItemStack(Material.TORCHFLOWER, 1);
@@ -25,6 +28,15 @@ public class ItemManager {
 
 		ItemStack RockMushroom = new ItemStack(Material.APPLE, 1);
 		ItemMeta RockMushroomMeta = RockMushroom.getItemMeta();
+
+		ItemStack CloudFlower = new ItemStack(Material.OXEYE_DAISY, 1);
+		ItemMeta CloudFlowerMeta = CloudFlower.getItemMeta();
+
+		ItemStack CloudBucket = new ItemStack(Material.BUCKET, 1);
+		ItemMeta CloudBucketMeta = CloudBucket.getItemMeta();
+
+		ItemStack AirBottle = new ItemStack(Material.GLASS_BOTTLE, 1);
+		ItemMeta AirBottleMeta = CloudBucket.getItemMeta();
 
 
 		FireFlowerMeta.setDisplayName(ChatColor.RED +  "Fire Flower" + ChatColor.BOLD);
@@ -51,10 +63,35 @@ public class ItemManager {
 											 "crumble walls with your body"));
 		RockMushroomMeta.setItemModel(RockMushroomNS);
 
+		CloudFlowerMeta.setDisplayName(ChatColor.WHITE +  "Cloud Flower" + ChatColor.BOLD);
+		NamespacedKey CloudFlowerNS = new NamespacedKey("ec", "cloudflower");
+		CloudFlowerMeta.setLore(Arrays.asList("This flower has a tendency ",
+											  "to float like a cloud, so be ",
+				                              "careful not to lose grip of it! ",
+											  "Carefully squishing it will summon ",
+		                                      "dense clouds that you can jump on."));
+		CloudFlowerMeta.setItemModel(CloudFlowerNS);
+
+		CloudBucketMeta.setDisplayName(ChatColor.WHITE +  "Cloud Bucket");
+		NamespacedKey CloudBucketNS = new NamespacedKey("ec", "bucketofcloud");
+		CloudBucketMeta.setItemModel(CloudBucketNS);
+
+
+		AirBottleMeta.setDisplayName(ChatColor.WHITE +  "Air Bottle");
+		NamespacedKey AirBottleNS = new NamespacedKey("ec", "airbottle");
+		AirBottleMeta.setItemModel(AirBottleNS);
+
 
 		FireFlower.setItemMeta(FireFlowerMeta);
 		RockMushroom.setItemMeta(RockMushroomMeta);
+		CloudFlower.setItemMeta(CloudFlowerMeta);
+		CloudBucket.setItemMeta(CloudBucketMeta);
+		AirBottle.setItemMeta(AirBottleMeta);
+
+		Air_Bottle = AirBottle;
+		Cloud_Bucket = CloudBucket;
 		Fire_Flower = FireFlower;
 		Rock_Mushroom = RockMushroom;
+		Cloud_Flower = CloudFlower;
 	}
 }

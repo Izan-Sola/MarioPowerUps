@@ -24,6 +24,16 @@ public class Commands implements CommandExecutor {
 				case "giverockmushroom":
 					player.getInventory().addItem(ItemManager.Rock_Mushroom);
 					break;
+				case "givecloudflower":
+					player.getInventory().addItem(ItemManager.Cloud_Flower);
+					//player.sendMessage(""+ItemManager.Fire_Flower.getItemMeta());
+					break;
+				case "giveairbottle":
+					player.getInventory().addItem(ItemManager.Air_Bottle);
+					break;
+				case "givecloudbucket":
+					player.getInventory().addItem(ItemManager.Cloud_Bucket);
+					break;
 			}
 
 		}

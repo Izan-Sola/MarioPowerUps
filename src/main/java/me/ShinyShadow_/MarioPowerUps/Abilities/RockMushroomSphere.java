@@ -7,6 +7,7 @@ import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketEvent;
 import org.bukkit.*;
 import org.bukkit.block.Block;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
@@ -20,6 +21,7 @@ import org.bukkit.util.Vector;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 import static java.lang.Math.cos;
@@ -28,14 +30,11 @@ import static java.lang.Math.sin;
 public class RockMushroomSphere {
     private BukkitTask task1;
     private BukkitTask task2;
-    private BukkitTask task3;
     private Location endpoint;
     private Vector direction;
     private List<Block> lineOfSight;
     private double coveredDistance;
     private double chargeTime = 0D;
-    private Location currentLocation;
-    private int lastBlock = 8;
     private Vector knockBackDirection;
     private boolean breakBlocks = false;
     private double duration = 30;
@@ -95,9 +94,7 @@ public class RockMushroomSphere {
 
                 if (chargeTime >= 3D && !player.isSneaking()) {
                     lineOfSight = player.getLineOfSight(ignoredBlocks, 18);
-                    if ((lineOfSight.size() - 1) < 8) {
-                        lastBlock = lineOfSight.size() - 1;
-                    }
+
                     endpoint = lineOfSight.getLast().getLocation().add(0, -1, 0);
                     if (endpoint.getY() > player.getLocation().getY() + 1) {
                         player.sendMessage("Cant dash to the air");
@@ -133,7 +130,6 @@ public class RockMushroomSphere {
                         coveredDistance = 20;
                         breakBlocks = true;
                     } else if (lineOfSight.getLast().getLocation().add(0, -1, 0).getBlock().getType().isSolid()) {
-                        player.sendMessage("hello");
                         player.teleport(player.getLocation().add(0, 2, 0));
                     } else if (lineOfSight.getLast().getLocation().getY() > player.getLocation().getY() + 1) {
                         return;
@@ -141,8 +137,6 @@ public class RockMushroomSphere {
                         coveredDistance = 20;
                     }
                     coveredDistance += 0.2;
-                    currentLocation = player.getEyeLocation().clone().add(direction.clone().multiply(coveredDistance));
-                    //player.teleport(currentLocation);
                     player.setVelocity(direction);
                 } else if (breakBlocks) {
                     player.getWorld().spawnParticle(Particle.SMOKE, player.getLocation(), 460, 0.35, 0.35, 0.35, 0.2);
@@ -156,13 +150,16 @@ public class RockMushroomSphere {
                     player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 0.25f, 0.5f);
                     coveredDistance = 0;
                     chargeTime = 0D;
-                    TNTPrimed tnt = (TNTPrimed) player.getLocation().getWorld().spawnEntity(player.getLocation().add(0, 3, 0), EntityType.TNT);
 
-                    tnt.setYield(4F);
+                    TNTPrimed tnt = (TNTPrimed) player.getLocation().getWorld().spawnEntity(player.getLocation().add(0, 3, 0), EntityType.TNT);
+                    tnt.setYield(3F);
                     tnt.setFuseTicks(1);
+
                     breakBlocks = false;
+
+                    fallingBlocks(lineOfSight.getLast().getBlockData(), player);
                     cancel();
-                } else if (coveredDistance >= distance) {
+                } else {
                     chargeTime = 0D;
                     coveredDistance = 0;
                     cancel();
@@ -180,5 +177,22 @@ public class RockMushroomSphere {
         }.runTaskTimer(plugin, 0L, 2L);
     }
 
+    public void fallingBlocks(BlockData wallBlockType, Player player) {
 
+    for (int i = 10; i > 0; i--) {
+        Random r = new Random();
+        double randomRadius = r.nextDouble() * 3;
+        double theta =  Math.toRadians(r.nextDouble() * 360);
+        double phi = Math.toRadians(r.nextDouble() * 180);
+
+        double x = randomRadius * Math.cos(theta) * Math.sin(phi);
+        double y = randomRadius * Math.sin(theta) * Math.cos(phi);
+        double z = randomRadius * Math.cos(phi);
+
+        Location newLoc = player.getLocation().clone().add(x, 8, z);
+        FallingBlock a = player.getWorld().spawnFallingBlock(newLoc.add(0, -4, 0), wallBlockType);
+        Vector fbDirection = newLoc.toVector().subtract(a.getLocation().toVector()).normalize();
+        a.setVelocity(fbDirection);
+        }
+    }
 }
