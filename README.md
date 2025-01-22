@@ -60,7 +60,11 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 
 # Stars:
    - Rainbow Star (**NS**)
-     
+
+     Details:
+
+     - Grants invincibility and a great speed boost for 2 minutes.
+       
    - Red Star (**NS**)
 
      Details:
