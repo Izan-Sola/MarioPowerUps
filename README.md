@@ -47,7 +47,7 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
   Details:
 
   - When consumed, grants an additional health bar.
-  - With the addition of this Power Up there is also a new custom item, Extract of Medicinal Herbs.
+  - With the addition of this Power Up there is also a new custom item, Medicinal Herbs Mixture.
     
 - Rock Mushroom (**F**)
   
