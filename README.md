@@ -42,7 +42,13 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 
 # Mushrooms:
 - Spring Mushroom (**NS**)
-- 1-UP Mushroom
+- 1-UP Mushroom (**Next**)
+
+  Details:
+
+  - When consumed, grants an additional health bar.
+  - With the addition of this Power Up there is also a new custom item, Extract of Medicinal Herbs.
+    
 - Rock Mushroom (**F**)
   
   Details:
@@ -54,7 +60,12 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 
 # Stars:
    - Rainbow Star (**NS**)
+     
    - Red Star (**NS**)
+
+     Details:
+
+     - Grants the ability to fly for 2 minutes.
 
 
 
