@@ -64,12 +64,14 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
      Details:
 
      - Grants invincibility and a great speed boost for 2 minutes.
+     - With the addition of this Power Up there is also a new custom item, Rainbow Essence.
        
    - Red Star (**NS**)
 
      Details:
 
      - Grants the ability to fly for 2 minutes.
+     - With the addition of this Powe Up there is also a new custom item, Crimson Essence.
 
 
 
