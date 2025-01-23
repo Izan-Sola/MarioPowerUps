@@ -71,7 +71,7 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
      Details:
 
      - Grants the ability to fly for 2 minutes.
-     - With the addition of this Power Up there is also a new custom item, Crimson Essence.
+     - With the addition of this Power Up there is also a new custom item, Crimson Extract.
 
 
 
