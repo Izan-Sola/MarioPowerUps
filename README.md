@@ -17,7 +17,7 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 
 # Flowers:
 - Fire Flower (**F**)
-   [(ShowCase)](https://youtu.be/_Bd3sv9p_Tk)
+   [(ShowCase)](https://youtu.be/_Bd3sv9p_Tk) ![fireflower](https://github.com/user-attachments/assets/fcb61598-31a8-4704-af48-318e427eb259)
 
   Details:
   
