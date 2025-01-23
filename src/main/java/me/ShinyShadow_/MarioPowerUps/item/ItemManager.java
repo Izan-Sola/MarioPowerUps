@@ -16,6 +16,8 @@ public class ItemManager {
 	public static ItemStack Cloud_Flower;
 	public static ItemStack Cloud_Bucket;
 	public static ItemStack Air_Bottle;
+	public static ItemStack Rainbow_Essence;
+	public static ItemStack RefinedRainbow_Essence;
 	public static void init() {
 
 		createItems();
@@ -37,6 +39,13 @@ public class ItemManager {
 
 		ItemStack AirBottle = new ItemStack(Material.GLASS_BOTTLE, 1);
 		ItemMeta AirBottleMeta = CloudBucket.getItemMeta();
+
+		ItemStack RainbowEssence = new ItemStack(Material.GLASS_BOTTLE, 1);
+		ItemMeta RainbowEssenceMeta = RainbowEssence.getItemMeta();
+
+		ItemStack RefinedRainbowEssence = new ItemStack(Material.GLASS_BOTTLE, 1);
+		ItemMeta RefinedRainbowEssenceMeta = RefinedRainbowEssence.getItemMeta();
+
 
 
 		FireFlowerMeta.setDisplayName(ChatColor.RED +  "Fire Flower" + ChatColor.BOLD);
@@ -81,13 +90,24 @@ public class ItemManager {
 		NamespacedKey AirBottleNS = new NamespacedKey("ec", "airbottle");
 		AirBottleMeta.setItemModel(AirBottleNS);
 
+		RainbowEssenceMeta.setDisplayName(ChatColor.WHITE +  "Rainbow Essence" + ChatColor.BOLD + ChatColor.ITALIC);
+		NamespacedKey RainbowEssenceNS = new NamespacedKey("ec", "rainbowessence");
+		RainbowEssenceMeta.setItemModel(RainbowEssenceNS);
 
+		RefinedRainbowEssenceMeta.setDisplayName(ChatColor.WHITE +  "Refined Rainbow Essence" + ChatColor.BOLD + ChatColor.ITALIC);
+		NamespacedKey RefinedRainbowEssenceNS = new NamespacedKey("ec", "refinedrainbowessence");
+		RefinedRainbowEssenceMeta.setItemModel(RefinedRainbowEssenceNS);
+
+		RefinedRainbowEssence.setItemMeta(RefinedRainbowEssenceMeta);
+		RainbowEssence.setItemMeta(RainbowEssenceMeta);
 		FireFlower.setItemMeta(FireFlowerMeta);
 		RockMushroom.setItemMeta(RockMushroomMeta);
 		CloudFlower.setItemMeta(CloudFlowerMeta);
 		CloudBucket.setItemMeta(CloudBucketMeta);
 		AirBottle.setItemMeta(AirBottleMeta);
 
+		RefinedRainbow_Essence = RefinedRainbowEssence;
+		Rainbow_Essence = RainbowEssence;
 		Air_Bottle = AirBottle;
 		Cloud_Bucket = CloudBucket;
 		Fire_Flower = FireFlower;

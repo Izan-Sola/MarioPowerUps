@@ -34,6 +34,9 @@ public class Commands implements CommandExecutor {
 				case "givecloudbucket":
 					player.getInventory().addItem(ItemManager.Cloud_Bucket);
 					break;
+				case "giverefinedrainbowessence":
+					player.getInventory().addItem(ItemManager.RefinedRainbow_Essence);
+					break;
 			}
 
 		}
