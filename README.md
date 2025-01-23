@@ -44,13 +44,13 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 
 # Mushrooms:
 - Spring Mushroom (**NS**)
-- 1-UP Mushroom (**Next**)
+- 1-UP Mushroom (**NS**)
   
   Details:
 
   - When consumed, grants an additional health bar.
   - With the addition of this Power Up there is also a new custom item, Medicinal Herbs Mixture![medicinalherbsmix](https://github.com/user-attachments/assets/bee722b1-e39e-4e12-9788-c09c0466785a)
-.
+    To craft it, drop grass, pumpkin seeds and wheat seeds inside a cauldron with water. After that, right click the cauldron with an empty bowl.
     
 - Rock Mushroom (**F**)![rockmushroom](https://github.com/user-attachments/assets/bd69358b-937c-401a-8f81-7a39a93ba720)
 
@@ -69,15 +69,17 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 
      - Grants invincibility and a great speed boost for 2 minutes.
      - With the addition of this Power Up there is also a new custom item, Rainbow Essence![rainbowessence](https://github.com/user-attachments/assets/a598dff3-aa1c-44e4-8617-9d821f976385)
-.
+       To craft it, you need to drop red, blue, yellow, green and purple dye and glowstone dust inside a cauldron filled with water. After that right click the cauldron with a glass bottle.
+
        
-   - Red Star (**NS**)
+   - Red Star (**Next**)
 
      Details:
 
      - Grants the ability to fly for 2 minutes.
      - With the addition of this Power Up there is also a new custom item, Crimson Extract![crimsonessence](https://github.com/user-attachments/assets/34b59ae4-0074-4b9f-95a6-4f730a5de040)
-.
+       To craft it, drop redstone, ink sac, and glowstone dust inside a cauldron filled with water. After that right click the cauldron with an empty bowl.
+
 
 
 
