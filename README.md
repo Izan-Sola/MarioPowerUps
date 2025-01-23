@@ -19,8 +19,6 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 - Fire Flower (**F**)
    [(ShowCase)](https://youtu.be/_Bd3sv9p_Tk)
 
-  
-![fireflower](https://github.com/user-attachments/assets/fcb61598-31a8-4704-af48-318e427eb259)
   Details:
   
      - You can recharge it by right clicking with blaze powder on your off hand and the Fire Flower in your main hand.
