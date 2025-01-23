@@ -31,7 +31,9 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
   Details:
 
   - First hold right click to activate it. When active jump, shift and left click to summon a cloud. Up to 3 per charge. You gain a jump boost while using this Power Up.
-  - With the addition of this Power Up there are also 2 new custom items, bottle with air and cloud bucket.
+  - With the addition of this Power Up there are also 2 new custom items, bottle with air![airbottle](https://github.com/user-attachments/assets/6fd341f8-15a5-448a-930c-64d19217e2eb)
+ and cloud bucket![bucketofcloud](https://github.com/user-attachments/assets/3a72276c-c513-4405-9f2d-517b381dbd9a)
+.
     To fill a bucket with clouds you need to be atleast at 100Y and hold right click pointing to the air until it is filled.
     To fill the bottles with air you need to be aleast at Y50 and fill it the same way as the bucket.
 
@@ -43,13 +45,15 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 # Mushrooms:
 - Spring Mushroom (**NS**)
 - 1-UP Mushroom (**Next**)
-
+  
   Details:
 
   - When consumed, grants an additional health bar.
-  - With the addition of this Power Up there is also a new custom item, Medicinal Herbs Mixture.
+  - With the addition of this Power Up there is also a new custom item, Medicinal Herbs Mixture![medicinalherbsmix](https://github.com/user-attachments/assets/bee722b1-e39e-4e12-9788-c09c0466785a)
+.
     
-- Rock Mushroom (**F**)
+- Rock Mushroom (**F**)![rockmushroom](https://github.com/user-attachments/assets/bd69358b-937c-401a-8f81-7a39a93ba720)
+
   
   Details:
 
@@ -72,7 +76,8 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
      Details:
 
      - Grants the ability to fly for 2 minutes.
-     - With the addition of this Power Up there is also a new custom item, Crimson Extract.
+     - With the addition of this Power Up there is also a new custom item, Crimson Extract![crimsonessence](https://github.com/user-attachments/assets/34b59ae4-0074-4b9f-95a6-4f730a5de040)
+.
 
 
 
