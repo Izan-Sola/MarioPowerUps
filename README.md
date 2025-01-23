@@ -64,7 +64,8 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
      Details:
 
      - Grants invincibility and a great speed boost for 2 minutes.
-     - With the addition of this Power Up there is also a new custom item, Rainbow Essence.
+     - With the addition of this Power Up there is also a new custom item, Rainbow Essence![rainbowessence](https://github.com/user-attachments/assets/a598dff3-aa1c-44e4-8617-9d821f976385)
+.
        
    - Red Star (**NS**)
 
