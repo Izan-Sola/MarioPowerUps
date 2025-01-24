@@ -88,7 +88,7 @@ public class CustomItemRecipeListener implements Listener {
                 hasCloudBucket = true;
             }
 
-            if (slot == null || expected == null || !slot.isSimilar(expected)) {
+            if (slot == null || expected == null ) {
                 return false;
             }
         }
@@ -183,7 +183,6 @@ public class CustomItemRecipeListener implements Listener {
 
     public void RainbowEssenceMix(Block cauldron, Boolean isRefined) {
 
-   // List<Color> rainbowColors = Arrays.asList(Color.RED, Color.YELLOW, Color.ORANGE, Color.PURPLE, Color.BLUE, Color.GREEN);
         Random r = new Random();
        EssenceMix = new BukkitRunnable() {
 
@@ -216,7 +215,6 @@ public class CustomItemRecipeListener implements Listener {
         EssenceBrewing = new BukkitRunnable() {
             @Override
             public void run() {
-                // Play the brewing sound repeatedly
                 cauldron.getWorld().playSound(cauldron.getLocation(), Sound.BLOCK_BUBBLE_COLUMN_BUBBLE_POP, 1.0f, 0.3F);
                 cauldron.getWorld().playSound(cauldron.getLocation(), Sound.BLOCK_BREWING_STAND_BREW, 0.3f, 0.3f);
             }
