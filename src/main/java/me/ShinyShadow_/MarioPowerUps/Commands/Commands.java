@@ -19,14 +19,12 @@ public class Commands implements CommandExecutor {
 			switch (command.getName()) {
 				case "givefireflower":
 					player.getInventory().addItem(ItemManager.Fire_Flower);
-					//player.sendMessage(""+ItemManager.Fire_Flower.getItemMeta());
 					break;
 				case "giverockmushroom":
 					player.getInventory().addItem(ItemManager.Rock_Mushroom);
 					break;
 				case "givecloudflower":
 					player.getInventory().addItem(ItemManager.Cloud_Flower);
-					//player.sendMessage(""+ItemManager.Fire_Flower.getItemMeta());
 					break;
 				case "giveairbottle":
 					player.getInventory().addItem(ItemManager.Air_Bottle);
@@ -37,6 +35,8 @@ public class Commands implements CommandExecutor {
 				case "giverefinedrainbowessence":
 					player.getInventory().addItem(ItemManager.RefinedRainbow_Essence);
 					break;
+				case "giverainbowstar":
+					player.getInventory().addItem(ItemManager.Rainbow_Star);
 			}
 
 		}

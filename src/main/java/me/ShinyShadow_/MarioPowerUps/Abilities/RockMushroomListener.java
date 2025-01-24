@@ -2,9 +2,7 @@ package me.ShinyShadow_.MarioPowerUps.Abilities;
 
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
-import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -13,7 +11,6 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.util.Vector;
 
 import java.util.List;
 import java.util.Set;
@@ -23,13 +20,6 @@ public class RockMushroomListener implements Listener {
     private final JavaPlugin plugin;
     private int lastBlock = 8;
     public static boolean isRockMushRoomPowerActive = false;
-    private Location endpoint;
-    private Vector direction;
-    private List<Block> lineOfSight;
-    private double coveredDistance;
-    private double chargeTime = 0D;
-    private Location currentLocation;
-    private double phi = 0;
     private ProtocolManager protocolManager;
     Set<Material> ignoredBlocks = Set.of(Material.AIR, Material.GRASS_BLOCK, Material.TALL_GRASS);
     public RockMushroomListener(JavaPlugin plugin) {

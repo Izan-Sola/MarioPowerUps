@@ -18,6 +18,7 @@ public class ItemManager {
 	public static ItemStack Air_Bottle;
 	public static ItemStack Rainbow_Essence;
 	public static ItemStack RefinedRainbow_Essence;
+	public static ItemStack Rainbow_Star;
 	public static void init() {
 
 		createItems();
@@ -46,7 +47,36 @@ public class ItemManager {
 		ItemStack RefinedRainbowEssence = new ItemStack(Material.GLASS_BOTTLE, 1);
 		ItemMeta RefinedRainbowEssenceMeta = RefinedRainbowEssence.getItemMeta();
 
+		ItemStack RainbowStar = new ItemStack(Material.END_CRYSTAL, 1);
+		ItemMeta RainbowStarMeta = RainbowStar.getItemMeta();
 
+
+		RainbowStarMeta.setDisplayName(ChatColor.RED + "★" +
+				ChatColor.GOLD + " " +
+				ChatColor.YELLOW + "R" +
+				ChatColor.GREEN + "a" +
+				ChatColor.AQUA + "i" +
+				ChatColor.BLUE + "n" +
+				ChatColor.LIGHT_PURPLE + "b" +
+				ChatColor.RED + "o" +
+				ChatColor.GOLD + "w" +
+				ChatColor.YELLOW + " " +
+				ChatColor.GREEN + "S" +
+				ChatColor.AQUA + "t" +
+				ChatColor.BLUE + "a" +
+				ChatColor.LIGHT_PURPLE + "r" +
+				ChatColor.RED + " " +
+				ChatColor.GOLD + "★");
+
+		NamespacedKey RainbowStarNS = new NamespacedKey("ec", "rainbowstar");
+		RainbowStarMeta.setLore(Arrays.asList("Immense and colorful energy is",
+													"contained in this star.",
+												"Whoever that channels its",
+												"energy into them, will be surrounded",
+												"by a powerful rainbow energy and will",
+												"feel faster and stronger than ever",
+												"able to knock down enemies with just their touch"));
+		RainbowStarMeta.setItemModel(RainbowStarNS);
 
 		FireFlowerMeta.setDisplayName(ChatColor.RED +  "Fire Flower" + ChatColor.BOLD);
 		NamespacedKey FireFlowerNS = new NamespacedKey("ec", "fireflower");
@@ -98,6 +128,8 @@ public class ItemManager {
 		NamespacedKey RefinedRainbowEssenceNS = new NamespacedKey("ec", "refinedrainbowessence");
 		RefinedRainbowEssenceMeta.setItemModel(RefinedRainbowEssenceNS);
 
+
+		RainbowStar.setItemMeta(RainbowStarMeta);
 		RefinedRainbowEssence.setItemMeta(RefinedRainbowEssenceMeta);
 		RainbowEssence.setItemMeta(RainbowEssenceMeta);
 		FireFlower.setItemMeta(FireFlowerMeta);
@@ -106,6 +138,8 @@ public class ItemManager {
 		CloudBucket.setItemMeta(CloudBucketMeta);
 		AirBottle.setItemMeta(AirBottleMeta);
 
+
+		Rainbow_Star = RainbowStar;
 		RefinedRainbow_Essence = RefinedRainbowEssence;
 		Rainbow_Essence = RainbowEssence;
 		Air_Bottle = AirBottle;

@@ -1,9 +1,6 @@
 package me.ShinyShadow_.MarioPowerUps;
 
-import me.ShinyShadow_.MarioPowerUps.Abilities.CloudFlowerListener;
-import me.ShinyShadow_.MarioPowerUps.Abilities.CustomItemRecipeListener;
-import me.ShinyShadow_.MarioPowerUps.Abilities.FireFlowerListener;
-import me.ShinyShadow_.MarioPowerUps.Abilities.RockMushroomListener;
+import me.ShinyShadow_.MarioPowerUps.Abilities.*;
 import me.ShinyShadow_.MarioPowerUps.Commands.Commands;
 import me.ShinyShadow_.MarioPowerUps.item.ItemManager;
 import org.bukkit.Bukkit;
@@ -25,12 +22,14 @@ public final class PowerUps extends JavaPlugin {
 		getCommand("giveairbottle").setExecutor(new Commands());
 		getCommand("givecloudbucket").setExecutor(new Commands());
 		getCommand("giverefinedrainbowessence").setExecutor(new Commands());
+		getCommand("giverainbowstar").setExecutor(new Commands());
 
 
 		Bukkit.getPluginManager().registerEvents(new FireFlowerListener(this), this);
 		Bukkit.getPluginManager().registerEvents(new RockMushroomListener(this), this);
 		Bukkit.getPluginManager().registerEvents(new CloudFlowerListener(this), this);
 		Bukkit.getPluginManager().registerEvents(new CustomItemRecipeListener( this), this);
+		Bukkit.getPluginManager().registerEvents(new RainbowStarListener( this), this);
 
 		ShapedRecipe FireFlowerRecipe = new ShapedRecipe(new NamespacedKey(this, "fireflowerrecipe"), ItemManager.Fire_Flower);
 		FireFlowerRecipe.shape("FFF", "FTF", "BMB");
