@@ -26,7 +26,7 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
       you can have blaze powder on your off hand while you shoot fireballs without wasting it, and having it ready to recharge
       your Fire Flower when its durability drops to 15.
       
-- Cloud Flower (**WIP**)
+- Cloud Flower (**NS**)
 
   Details:
 
@@ -50,7 +50,7 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 
   - When consumed, grants an additional health bar.
   - With the addition of this Power Up there is also a new custom item, Medicinal Herbs Mixture![medicinalherbsmix](https://github.com/user-attachments/assets/bee722b1-e39e-4e12-9788-c09c0466785a)
-    To craft it, drop grass, pumpkin seeds and wheat seeds inside a cauldron with water. After that, right click the cauldron with an empty bowl.
+    To craft it, drop grass, pumpkin seeds and wheat seeds inside a cauldron with water and right click the cauldron. After that, right click the cauldron with an empty bowl.
     
 - Rock Mushroom (**F**)![rockmushroom](https://github.com/user-attachments/assets/bd69358b-937c-401a-8f81-7a39a93ba720)
 
@@ -64,26 +64,28 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 
 # Stars:
 General details:
-_All stars require a Nether Star to be crafted, but don't worry, because they won't disappear after one use. The Power Up will go on cooldown and to use its power again you'll need to recharge
-the Star's power with a certain item_
+_All stars require a Nether Star to be crafted, but don't worry, because they won't disappear after one use like the Mushrooms. The Power Up will go on cooldown and to use its power again you'll need to recharge the Star's power with a certain item_
 
-   - Rainbow Star (**NS**)
+   - Rainbow Star (**WIP**)
 
      Details:
 
      - Grants invincibility and a great speed boost for 2 minutes.
      - With the addition of this Power Up there is also a new custom item, Rainbow Essence![rainbowessence](https://github.com/user-attachments/assets/a598dff3-aa1c-44e4-8617-9d821f976385)
-       To craft it, you need to drop red, blue, yellow, green and purple dye and glowstone dust inside a cauldron filled with water. After that right click the cauldron with a glass bottle.
-       Then, refine the essence with a blaze rod and drop it inside a cauldron filled with water and then drop a nether star to obtain a Rainbow Star.
+       To craft it, you need to drop red, blue, yellow, green and purple dye and glowstone dust inside a cauldron filled with water and right click the cauldron.
+       After that right click the cauldron with a glass bottle.
+       Then, refine the essence with a blaze rod to get Refined Rainbow Essence and drop it inside a cauldron filled with water and right click the cauldron,
+       then drop a nether star to obtain a Rainbow Star.
 
        
-   - Red Star (**Next**)
+   - Red Star (****)
 
      Details:
 
      - Grants the ability to fly for 2 minutes.
      - With the addition of this Power Up there is also a new custom item, Crimson Extract![crimsonessence](https://github.com/user-attachments/assets/34b59ae4-0074-4b9f-95a6-4f730a5de040)
        To craft it, drop redstone, ink sac, and glowstone dust inside a cauldron filled with water. After that right click the cauldron with an empty bowl.
+       Then, refine the extract with a blaze rod and dop it inside a cauldron filled with water, then drop a nethe start to obtain a Red Star.
 
 
 
