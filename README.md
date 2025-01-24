@@ -63,6 +63,10 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
  
 
 # Stars:
+General details:
+_All stars require a Nether Star to be crafted, but don't worry, because they won't disappear after one use. The Power Up will go on cooldown and to use its power again you'll need to recharge
+the Star's power with a certain item_
+
    - Rainbow Star (**NS**)
 
      Details:
@@ -70,6 +74,7 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
      - Grants invincibility and a great speed boost for 2 minutes.
      - With the addition of this Power Up there is also a new custom item, Rainbow Essence![rainbowessence](https://github.com/user-attachments/assets/a598dff3-aa1c-44e4-8617-9d821f976385)
        To craft it, you need to drop red, blue, yellow, green and purple dye and glowstone dust inside a cauldron filled with water. After that right click the cauldron with a glass bottle.
+       Then, refine the essence with a blaze rod and drop it inside a cauldron filled with water and then drop a nether star to obtain a Rainbow Star.
 
        
    - Red Star (**Next**)
