@@ -16,6 +16,9 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 **F**: Finished
 
 # Flowers:
+General details:
+_Flowers have a set amount of durability that represent the amount of charges left. When it drops to 0 it doesnt break, you'll just need to recharge it_
+
 - Fire Flower (**F**)
    [(ShowCase)](https://youtu.be/_Bd3sv9p_Tk) ![fireflower](https://github.com/user-attachments/assets/fcb61598-31a8-4704-af48-318e427eb259)
 
@@ -43,6 +46,9 @@ _The list doesnt show all the PowerUps that will be in the plugin, but the ones 
 
 
 # Mushrooms:
+General details:
+_Mushrooms are consumed after one use_
+
 - Spring Mushroom (**NS**)
 - 1-UP Mushroom (**NS**)
   
