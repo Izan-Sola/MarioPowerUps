@@ -29,7 +29,7 @@ _Flowers have a set amount of durability that represent the amount of charges le
       you can have blaze powder on your off hand while you shoot fireballs without wasting it, and having it ready to recharge
       your Fire Flower when its durability drops to 15.
       
-- Cloud Flower (**NS**)
+- Cloud Flower (**WIP**)
 
   Details:
 
@@ -50,7 +50,7 @@ General details:
 _Mushrooms are consumed after one use_
 
 - Spring Mushroom (**NS**)
-- 1-UP Mushroom (**NS**)
+- 1-UP Mushroom (**Next**)
   
   Details:
 
@@ -72,7 +72,7 @@ _Mushrooms are consumed after one use_
 General details:
 _All stars require a Nether Star to be crafted, but don't worry, because they won't disappear after one use like the Mushrooms. The Power Up will go on cooldown and to use its power again you'll need to recharge the Star's power with a certain item_
 
-   - Rainbow Star (**WIP**) [(ShowCase)](https://youtu.be/KhBqjfdv6Aw?si=bEsWv_Y7T96JtklJ) ![RainbowStar](https://github.com/user-attachments/assets/ef4f7682-2464-4b4d-9562-0337490d5e12)
+   - Rainbow Star (**F**) [(ShowCase)](https://youtu.be/KhBqjfdv6Aw?si=bEsWv_Y7T96JtklJ) ![RainbowStar](https://github.com/user-attachments/assets/ef4f7682-2464-4b4d-9562-0337490d5e12)
 
 
      Details:
@@ -83,6 +83,7 @@ _All stars require a Nether Star to be crafted, but don't worry, because they wo
        After that right click the cauldron with a glass bottle.
        Then, refine the essence with a phantom membrane to get Refined Rainbow Essence ![refinedrainbowessence](https://github.com/user-attachments/assets/5befcc3b-8051-4978-837d-6b2818c3b69d)
        and drop it inside a cauldron filled with water and right click the cauldron, then drop a nether star to obtain a Rainbow Star.
+     - To recharge the Rainbow Star when its cooldown ends, right click while holding Rainbow Essence in your offhand and Rainbw Star in your main hand.
 
        
    - Red Star (**NS**)
@@ -92,7 +93,7 @@ _All stars require a Nether Star to be crafted, but don't worry, because they wo
      - Grants the ability to fly for 2 minutes.
      - With the addition of this Power Up there is also a new custom item, Crimson Extract![crimsonessence](https://github.com/user-attachments/assets/34b59ae4-0074-4b9f-95a6-4f730a5de040)
        To craft it, drop redstone, ink sac, and glowstone dust inside a cauldron filled with water. After that right click the cauldron with an empty bowl.
-       Then, refine the extract with a blaze rod and dop it inside a cauldron filled with water, then drop a nethe start to obtain a Red Star.
+       Then, refine the extract with a blaze rod and dop it inside a cauldron filled with water, then drop a nether start to obtain a Red Star.
 
 
 
