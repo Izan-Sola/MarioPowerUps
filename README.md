@@ -81,8 +81,8 @@ _All stars require a Nether Star to be crafted, but don't worry, because they wo
      - With the addition of this Power Up there is also a new custom item, Rainbow Essence![rainbowessence](https://github.com/user-attachments/assets/a598dff3-aa1c-44e4-8617-9d821f976385)
        To craft it, you need to drop red, blue, yellow, green and purple dye and glowstone dust inside a cauldron filled with water and right click the cauldron.
        After that right click the cauldron with a glass bottle.
-       Then, refine the essence with a phantom membrane to get Refined Rainbow Essence and drop it inside a cauldron filled with water and right click the cauldron,
-       then drop a nether star to obtain a Rainbow Star.
+       Then, refine the essence with a phantom membrane to get Refined Rainbow Essence ![refinedrainbowessence](https://github.com/user-attachments/assets/5befcc3b-8051-4978-837d-6b2818c3b69d)
+       and drop it inside a cauldron filled with water and right click the cauldron, then drop a nether star to obtain a Rainbow Star.
 
        
    - Red Star (**NS**)
