@@ -70,7 +70,7 @@ _All stars require a Nether Star to be crafted, but don't worry, because they wo
 
      Details:
 
-     - Grants invincibility and a great speed boost for 2 minutes.
+     - Grants invincibility and a great speed boost for 2 minutes. You will also deal great damage to enemies you touch with your body.
      - With the addition of this Power Up there is also a new custom item, Rainbow Essence![rainbowessence](https://github.com/user-attachments/assets/a598dff3-aa1c-44e4-8617-9d821f976385)
        To craft it, you need to drop red, blue, yellow, green and purple dye and glowstone dust inside a cauldron filled with water and right click the cauldron.
        After that right click the cauldron with a glass bottle.
@@ -78,7 +78,7 @@ _All stars require a Nether Star to be crafted, but don't worry, because they wo
        then drop a nether star to obtain a Rainbow Star.
 
        
-   - Red Star (****)
+   - Red Star (**NS**)
 
      Details:
 
