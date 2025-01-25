@@ -3,6 +3,7 @@ package me.ShinyShadow_.MarioPowerUps.item;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -32,7 +33,7 @@ public class ItemManager {
 		ItemStack RockMushroom = new ItemStack(Material.APPLE, 1);
 		ItemMeta RockMushroomMeta = RockMushroom.getItemMeta();
 
-		ItemStack CloudFlower = new ItemStack(Material.OXEYE_DAISY, 1);
+		ItemStack CloudFlower = new ItemStack(Material.GLASS_BOTTLE, 1);
 		ItemMeta CloudFlowerMeta = CloudFlower.getItemMeta();
 
 		ItemStack CloudBucket = new ItemStack(Material.BUCKET, 1);
@@ -51,32 +52,6 @@ public class ItemManager {
 		ItemMeta RainbowStarMeta = RainbowStar.getItemMeta();
 
 
-		RainbowStarMeta.setDisplayName(ChatColor.RED + "★" +
-				ChatColor.GOLD + " " +
-				ChatColor.YELLOW + "R" +
-				ChatColor.GREEN + "a" +
-				ChatColor.AQUA + "i" +
-				ChatColor.BLUE + "n" +
-				ChatColor.LIGHT_PURPLE + "b" +
-				ChatColor.RED + "o" +
-				ChatColor.GOLD + "w" +
-				ChatColor.YELLOW + " " +
-				ChatColor.GREEN + "S" +
-				ChatColor.AQUA + "t" +
-				ChatColor.BLUE + "a" +
-				ChatColor.LIGHT_PURPLE + "r" +
-				ChatColor.RED + " " +
-				ChatColor.GOLD + "★");
-
-		NamespacedKey RainbowStarNS = new NamespacedKey("ec", "rainbowstar");
-		RainbowStarMeta.setLore(Arrays.asList("Immense and colorful energy is",
-													"contained in this star.",
-												"Whoever that channels its",
-												"energy into them, will be surrounded",
-												"by a powerful rainbow energy and will",
-												"feel faster and stronger than ever",
-												"able to knock down enemies with just their touch"));
-		RainbowStarMeta.setItemModel(RainbowStarNS);
 
 		FireFlowerMeta.setDisplayName(ChatColor.RED +  "Fire Flower" + ChatColor.BOLD);
 		NamespacedKey FireFlowerNS = new NamespacedKey("ec", "fireflower");
@@ -127,6 +102,39 @@ public class ItemManager {
 		RefinedRainbowEssenceMeta.setDisplayName(ChatColor.WHITE +  "Refined Rainbow Essence" + ChatColor.BOLD + ChatColor.ITALIC);
 		NamespacedKey RefinedRainbowEssenceNS = new NamespacedKey("ec", "refinedrainbowessence");
 		RefinedRainbowEssenceMeta.setItemModel(RefinedRainbowEssenceNS);
+
+
+		RainbowStarMeta.setDisplayName(ChatColor.RED + "★" +
+				ChatColor.GOLD + " " +
+				ChatColor.YELLOW + "R" +
+				ChatColor.GREEN + "a" +
+				ChatColor.AQUA + "i" +
+				ChatColor.BLUE + "n" +
+				ChatColor.LIGHT_PURPLE + "b" +
+				ChatColor.RED + "o" +
+				ChatColor.GOLD + "w" +
+				ChatColor.YELLOW + " " +
+				ChatColor.GREEN + "S" +
+				ChatColor.AQUA + "t" +
+				ChatColor.BLUE + "a" +
+				ChatColor.LIGHT_PURPLE + "r" +
+				ChatColor.RED + " " +
+				ChatColor.GOLD + "★");
+
+		NamespacedKey RainbowStarNS = new NamespacedKey("ec", "rainbowstar");
+		RainbowStarMeta.setLore(Arrays.asList("Immense and colorful energy is",
+				"contained in this star.",
+				"Whoever that channels its",
+				"energy into them, will be surrounded",
+				"by a powerful rainbow energy and will",
+				"feel faster and stronger than ever",
+				"able to knock down enemies with just their touch"));
+		RainbowStarMeta.setItemModel(RainbowStarNS);
+		RainbowStarMeta.addEnchant(Enchantment.INFINITY, 1, true);
+		RainbowStarMeta.addItemFlags(org.bukkit.inventory.ItemFlag.HIDE_ENCHANTS);
+
+		((Damageable) RainbowStarMeta).setMaxDamage(1);
+
 
 
 		RainbowStar.setItemMeta(RainbowStarMeta);

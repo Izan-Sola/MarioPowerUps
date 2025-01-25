@@ -1,13 +1,21 @@
 package me.ShinyShadow_.MarioPowerUps.Abilities;
 
+import me.ShinyShadow_.MarioPowerUps.item.ItemManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scheduler.BukkitTask;
 
 public class CloudFlowerListener implements Listener {
    private final JavaPlugin plugin;
+   private boolean isPowerUpActive = false;
+   private BukkitTask effectsTask;
 
     public CloudFlowerListener(JavaPlugin plugin) {
 
@@ -18,13 +26,35 @@ public class CloudFlowerListener implements Listener {
     @EventHandler
     public void onRightClick(PlayerInteractEvent event) {
         Player player = event.getPlayer();
-        if(player.getFoodLevel() != 20) {
-            return;
-        }
-        else if (player.getInventory().getItemInMainHand().getItemMeta() != null &&
-                player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().contains("Cloud Flower")) {
+        ItemStack ItemInHand =  player.getInventory().getItemInMainHand();
+            if (ItemInHand.getItemMeta() != null && ItemInHand.isSimilar(ItemManager.Cloud_Flower)) {
                 player.sendMessage("Power Up Active");
+                isPowerUpActive = true;
+                effects(player);
         }
+
+            if(isPowerUpActive && ItemInHand.getItemMeta() != null && ItemInHand.isSimilar(ItemManager.Cloud_Flower) &&
+               !player.getLocation().add(0, -1, 0).getBlock().getType().isSolid() && player.isSneaking()) {
+                new CloudFlowerCloud(player, plugin);
+            }
+    }
+
+    public void effects(Player player) {
+
+        effectsTask = new BukkitRunnable() {
+                @Override
+                public void run () {
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP_BOOST, 20, 7));
+                  //  player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_FALLING, 20, 0));
+
+                    if(!player.getInventory().getItemInMainHand().isSimilar(ItemManager.Cloud_Flower)) {
+                        isPowerUpActive = false;
+                        this.cancel();
+                    }
+
+                }
+            }.runTaskTimer(plugin, 0L, 2L);
+
     }
 }
 

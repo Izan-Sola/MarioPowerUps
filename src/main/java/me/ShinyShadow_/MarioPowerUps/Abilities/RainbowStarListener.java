@@ -16,6 +16,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -40,13 +41,13 @@ public class RainbowStarListener implements Listener {
     );
     Random r = new Random();
   private final List<Color> rainbowColors = Arrays.asList(
-          Color.fromRGB(255, 0, 0),       // Red
-          Color.fromRGB(255, 127, 0),     // Orange
-          Color.fromRGB(255, 255, 0),     // Yellow
-          Color.fromRGB(0, 255, 0),       // Green
-          Color.fromRGB(0, 0, 255),       // Blue
-          Color.fromRGB(75, 0, 130),      // Indigo
-          Color.fromRGB(148, 0, 211)      // Violet
+          Color.fromRGB(255, 0, 0),
+          Color.fromRGB(255, 127, 0),
+          Color.fromRGB(255, 255, 0),
+          Color.fromRGB(0, 255, 0),
+          Color.fromRGB(0, 0, 255),
+          Color.fromRGB(75, 0, 130),
+          Color.fromRGB(148, 0, 211)
   );
     private final List<ChatColor> glowRainbowColors = Arrays.asList(
             ChatColor.RED, ChatColor.GOLD, ChatColor.YELLOW,
@@ -139,8 +140,6 @@ public RainbowStarListener(JavaPlugin plugin) {
                                         }
                                     }
                                 }.runTaskTimer(plugin, 0L, 25L);
-
-
                             }
                             if (RainbowEssenceMaterials.contains(itemType)) {
                                 itemsInCaudronList.add(itemType);
@@ -153,7 +152,6 @@ public RainbowStarListener(JavaPlugin plugin) {
                                     i.remove();
                                 }
                                 itemsInCaudronList.removeAll(RainbowEssenceMaterials);
-
                             }
                         }
                     }
@@ -166,51 +164,69 @@ public RainbowStarListener(JavaPlugin plugin) {
                         cauldronState = "none";
                     }
                 }
-
         }
 
         if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             itemInHand = player.getInventory().getItemInMainHand();
-            if(itemInHand.getItemMeta() != null && itemInHand.getItemMeta().getLore() != null && itemInHand.getItemMeta().getLore().contains("Immense and colorful energy is") && player.getCooldown(ItemManager.Rainbow_Star) <= 0)  {
-               player.setCooldown(ItemManager.Rainbow_Star, 12000);
-                player.spawnParticle(Particle.ELECTRIC_SPARK, player.getLocation().add(0., 0.8, 0), 80, 0.6, 0.6, 0.6, 0);
-                player.getWorld().playSound(player.getLocation(), Sound.ENTITY_BREEZE_JUMP, 2f, 1.4f);
-                player.getWorld().playSound(player.getLocation(), Sound.ENTITY_BREEZE_SHOOT, 2f, 1.2f);
-                BossBar powerUpBar = Bukkit.createBossBar("RainbowStar Duration", BarColor.WHITE, BarStyle.SOLID);
-                powerUpBar.setProgress(1);
-                powerUpBar.addPlayer(player);
-                rainbowGlow(player);
-                new BukkitRunnable() {
+            itemInOffHand = player.getInventory().getItemInOffHand();
 
-                    @Override
-                    public void run() {
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, 20, 1));
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 20, 6));
-                        int randomColor = r.nextInt(6);
 
-                        player.getLocation().getWorld().spawnParticle(Particle.DUST, player.getLocation().add(0, 0.95, 0), 25, 0.2, 0.5, 0.2, 1.5,
-                                new Particle.DustOptions(rainbowColors.get(randomColor), 1));
-                    powerUpBar.setProgress(powerUpBar.getProgress()-0.00041665);
+            Damageable onHandDMGMeta = (Damageable) itemInHand.getItemMeta();
+            Damageable rMeta = (Damageable) itemInHand.getItemMeta();
 
-                    Collection<Entity> nearbyEntities = player.getWorld().getNearbyEntities(player.getLocation(), 1, 1, 1);
+            if(itemInHand.getItemMeta() != null && itemInHand.getItemMeta().getLore() != null && itemInHand.getItemMeta().getLore().contains("Immense and colorful energy is") && player.getCooldown(ItemManager.Rainbow_Star) <= 0) {
+                if ( onHandDMGMeta.getDamage() != 1) {
 
-                    for (Entity entity : nearbyEntities) {
-                            if(entity instanceof LivingEntity && entity.getUniqueId() != player.getUniqueId()) {
-                                ((LivingEntity) entity).damage(20);
+                    player.spawnParticle(Particle.ELECTRIC_SPARK, player.getLocation().add(0., 0.8, 0), 80, 0.6, 0.6, 0.6, 0);
+                    player.getWorld().playSound(player.getLocation(), Sound.ENTITY_BREEZE_JUMP, 2f, 1.4f);
+                    player.getWorld().playSound(player.getLocation(), Sound.ENTITY_BREEZE_SHOOT, 2f, 1.2f);
+                    BossBar powerUpBar = Bukkit.createBossBar("RainbowStar Duration", BarColor.WHITE, BarStyle.SOLID);
+                    powerUpBar.setProgress(1);
+                    powerUpBar.addPlayer(player);
+                    rainbowGlow(player);
+                    new BukkitRunnable() {
+
+                        @Override
+                        public void run() {
+                            player.addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, 20, 1));
+                            player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 20, 6));
+                            int randomColor = r.nextInt(6);
+
+                            player.getLocation().getWorld().spawnParticle(Particle.DUST, player.getLocation().add(0, 0.95, 0), 25, 0.2, 0.5, 0.2, 1.5,
+                                    new Particle.DustOptions(rainbowColors.get(randomColor), 1));
+                            powerUpBar.setProgress(powerUpBar.getProgress() - 0.00041665);
+
+                            Collection<Entity> nearbyEntities = player.getWorld().getNearbyEntities(player.getLocation(), 1, 1, 1);
+
+                            for (Entity entity : nearbyEntities) {
+                                if (entity instanceof LivingEntity && entity.getUniqueId() != player.getUniqueId()) {
+                                    ((LivingEntity) entity).damage(20);
+                                }
+                            }
+
+                            testCount += 1;
+                            if (testCount >= 2400) {
+                                powerUpBar.removePlayer(player);
+                                team.removeEntry(player.getName());
+                                glow.cancel();
+                                this.cancel();
                             }
                         }
 
-                    testCount += 1;
-                    if(testCount >= 2400) {
-                        powerUpBar.removePlayer(player);
-                        team.removeEntry(player.getName());
-                        glow.cancel();
-                        this.cancel();
-                    }
-                    }
-
-                }.runTaskTimer(plugin, 0L, 1L);
+                    }.runTaskTimer(plugin, 0L, 1L);
+                    player.setCooldown(ItemManager.Rainbow_Star, 12000);
+                    rMeta.setDamage(rMeta.getDamage() + 1);
+                    itemInHand.setItemMeta(rMeta);
+                }
             }
+
+            if (itemInHand.getItemMeta() != null && itemInHand.getItemMeta().getLore() != null &&
+                    itemInHand.getItemMeta().getLore().contains("Immense and colorful energy is") && itemInOffHand.isSimilar(ItemManager.Rainbow_Essence)) {
+                rMeta.setDamage(rMeta.getDamage() - 1);
+                itemInHand.setItemMeta(rMeta);
+                itemInOffHand.setAmount(0);
+            }
+
         }
     }
     public void rainbowGlow(Player player) {

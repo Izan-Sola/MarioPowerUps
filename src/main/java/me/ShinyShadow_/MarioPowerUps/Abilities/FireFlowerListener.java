@@ -102,6 +102,7 @@ public class FireFlowerListener implements Listener{
 
                 ItemMeta meta = (Damageable) onHandItem.getItemMeta();
                 Damageable rMeta = (Damageable) onHandItem.getItemMeta();
+
                 if (player.getCooldown(onHandItem) <= 0 && rMeta.getDamage() != 20) {
 
                     ((Damageable) meta).setDamage( ((Damageable) meta).getDamage()+1);
