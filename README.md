@@ -73,7 +73,7 @@ _Mushrooms are consumed after one use_
 General details:
 _All stars require a Nether Star to be crafted, but don't worry, because they won't disappear after one use like the Mushrooms. The Power Up will go on cooldown and to use its power again you'll need to recharge the Star's power with a certain item_
 
-   - Rainbow Star (**F**) [(ShowCase)](https://youtu.be/KhBqjfdv6Aw?si=bEsWv_Y7T96JtklJ) ![RainbowStar](https://github.com/user-attachments/assets/ef4f7682-2464-4b4d-9562-0337490d5e12)
+   - Rainbow Star (**F**) [(ShowCase)](https://youtu.be/AlnyXKROF-E?si=HooZHzMA3dmzBNHt) ![RainbowStar](https://github.com/user-attachments/assets/ef4f7682-2464-4b4d-9562-0337490d5e12)
 
 
      Details:
