@@ -35,10 +35,11 @@ _Flowers have a set amount of durability that represent the amount of charges le
 
   - First hold right click to activate it. When active jump, shift and left click to summon a cloud. Up to 3 per charge. You gain a jump boost while using this Power Up.
   - With the addition of this Power Up there are also 2 new custom items, bottle with air![airbottle](https://github.com/user-attachments/assets/6fd341f8-15a5-448a-930c-64d19217e2eb)
- and cloud bucket![bucketofcloud](https://github.com/user-attachments/assets/3a72276c-c513-4405-9f2d-517b381dbd9a)
-.
-    To fill a bucket with clouds you need to be atleast at 100Y and hold right click pointing to the air until it is filled.
-    To fill the bottles with air you need to be aleast at Y50 and fill it the same way as the bucket.
+ and cloud bucket![bucketofcloud](https://github.com/user-attachments/assets/3a72276c-c513-4405-9f2d-517b381dbd9a).
+
+    To fill a bucket with clouds you need to be atleast at 190Y and right click pointing to the air to fill it with clouds.
+    To fill the bottles with air you need to be aleast at Y20 and fill it the same way as the bucket.
+  - To recharge the Cloud Flower, right click while holding a cloud bucket on your offhand and the Cloud Flower on your main hand.
 
        
 - Ice Flower (**NS**)
