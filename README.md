@@ -51,7 +51,8 @@ General details:
 _Mushrooms are consumed after one use_
 
 - Spring Mushroom (**NS**)
-- 1-UP Mushroom (**Next**)![1upmushroom](https://github.com/user-attachments/assets/f0454b4c-b828-4b78-8f88-fae78adda97d)
+- 1-UP Mushroom (**Next**)![1upmushroom](https://github.com/user-attachments/assets/e261477f-f49c-4179-94ec-b9c321a6c57a)
+
 
   
   Details:
@@ -88,7 +89,8 @@ _All stars require a Nether Star to be crafted, but don't worry, because they wo
      - To recharge the Rainbow Star when its cooldown ends, right click while holding Rainbow Essence in your offhand and Rainbw Star in your main hand.
 
        
-   - Red Star (**NS**)
+   - Red Star (**NS**)![redstar](https://github.com/user-attachments/assets/fc4062a9-d1a5-40ef-ae1a-bec4994bf66c)
+
 
      Details:
 
