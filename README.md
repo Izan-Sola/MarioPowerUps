@@ -51,7 +51,8 @@ General details:
 _Mushrooms are consumed after one use_
 
 - Spring Mushroom (**NS**)
-- 1-UP Mushroom (**Next**)
+- 1-UP Mushroom (**Next**)![1upmushroom](https://github.com/user-attachments/assets/f0454b4c-b828-4b78-8f88-fae78adda97d)
+
   
   Details:
 
