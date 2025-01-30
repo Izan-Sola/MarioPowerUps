@@ -59,7 +59,7 @@ public class RainbowStarListener implements Listener {
     Set<Material> itemsInCaudronList = new HashSet<>();
     private BukkitTask EssenceMix;
     private BukkitTask EssenceBrewing;
-    private int testCount = 0;
+    private int duration = 0;
     private ItemStack itemInHand;
     private ItemStack itemInOffHand;
     private BukkitTask glow;
@@ -204,8 +204,8 @@ public RainbowStarListener(JavaPlugin plugin) {
                                 }
                             }
 
-                            testCount += 1;
-                            if (testCount >= 2400) {
+                             duration += 1;
+                            if (duration >= 2400) {
                                 powerUpBar.removePlayer(player);
                                 team.removeEntry(player.getName());
                                 glow.cancel();
