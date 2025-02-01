@@ -59,7 +59,7 @@ public class RainbowStarListener implements Listener {
     Set<Material> itemsInCaudronList = new HashSet<>();
     private BukkitTask EssenceMix;
     private BukkitTask EssenceBrewing;
-    private int duration = 0;
+    private int testCount = 0;
     private ItemStack itemInHand;
     private ItemStack itemInOffHand;
     private BukkitTask glow;
@@ -172,7 +172,7 @@ public RainbowStarListener(JavaPlugin plugin) {
 
 
             Damageable onHandDMGMeta = (Damageable) itemInHand.getItemMeta();
-            Damageable rMeta = (Damageable) itemInHand.getItemMeta();
+           // Damageable rMeta = (Damageable) itemInHand.getItemMeta();
 
             if(itemInHand.getItemMeta() != null && itemInHand.getItemMeta().getLore() != null && itemInHand.getItemMeta().getLore().contains("Immense and colorful energy is") && player.getCooldown(ItemManager.Rainbow_Star) <= 0) {
                 if ( onHandDMGMeta.getDamage() != 1) {
@@ -204,8 +204,8 @@ public RainbowStarListener(JavaPlugin plugin) {
                                 }
                             }
 
-                             duration += 1;
-                            if (duration >= 2400) {
+                            testCount += 1;
+                            if (testCount >= 2400) {
                                 powerUpBar.removePlayer(player);
                                 team.removeEntry(player.getName());
                                 glow.cancel();
@@ -215,15 +215,15 @@ public RainbowStarListener(JavaPlugin plugin) {
 
                     }.runTaskTimer(plugin, 0L, 1L);
                     player.setCooldown(ItemManager.Rainbow_Star, 12000);
-                    rMeta.setDamage(rMeta.getDamage() + 1);
-                    itemInHand.setItemMeta(rMeta);
+                    onHandDMGMeta.setDamage(onHandDMGMeta.getDamage() + 1);
+                    itemInHand.setItemMeta(onHandDMGMeta);
                 }
             }
 
             if (itemInHand.getItemMeta() != null && itemInHand.getItemMeta().getLore() != null &&
                     itemInHand.getItemMeta().getLore().contains("Immense and colorful energy is") && itemInOffHand.isSimilar(ItemManager.Rainbow_Essence)) {
-                rMeta.setDamage(rMeta.getDamage() - 1);
-                itemInHand.setItemMeta(rMeta);
+                onHandDMGMeta.setDamage(onHandDMGMeta.getDamage() - 1);
+                itemInHand.setItemMeta(onHandDMGMeta);
                 itemInOffHand.setAmount(0);
             }
 

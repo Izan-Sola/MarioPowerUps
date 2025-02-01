@@ -1,11 +1,13 @@
 package me.ShinyShadow_.MarioPowerUps.Abilities;
 
 import me.ShinyShadow_.MarioPowerUps.item.ItemManager;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -27,15 +29,19 @@ public class CloudFlowerListener implements Listener {
     public void onRightClick(PlayerInteractEvent event) {
         Player player = event.getPlayer();
         ItemStack ItemInHand =  player.getInventory().getItemInMainHand();
+
+        Damageable inHandDMGMeta = (Damageable) ItemInHand.getItemMeta();
             if (ItemInHand.getItemMeta() != null && ItemInHand.isSimilar(ItemManager.Cloud_Flower)) {
-                player.sendMessage("Power Up Active");
                 isPowerUpActive = true;
                 effects(player);
         }
 
-            if(isPowerUpActive && ItemInHand.getItemMeta() != null && ItemInHand.isSimilar(ItemManager.Cloud_Flower) &&
-               !player.getLocation().add(0, -1, 0).getBlock().getType().isSolid() && player.isSneaking()) {
+            if(isPowerUpActive && ItemInHand.getItemMeta() != null && ItemInHand.getItemMeta().getDisplayName().contains("Cloud Flower")&&
+               !player.getLocation().add(0, -1, 0).getBlock().getType().isSolid() && inHandDMGMeta.getDamage() != 20) {
+               inHandDMGMeta.setDamage(inHandDMGMeta.getDamage() + 1);
+               ItemInHand.setItemMeta(inHandDMGMeta);
                 new CloudFlowerCloud(player, plugin);
+
             }
     }
 
@@ -47,8 +53,8 @@ public class CloudFlowerListener implements Listener {
                     player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP_BOOST, 20, 7));
                   //  player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_FALLING, 20, 0));
 
-                    if(!player.getInventory().getItemInMainHand().isSimilar(ItemManager.Cloud_Flower)) {
-                        isPowerUpActive = false;
+                    if(!player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().contains("Cloud Flower")) {
+                      //  isPowerUpActive = false;
                         this.cancel();
                     }
 

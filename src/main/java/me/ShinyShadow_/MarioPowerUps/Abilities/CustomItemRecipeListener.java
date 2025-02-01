@@ -84,7 +84,14 @@ public class CustomItemRecipeListener implements Listener {
 
         if(event.getAction() == Action.RIGHT_CLICK_AIR) {
 
-           // if ()
+            if ( itemInHand.getType() == Material.BUCKET && player.getLocation().getY() >= 190 ) {
+                itemInHand.setAmount(0);
+                player.getInventory().addItem(ItemManager.Cloud_Bucket);
+            }
+            else if ( itemInHand.getType() == Material.GLASS_BOTTLE && !itemInHand.isSimilar(ItemManager.Cloud_Flower) && player.getLocation().getY() >= 20 && !itemInHand.isSimilar(ItemManager.Cloud_Flower)) {
+                itemInHand.setAmount(0);
+                player.getInventory().addItem(ItemManager.Air_Bottle);
+            }
         }
     }
 }

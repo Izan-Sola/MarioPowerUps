@@ -5,7 +5,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
-import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.inventory.PrepareAnvilEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.AnvilInventory;
@@ -53,14 +52,6 @@ public class FireFlowerListener implements Listener{
         }
     }
 
-    @EventHandler
-    public void onBlockPlace(BlockPlaceEvent event) {
-        player = event.getPlayer();
-
-        if(player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().contains("Fire Flower")) {
-            event.setCancelled(true);
-        }
-    }
     @EventHandler
     public void onRightClick(PlayerInteractEvent event) {
 

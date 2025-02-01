@@ -37,6 +37,13 @@ public class Commands implements CommandExecutor {
 					break;
 				case "giverainbowstar":
 					player.getInventory().addItem(ItemManager.Rainbow_Star);
+					break;
+				case "give1upmushroom":
+					player.getInventory().addItem(ItemManager.OneUp_Mushroom);
+					break;
+				case "giveredstar":
+					player.getInventory().addItem(ItemManager.Red_Star);
+					break;
 			}
 
 		}

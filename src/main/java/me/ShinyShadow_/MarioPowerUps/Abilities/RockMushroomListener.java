@@ -33,12 +33,6 @@ public class RockMushroomListener implements Listener {
         return;
     }
 
-//    @EventHandler
-//    public void onExplosionPrime(ExplosionPrimeEvent event) {
-//        if (event.getEntity() instanceof TNTPrimed) {
-//            event.setRadius(2F);
-//        }
-//    }
     @EventHandler
     public void onEat(FoodLevelChangeEvent event) {
 

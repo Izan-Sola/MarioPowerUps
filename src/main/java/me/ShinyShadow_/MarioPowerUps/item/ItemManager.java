@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -20,6 +21,9 @@ public class ItemManager {
 	public static ItemStack Rainbow_Essence;
 	public static ItemStack RefinedRainbow_Essence;
 	public static ItemStack Rainbow_Star;
+	public static ItemStack OneUp_Mushroom;
+	public static ItemStack Red_Star;
+
 	public static void init() {
 
 		createItems();
@@ -33,25 +37,29 @@ public class ItemManager {
 		ItemStack RockMushroom = new ItemStack(Material.APPLE, 1);
 		ItemMeta RockMushroomMeta = RockMushroom.getItemMeta();
 
-		ItemStack CloudFlower = new ItemStack(Material.GLASS_BOTTLE, 1);
+		ItemStack CloudFlower = new ItemStack(Material.BUCKET, 1);
 		ItemMeta CloudFlowerMeta = CloudFlower.getItemMeta();
 
 		ItemStack CloudBucket = new ItemStack(Material.BUCKET, 1);
 		ItemMeta CloudBucketMeta = CloudBucket.getItemMeta();
 
-		ItemStack AirBottle = new ItemStack(Material.GLASS_BOTTLE, 1);
+		ItemStack AirBottle = new ItemStack(Material.POTION, 1);
 		ItemMeta AirBottleMeta = CloudBucket.getItemMeta();
 
-		ItemStack RainbowEssence = new ItemStack(Material.GLASS_BOTTLE, 1);
+		ItemStack RainbowEssence = new ItemStack(Material.BUCKET, 1);
 		ItemMeta RainbowEssenceMeta = RainbowEssence.getItemMeta();
 
-		ItemStack RefinedRainbowEssence = new ItemStack(Material.GLASS_BOTTLE, 1);
+		ItemStack RefinedRainbowEssence = new ItemStack(Material.BUCKET, 1);
 		ItemMeta RefinedRainbowEssenceMeta = RefinedRainbowEssence.getItemMeta();
 
-		ItemStack RainbowStar = new ItemStack(Material.END_CRYSTAL, 1);
+		ItemStack RainbowStar = new ItemStack(Material.POTION, 1);
 		ItemMeta RainbowStarMeta = RainbowStar.getItemMeta();
 
+		ItemStack OneUpMushroom = new ItemStack(Material.APPLE, 1);
+		ItemMeta OneUpMushroomMeta = OneUpMushroom.getItemMeta();
 
+		ItemStack RedStar = new ItemStack(Material.POTION, 1);
+		ItemMeta RedStarMeta = RainbowStar.getItemMeta();
 
 		FireFlowerMeta.setDisplayName(ChatColor.RED +  "Fire Flower" + ChatColor.BOLD);
 		NamespacedKey FireFlowerNS = new NamespacedKey("ec", "fireflower");
@@ -85,6 +93,8 @@ public class ItemManager {
 											  "Carefully squishing it will summon ",
 		                                      "dense clouds that you can jump on."));
 		CloudFlowerMeta.setItemModel(CloudFlowerNS);
+		CloudFlowerMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+		((Damageable) CloudFlowerMeta).setMaxDamage(20);
 
 		CloudBucketMeta.setDisplayName(ChatColor.WHITE +  "Cloud Bucket");
 		NamespacedKey CloudBucketNS = new NamespacedKey("ec", "bucketofcloud");
@@ -132,11 +142,25 @@ public class ItemManager {
 		RainbowStarMeta.setItemModel(RainbowStarNS);
 		RainbowStarMeta.addEnchant(Enchantment.INFINITY, 1, true);
 		RainbowStarMeta.addItemFlags(org.bukkit.inventory.ItemFlag.HIDE_ENCHANTS);
-
 		((Damageable) RainbowStarMeta).setMaxDamage(1);
 
+		OneUpMushroomMeta.setDisplayName(ChatColor.GREEN +  "1-Up Mushroom" + ChatColor.BOLD);
+		NamespacedKey OneUpMushroomNS = new NamespacedKey("ec", "oneupmushroom");
+		OneUpMushroomMeta.setLore(Arrays.asList("A 1Up mushroom a day, ",
+												"keeps the death away!"));
+		OneUpMushroomMeta.setItemModel(OneUpMushroomNS);
+
+		RedStarMeta.setDisplayName(ChatColor.RED +  "★ Red Star ★" + ChatColor.BOLD);
+		NamespacedKey RedStarNS = new NamespacedKey("ec", "redstar");
+		RedStarMeta.setLore(Arrays.asList(""));
+		RedStarMeta.setItemModel(RedStarNS);
+		RedStarMeta.addEnchant(Enchantment.INFINITY, 1, true);
+		RedStarMeta.addItemFlags(org.bukkit.inventory.ItemFlag.HIDE_ENCHANTS);
+		((Damageable) RedStarMeta).setMaxDamage(1);
 
 
+		RedStar.setItemMeta(RedStarMeta);
+		OneUpMushroom.setItemMeta(OneUpMushroomMeta);
 		RainbowStar.setItemMeta(RainbowStarMeta);
 		RefinedRainbowEssence.setItemMeta(RefinedRainbowEssenceMeta);
 		RainbowEssence.setItemMeta(RainbowEssenceMeta);
@@ -146,7 +170,8 @@ public class ItemManager {
 		CloudBucket.setItemMeta(CloudBucketMeta);
 		AirBottle.setItemMeta(AirBottleMeta);
 
-
+		Red_Star = RedStar;
+		OneUp_Mushroom = OneUpMushroom;
 		Rainbow_Star = RainbowStar;
 		RefinedRainbow_Essence = RefinedRainbowEssence;
 		Rainbow_Essence = RainbowEssence;
@@ -155,5 +180,6 @@ public class ItemManager {
 		Fire_Flower = FireFlower;
 		Rock_Mushroom = RockMushroom;
 		Cloud_Flower = CloudFlower;
+
 	}
 }

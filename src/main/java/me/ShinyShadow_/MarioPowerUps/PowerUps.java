@@ -23,6 +23,8 @@ public final class PowerUps extends JavaPlugin {
 		getCommand("givecloudbucket").setExecutor(new Commands());
 		getCommand("giverefinedrainbowessence").setExecutor(new Commands());
 		getCommand("giverainbowstar").setExecutor(new Commands());
+		getCommand("give1upmushroom").setExecutor(new Commands());
+		getCommand("giveredstar").setExecutor(new Commands());
 
 
 		Bukkit.getPluginManager().registerEvents(new FireFlowerListener(this), this);
@@ -30,6 +32,8 @@ public final class PowerUps extends JavaPlugin {
 		Bukkit.getPluginManager().registerEvents(new CloudFlowerListener(this), this);
 		Bukkit.getPluginManager().registerEvents(new CustomItemRecipeListener( this), this);
 		Bukkit.getPluginManager().registerEvents(new RainbowStarListener( this), this);
+		Bukkit.getPluginManager().registerEvents(new PreventPlayerFromFuckingUpListener( this), this);
+		Bukkit.getPluginManager().registerEvents(new RedStarListener( this), this);
 
 		ShapedRecipe FireFlowerRecipe = new ShapedRecipe(new NamespacedKey(this, "fireflowerrecipe"), ItemManager.Fire_Flower);
 		FireFlowerRecipe.shape("FFF", "FTF", "BMB");
