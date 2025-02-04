@@ -23,6 +23,8 @@ public class ItemManager {
 	public static ItemStack Rainbow_Star;
 	public static ItemStack OneUp_Mushroom;
 	public static ItemStack Red_Star;
+	public static ItemStack Crimson_Extract;
+	public static ItemStack RefinedCrimson_Extract;
 
 	public static void init() {
 
@@ -43,7 +45,7 @@ public class ItemManager {
 		ItemStack CloudBucket = new ItemStack(Material.BUCKET, 1);
 		ItemMeta CloudBucketMeta = CloudBucket.getItemMeta();
 
-		ItemStack AirBottle = new ItemStack(Material.POTION, 1);
+		ItemStack AirBottle = new ItemStack(Material.BUCKET, 1);
 		ItemMeta AirBottleMeta = CloudBucket.getItemMeta();
 
 		ItemStack RainbowEssence = new ItemStack(Material.BUCKET, 1);
@@ -60,6 +62,22 @@ public class ItemManager {
 
 		ItemStack RedStar = new ItemStack(Material.POTION, 1);
 		ItemMeta RedStarMeta = RainbowStar.getItemMeta();
+
+		ItemStack CrimsonExtract = new ItemStack(Material.BOWL, 1);
+		ItemMeta CrimsonExtractMeta = CrimsonExtract.getItemMeta();
+
+		ItemStack RefinedCrimsonExtract = new ItemStack(Material.BOWL, 1);
+		ItemMeta RefinedCrimsonExtractMeta = CrimsonExtract.getItemMeta();
+
+		RefinedCrimsonExtractMeta.setDisplayName(ChatColor.RED +  "Refined Crimson Extract");
+		NamespacedKey RefinedCrimsonExtractNS = new NamespacedKey("ec", "refinedcrimsonextract");
+		RefinedCrimsonExtractMeta.setItemModel(RefinedCrimsonExtractNS);
+
+		CrimsonExtractMeta.setDisplayName(ChatColor.DARK_RED +  "Crimson Extract");
+		NamespacedKey CrimsonExtractNS = new NamespacedKey("ec", "crimsonextract");
+		CrimsonExtractMeta.setItemModel(CrimsonExtractNS);
+
+
 
 		FireFlowerMeta.setDisplayName(ChatColor.RED +  "Fire Flower" + ChatColor.BOLD);
 		NamespacedKey FireFlowerNS = new NamespacedKey("ec", "fireflower");
@@ -159,6 +177,8 @@ public class ItemManager {
 		((Damageable) RedStarMeta).setMaxDamage(1);
 
 
+		CrimsonExtract.setItemMeta(CrimsonExtractMeta);
+		RefinedCrimsonExtract.setItemMeta(RefinedCrimsonExtractMeta);
 		RedStar.setItemMeta(RedStarMeta);
 		OneUpMushroom.setItemMeta(OneUpMushroomMeta);
 		RainbowStar.setItemMeta(RainbowStarMeta);
@@ -170,6 +190,9 @@ public class ItemManager {
 		CloudBucket.setItemMeta(CloudBucketMeta);
 		AirBottle.setItemMeta(AirBottleMeta);
 
+
+		Crimson_Extract = CrimsonExtract;
+		RefinedCrimson_Extract = RefinedCrimsonExtract;
 		Red_Star = RedStar;
 		OneUp_Mushroom = OneUpMushroom;
 		Rainbow_Star = RainbowStar;

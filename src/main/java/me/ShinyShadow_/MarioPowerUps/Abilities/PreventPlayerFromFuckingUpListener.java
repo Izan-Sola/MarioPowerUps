@@ -1,5 +1,6 @@
 package me.ShinyShadow_.MarioPowerUps.Abilities;
 
+import me.ShinyShadow_.MarioPowerUps.item.ItemManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,15 +12,20 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class PreventPlayerFromFuckingUpListener implements Listener {
+
+
     private Player player;
     private JavaPlugin plugin;
     private ItemStack itemInHand;
     private List<String> customItems = Arrays.asList(
             "Fire Flower", "★ Rainbow Star ★", "Cloud Flower", "Air Bottle",
-            "Cloud Bucket"
+            "Cloud Bucket", "Rainbow Essence", "Refined Rainbow Essence"
     );
+    Set<ItemStack> itemStacksWithCD = Set.of(ItemManager.Red_Star, ItemManager.Rainbow_Star);
+
     public PreventPlayerFromFuckingUpListener(JavaPlugin plugin) {
         this.plugin = plugin;
     }
@@ -29,11 +35,11 @@ public class PreventPlayerFromFuckingUpListener implements Listener {
         player = event.getPlayer();
         itemInHand = player.getInventory().getItemInMainHand();
 
-       for (String name : customItems) {
-           if(itemInHand != null && itemInHand.getItemMeta().getDisplayName().contains(name)) {
-               event.setCancelled(true);
-           }
-       }
+        for (String name : customItems) {
+            if (itemInHand != null && itemInHand.getItemMeta().getDisplayName().contains(name)) {
+                event.setCancelled(true);
+            }
+        }
 
     }
 
@@ -55,13 +61,12 @@ public class PreventPlayerFromFuckingUpListener implements Listener {
         player = event.getPlayer();
         itemInHand = player.getInventory().getItemInMainHand();
 
-            for (String name : customItems) {
-                if (itemInHand != null && itemInHand.getItemMeta().getDisplayName().contains(name)) {
-                    event.setCancelled(true);
-                }
+        for (String name : customItems) {
+            if (itemInHand != null && itemInHand.getItemMeta().getDisplayName().contains(name)) {
+                event.setCancelled(true);
             }
         }
     }
-
+}
 
 

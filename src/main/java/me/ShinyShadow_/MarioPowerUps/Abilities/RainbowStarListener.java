@@ -214,7 +214,7 @@ public RainbowStarListener(JavaPlugin plugin) {
                         }
 
                     }.runTaskTimer(plugin, 0L, 1L);
-                    player.setCooldown(ItemManager.Rainbow_Star, 12000);
+                    player.setCooldown(ItemManager.Rainbow_Star, 8000);
                     onHandDMGMeta.setDamage(onHandDMGMeta.getDamage() + 1);
                     itemInHand.setItemMeta(onHandDMGMeta);
                 }
@@ -283,6 +283,12 @@ public RainbowStarListener(JavaPlugin plugin) {
                     cauldron.getWorld().spawnParticle(Particle.DUST, cauldron.getLocation().add(0.5, 0.95, 0.5), 5, 0.3, 0.4, 0.3, 0.8,
                             new Particle.DustOptions(rainbowColors.get(randomColor), 1));
                 }
+                if(!(cauldron.getLocation().getBlock().getType() == Material.WATER_CAULDRON)) {
+                    EssenceBrewing.cancel();
+                    cauldronState = "none";
+                    this.cancel();
+                }
+
             }
         }.runTaskTimer(plugin, 0L, 2L);
 
