@@ -84,7 +84,7 @@ _All stars require a Nether Star to be crafted, but don't worry, because they wo
      - With the addition of this Power Up there is also a new custom item, Rainbow Essence![rainbowessence](https://github.com/user-attachments/assets/a598dff3-aa1c-44e4-8617-9d821f976385)
        To craft it, you need to drop red, blue, yellow, green and purple dye and glowstone dust inside a cauldron filled with water and right click the cauldron.
        After that right click the cauldron with a glass bottle.
-       Then, refine the essence with a phantom membrane to get Refined Rainbow Essence ![refinedrainbowessence](https://github.com/user-attachments/assets/5befcc3b-8051-4978-837d-6b2818c3b69d)
+       Then, refine the essence with a phantom membrane to obtain Refined Rainbow Essence ![refinedrainbowessence](https://github.com/user-attachments/assets/5befcc3b-8051-4978-837d-6b2818c3b69d)
        and drop it inside a cauldron filled with water and right click the cauldron, then drop a nether star to obtain a Rainbow Star.
      - To recharge the Rainbow Star when its cooldown ends, right click while holding Rainbow Essence on your offhand and the Rainbow Star on your main hand.
 
@@ -97,7 +97,8 @@ _All stars require a Nether Star to be crafted, but don't worry, because they wo
      - Grants the ability to fly for 2 minutes. To start flying, jump and right click. You can also left click every 5 seconds to boost your speed momentarily.
      - With the addition of this Power Up there is also a new custom item, Crimson Extract![crimsonessence](https://github.com/user-attachments/assets/34b59ae4-0074-4b9f-95a6-4f730a5de040)
        To craft it, drop redstone, ink sac, and glowstone dust inside a cauldron filled with water. After that right click the cauldron with an empty bowl.
-       Then, refine the extract with a blaze rod and dop it inside a cauldron filled with water, then drop a nether start to obtain a Red Star.
+       Then, refine the extract with a blaze rod to obain Refined Crimson Extract ![refinedcrimsonessence](https://github.com/user-attachments/assets/c0acd9ab-3ad4-40e4-8e33-e7de44a885bb)
+       and drop it inside a cauldron filled with water, then drop a nether start to obtain a Red Star.
      - To recharge the Red Star when its cooldown ends, right click while holding Crimson Extract on your offhand and the Red Star on your main hand.
 
 
