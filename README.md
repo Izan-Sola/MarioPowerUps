@@ -51,7 +51,7 @@ General details:
 _Mushrooms are consumed after one use_
 
 - Spring Mushroom (**NS**)
-- 1-UP Mushroom (**Next**)![1upmushroom](https://github.com/user-attachments/assets/e261477f-f49c-4179-94ec-b9c321a6c57a)
+- 1-UP Mushroom (**NS**)![1upmushroom](https://github.com/user-attachments/assets/e261477f-f49c-4179-94ec-b9c321a6c57a)
 
 
   
@@ -86,18 +86,19 @@ _All stars require a Nether Star to be crafted, but don't worry, because they wo
        After that right click the cauldron with a glass bottle.
        Then, refine the essence with a phantom membrane to get Refined Rainbow Essence ![refinedrainbowessence](https://github.com/user-attachments/assets/5befcc3b-8051-4978-837d-6b2818c3b69d)
        and drop it inside a cauldron filled with water and right click the cauldron, then drop a nether star to obtain a Rainbow Star.
-     - To recharge the Rainbow Star when its cooldown ends, right click while holding Rainbow Essence in your offhand and Rainbw Star in your main hand.
+     - To recharge the Rainbow Star when its cooldown ends, right click while holding Rainbow Essence on your offhand and the Rainbow Star on your main hand.
 
        
-   - Red Star (**NS**)![redstar](https://github.com/user-attachments/assets/fc4062a9-d1a5-40ef-ae1a-bec4994bf66c)
+   - Red Star (**WIP**)![redstar](https://github.com/user-attachments/assets/fc4062a9-d1a5-40ef-ae1a-bec4994bf66c)
 
 
      Details:
 
-     - Grants the ability to fly for 2 minutes.
+     - Grants the ability to fly for 2 minutes. To start flying, jump and right click. You can also left click every 5 seconds to boost your speed momentarily.
      - With the addition of this Power Up there is also a new custom item, Crimson Extract![crimsonessence](https://github.com/user-attachments/assets/34b59ae4-0074-4b9f-95a6-4f730a5de040)
        To craft it, drop redstone, ink sac, and glowstone dust inside a cauldron filled with water. After that right click the cauldron with an empty bowl.
        Then, refine the extract with a blaze rod and dop it inside a cauldron filled with water, then drop a nether start to obtain a Red Star.
+     - To recharge the Red Star when its cooldown ends, right click while holding Crimson Extract on your offhand and the Red Star on your main hand.
 
 
 
