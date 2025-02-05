@@ -1,6 +1,5 @@
 package me.ShinyShadow_.MarioPowerUps.Abilities;
 
-import me.ShinyShadow_.MarioPowerUps.item.ItemManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -10,9 +9,7 @@ import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class PreventPlayerFromFuckingUpListener implements Listener {
 
@@ -22,9 +19,14 @@ public class PreventPlayerFromFuckingUpListener implements Listener {
     private ItemStack itemInHand;
     private List<String> customItems = Arrays.asList(
             "Fire Flower", "★ Rainbow Star ★", "Cloud Flower", "Air Bottle",
-            "Cloud Bucket", "Rainbow Essence", "Refined Rainbow Essence"
+            "Cloud Bucket", "Rainbow Essence", "Refined Rainbow Essence", "★ Red Star ★"
     );
-    Set<ItemStack> itemStacksWithCD = Set.of(ItemManager.Red_Star, ItemManager.Rainbow_Star);
+
+
+    Map<UUID, Integer> itemCooldowns = new LinkedHashMap<>();
+
+
+//itemStacksWithCD.add(new ItemStack( ItemManager.Red_Star);
 
     public PreventPlayerFromFuckingUpListener(JavaPlugin plugin) {
         this.plugin = plugin;
@@ -67,6 +69,11 @@ public class PreventPlayerFromFuckingUpListener implements Listener {
             }
         }
     }
+
+
+
 }
+
+
 
 

@@ -6,34 +6,42 @@ import me.ShinyShadow_.MarioPowerUps.item.ItemManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.event.Listener;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.*;
 
 
 public final class PowerUps extends JavaPlugin {
 
+	private final List<String> commands = Arrays.asList(
+			"givefireflower", "giverockmushroom", "givecloudflower", "giveairbottle", "givecloudbucket",
+			"giverefinedrainbowessence", "giverainbowstar", "give1upmushroom", "giveredstar"
+	);
+
+	private final List<Listener> listeners = Arrays.asList(
+			new FireFlowerListener(this), new RockMushroomListener(this), new CloudFlowerListener(this),
+			new CustomItemRecipeListener( this), new RainbowStarListener( this), new PreventPlayerFromFuckingUpListener( this),
+			new RedStarListener( this), new OneUpMushroomListener(this)
+	);
+
+	public static List<ItemStack> itemStacksWithCD = new ArrayList<>();
 
 	public void onEnable() {
 
+		itemStacksWithCD.add(ItemManager.Red_Star);
+		itemStacksWithCD.add(ItemManager.Rainbow_Star);
+
 		ItemManager.init();
-		getCommand("givefireflower").setExecutor(new Commands());
-		getCommand("giverockmushroom").setExecutor(new Commands());
-		getCommand("givecloudflower").setExecutor(new Commands());
-		getCommand("giveairbottle").setExecutor(new Commands());
-		getCommand("givecloudbucket").setExecutor(new Commands());
-		getCommand("giverefinedrainbowessence").setExecutor(new Commands());
-		getCommand("giverainbowstar").setExecutor(new Commands());
-		getCommand("give1upmushroom").setExecutor(new Commands());
-		getCommand("giveredstar").setExecutor(new Commands());
 
-
-		Bukkit.getPluginManager().registerEvents(new FireFlowerListener(this), this);
-		Bukkit.getPluginManager().registerEvents(new RockMushroomListener(this), this);
-		Bukkit.getPluginManager().registerEvents(new CloudFlowerListener(this), this);
-		Bukkit.getPluginManager().registerEvents(new CustomItemRecipeListener( this), this);
-		Bukkit.getPluginManager().registerEvents(new RainbowStarListener( this), this);
-		Bukkit.getPluginManager().registerEvents(new PreventPlayerFromFuckingUpListener( this), this);
-		Bukkit.getPluginManager().registerEvents(new RedStarListener( this), this);
+		for (String command : commands) {
+			getCommand(command).setExecutor(new Commands());
+		}
+		for (Listener listener : listeners) {
+			Bukkit.getPluginManager().registerEvents(listener, this);
+		}
 
 		ShapedRecipe FireFlowerRecipe = new ShapedRecipe(new NamespacedKey(this, "fireflowerrecipe"), ItemManager.Fire_Flower);
 		FireFlowerRecipe.shape("FFF", "FTF", "BMB");

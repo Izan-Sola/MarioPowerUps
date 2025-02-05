@@ -47,11 +47,10 @@ public class RockMushroomListener implements Listener {
         }
 
         List<String> lore = eatenItem.getItemMeta().getLore();
-        if (!isRockMushRoomPowerActive ) {
+        if (!isRockMushRoomPowerActive && lore.contains("This mushroom, despite being ")) {
 
             protocolManager = ProtocolLibrary.getProtocolManager();
 
-            player.sendMessage("POWER UP ACTIVE FOR 30s");
             player.sendMessage("CRACK CRACK GULP");
             isRockMushRoomPowerActive = true;
             new RockMushroomSphere(player, plugin, protocolManager);
@@ -71,5 +70,6 @@ public class RockMushroomListener implements Listener {
             player.setFoodLevel(19);
             plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, () -> player.setFoodLevel(20), 1L);
         }
+
     }
 }
