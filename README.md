@@ -33,7 +33,7 @@ _Flowers have a set amount of durability that represent the amount of charges le
   - To recharge the Cloud Flower, right click while holding a cloud bucket on your offhand and the Cloud Flower on your main hand.
 
        
-- Ice Flower (**NS**)
+- Ice Flower 
 
   Details:
   
@@ -56,7 +56,7 @@ _Mushrooms are consumed after one use_
 
   - When consumed, restores your health to max.
     
-- 1-UP Mushroom (**NS**)![1upmushroom](https://github.com/user-attachments/assets/e261477f-f49c-4179-94ec-b9c321a6c57a)
+- 1-UP Mushroom ![1upmushroom](https://github.com/user-attachments/assets/e261477f-f49c-4179-94ec-b9c321a6c57a)
 
 
   
@@ -65,7 +65,7 @@ _Mushrooms are consumed after one use_
   - When consumed, grants an additional health bar. It can't stack.
   - To craft it, drop grass, pumpkin seeds and bone meal inside a cauldron with water and right click the cauldron. After that, drop a brown mushroom and right click the cauldron again.
     
-- Rock Mushroom (**F**)![rockmushroom](https://github.com/user-attachments/assets/bd69358b-937c-401a-8f81-7a39a93ba720)
+- Rock Mushroom ![rockmushroom](https://github.com/user-attachments/assets/bd69358b-937c-401a-8f81-7a39a93ba720)
 
   
   Details:
