@@ -1,12 +1,6 @@
 # MarioPowerUps Plugin 1.21.4 (WIP)
 A minecraft plugin that adds various Mario PowerUps.
 
-All I played most of my childhood was Mario games and till this day I still enjoy playing some Mario games emulated on the PC.
-I like to use mario texture packs since I like to bring the world of Mario games into MC so I thought why not make a plugin that will bring something that is more than just the visual
-aspect from Mario games, something than you can interact with and feel like it is brought directly from one world to the other, like per example, various PowerUps so I can go around with my 
-Fire Flower throwing fire balls everywhere, jumping around by using the Metal Coil, or eat a Rock Mushroom and dash against enemies knocking them off or destroy walls...
-
-
 # List of PowerUps:
 
 _The list doesnt show all the PowerUps that will be in the plugin, but the ones im planning to make at the moment._
@@ -43,6 +37,15 @@ _Flowers have a set amount of durability that represent the amount of charges le
 
        
 - Ice Flower (**NS**)
+
+  Details:
+  
+     - The snowballs will slow the enemy and after multiple hits, freeze it.
+     - You can recharge it by right clicking with a snow powder bucket on your off hand and the Ice Flower in your main hand.
+     - 1 snow powder bucket = 5 snowballs. The snow powder bucket  wont be used while the Ice Flower durability is above 15, meaning
+      you can have a snow powder bucket on your off hand while you shoot snowballs without wasting it, and having it ready to recharge
+      your Ice Flower when its durability drops to 15.
+
 - Gold Flower (**NS**)
 
 
@@ -50,16 +53,20 @@ _Flowers have a set amount of durability that represent the amount of charges le
 General details:
 _Mushrooms are consumed after one use_
 
-- Spring Mushroom (**NS**)
+- Super Mushroom (**NS**)
+
+  Details:
+
+  - When consumed, restores your health to max.
+    
 - 1-UP Mushroom (**NS**)![1upmushroom](https://github.com/user-attachments/assets/e261477f-f49c-4179-94ec-b9c321a6c57a)
 
 
   
   Details:
 
-  - When consumed, grants an additional health bar.
-  - With the addition of this Power Up there is also a new custom item, Medicinal Herbs Mixture![medicinalherbsmix](https://github.com/user-attachments/assets/bee722b1-e39e-4e12-9788-c09c0466785a)
-    To craft it, drop grass, pumpkin seeds and wheat seeds inside a cauldron with water and right click the cauldron. After that, right click the cauldron with an empty bowl.
+  - When consumed, grants an additional health bar. It can't stack.
+  - To craft it, drop grass, pumpkin seeds and bone meal inside a cauldron with water and right click the cauldron. After that, drop a brown mushroom and right click the cauldron again.
     
 - Rock Mushroom (**F**)![rockmushroom](https://github.com/user-attachments/assets/bd69358b-937c-401a-8f81-7a39a93ba720)
 
@@ -73,9 +80,9 @@ _Mushrooms are consumed after one use_
 
 # Stars:
 General details:
-_All stars require a Nether Star to be crafted, but don't worry, because they won't disappear after one use like the Mushrooms. The Power Up will go on cooldown and to use its power again you'll need to recharge the Star's power with a certain item_
+_All stars require a Nether Star to be crafted, but don't worry, because they won't disappear after one use like the Mushrooms. To use its power again you'll need to recharge the Star's power with a certain item.
 
-   - Rainbow Star (**F**) [(ShowCase)](https://youtu.be/AlnyXKROF-E?si=HooZHzMA3dmzBNHt) ![RainbowStar](https://github.com/user-attachments/assets/ef4f7682-2464-4b4d-9562-0337490d5e12)
+   - Rainbow Star (**F**)   [(ShowCase)](https://youtu.be/TxubfPyeWLw?si=j9JwjPzW7Zs6VIhL) ![RainbowStar](https://github.com/user-attachments/assets/ef4f7682-2464-4b4d-9562-0337490d5e12)
 
 
      Details:
@@ -89,7 +96,7 @@ _All stars require a Nether Star to be crafted, but don't worry, because they wo
      - To recharge the Rainbow Star when its cooldown ends, right click while holding Rainbow Essence on your offhand and the Rainbow Star on your main hand.
 
        
-   - Red Star (**WIP**)![redstar](https://github.com/user-attachments/assets/fc4062a9-d1a5-40ef-ae1a-bec4994bf66c)
+   - Red Star   [(ShowCase)](https://youtu.be/TxubfPyeWLw?si=j9JwjPzW7Zs6VIhL) ![redstar](https://github.com/user-attachments/assets/fc4062a9-d1a5-40ef-ae1a-bec4994bf66c)
 
 
      Details:
@@ -100,9 +107,4 @@ _All stars require a Nether Star to be crafted, but don't worry, because they wo
        Then, refine the extract with a blaze rod to obain Refined Crimson Extract ![refinedcrimsonessence](https://github.com/user-attachments/assets/c0acd9ab-3ad4-40e4-8e33-e7de44a885bb)
        and drop it inside a cauldron filled with water, then drop a nether start to obtain a Red Star.
      - To recharge the Red Star when its cooldown ends, right click while holding Crimson Extract on your offhand and the Red Star on your main hand.
-
-
-
-
-
 
