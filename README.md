@@ -5,15 +5,12 @@ A minecraft plugin that adds various Mario PowerUps.
 
 _The list doesnt show all the PowerUps that will be in the plugin, but the ones im planning to make at the moment._
 
-**WIP**: Work In Progress
-**NS**: Not Started
-**F**: Finished
 
 # Flowers:
 General details:
 _Flowers have a set amount of durability that represent the amount of charges left. When it drops to 0 it doesnt break, you'll just need to recharge it_
 
-- Fire Flower (**F**)
+- Fire Flower 
    [(ShowCase)](https://youtu.be/_Bd3sv9p_Tk) ![fireflower](https://github.com/user-attachments/assets/fcb61598-31a8-4704-af48-318e427eb259)
 
   Details:
@@ -23,7 +20,7 @@ _Flowers have a set amount of durability that represent the amount of charges le
       you can have blaze powder on your off hand while you shoot fireballs without wasting it, and having it ready to recharge
       your Fire Flower when its durability drops to 15.
       
-- Cloud Flower (**WIP**)
+- Cloud Flower 
 
   Details:
 
@@ -46,14 +43,14 @@ _Flowers have a set amount of durability that represent the amount of charges le
       you can have a snow powder bucket on your off hand while you shoot snowballs without wasting it, and having it ready to recharge
       your Ice Flower when its durability drops to 15.
 
-- Gold Flower (**NS**)
+- Gold Flower 
 
 
 # Mushrooms:
 General details:
 _Mushrooms are consumed after one use_
 
-- Super Mushroom (**NS**)
+- Super Mushroom 
 
   Details:
 
@@ -82,7 +79,7 @@ _Mushrooms are consumed after one use_
 General details:
 _All stars require a Nether Star to be crafted, but don't worry, because they won't disappear after one use like the Mushrooms. To use its power again you'll need to recharge the Star's power with a certain item.
 
-   - Rainbow Star (**F**)   [(ShowCase)](https://youtu.be/TxubfPyeWLw?si=j9JwjPzW7Zs6VIhL) ![RainbowStar](https://github.com/user-attachments/assets/ef4f7682-2464-4b4d-9562-0337490d5e12)
+   - Rainbow Star  [(ShowCase)](https://youtu.be/TxubfPyeWLw?si=j9JwjPzW7Zs6VIhL) ![RainbowStar](https://github.com/user-attachments/assets/ef4f7682-2464-4b4d-9562-0337490d5e12)
 
 
      Details:
