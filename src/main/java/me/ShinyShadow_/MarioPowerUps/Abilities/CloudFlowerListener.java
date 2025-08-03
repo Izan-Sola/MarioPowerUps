@@ -1,7 +1,6 @@
 package me.ShinyShadow_.MarioPowerUps.Abilities;
 
 import me.ShinyShadow_.MarioPowerUps.item.ItemManager;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -29,6 +28,7 @@ public class CloudFlowerListener implements Listener {
     public void onRightClick(PlayerInteractEvent event) {
         Player player = event.getPlayer();
         ItemStack ItemInHand =  player.getInventory().getItemInMainHand();
+        ItemStack ItemOffHand = player.getInventory().getItemInOffHand();
 
         Damageable inHandDMGMeta = (Damageable) ItemInHand.getItemMeta();
             if (ItemInHand.getItemMeta() != null && ItemInHand.isSimilar(ItemManager.Cloud_Flower)) {
@@ -36,12 +36,19 @@ public class CloudFlowerListener implements Listener {
                 effects(player);
         }
 
-            if(isPowerUpActive && ItemInHand.getItemMeta() != null && ItemInHand.getItemMeta().getDisplayName().contains("Cloud Flower")&&
+            if(isPowerUpActive && ItemInHand.getItemMeta() != null && ItemInHand.getItemMeta().getLore().contains("This flower has a tendency")&&
                !player.getLocation().add(0, -1, 0).getBlock().getType().isSolid() && inHandDMGMeta.getDamage() != 20) {
                inHandDMGMeta.setDamage(inHandDMGMeta.getDamage() + 1);
                ItemInHand.setItemMeta(inHandDMGMeta);
                 new CloudFlowerCloud(player, plugin);
 
+            }
+
+            if(ItemInHand.getItemMeta().getLore().contains("This flower has a tendency") &&
+                    ItemOffHand.getItemMeta().getLore().contains("A bucket full of clouds!") &&
+                        inHandDMGMeta.getDamage() == 20) {
+
+                inHandDMGMeta.setDamage(-20);
             }
     }
 

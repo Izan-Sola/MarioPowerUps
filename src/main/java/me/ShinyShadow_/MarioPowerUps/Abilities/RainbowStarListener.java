@@ -144,7 +144,7 @@ public RainbowStarListener(JavaPlugin plugin) {
                             if (RainbowEssenceMaterials.contains(itemType)) {
                                 itemsInCaudronList.add(itemType);
                             }
-                            if (RainbowEssenceMaterials.containsAll(itemsInCaudronList) && itemsInCaudronList.size() == RainbowEssenceMaterials.size()) {
+                            if (itemsInCaudronList.containsAll(RainbowEssenceMaterials)) {
                                 RainbowEssenceMix(clickedBlock, false);
                                 cauldronState = "rainbow";
 
@@ -169,7 +169,6 @@ public RainbowStarListener(JavaPlugin plugin) {
         if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             itemInHand = player.getInventory().getItemInMainHand();
             itemInOffHand = player.getInventory().getItemInOffHand();
-
 
             Damageable onHandDMGMeta = (Damageable) itemInHand.getItemMeta();
            // Damageable rMeta = (Damageable) itemInHand.getItemMeta();
@@ -214,9 +213,6 @@ public RainbowStarListener(JavaPlugin plugin) {
                         }
 
                     }.runTaskTimer(plugin, 0L, 1L);
-                    player.setCooldown(ItemManager.Rainbow_Star, 8000);
-                    onHandDMGMeta.setDamage(onHandDMGMeta.getDamage() + 1);
-                    itemInHand.setItemMeta(onHandDMGMeta);
                 }
             }
 
@@ -250,7 +246,6 @@ public RainbowStarListener(JavaPlugin plugin) {
                 }
                 ChatColor color = glowRainbowColors.get(currentIndex);
                 team.setColor(color);
-
 
                 currentIndex = (currentIndex + 1) % rainbowColors.size();
             }

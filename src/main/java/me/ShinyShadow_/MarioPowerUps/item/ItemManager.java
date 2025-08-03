@@ -117,6 +117,7 @@ public class ItemManager {
 		CloudBucketMeta.setDisplayName(ChatColor.WHITE +  "Cloud Bucket");
 		NamespacedKey CloudBucketNS = new NamespacedKey("ec", "bucketofcloud");
 		CloudBucketMeta.setItemModel(CloudBucketNS);
+		CloudBucketMeta.setLore(Arrays.asList("A bucket full of clouds!"));
 
 
 		AirBottleMeta.setDisplayName(ChatColor.WHITE +  "Air Bottle");
@@ -160,7 +161,7 @@ public class ItemManager {
 		RainbowStarMeta.setItemModel(RainbowStarNS);
 		RainbowStarMeta.addEnchant(Enchantment.INFINITY, 1, true);
 		RainbowStarMeta.addItemFlags(org.bukkit.inventory.ItemFlag.HIDE_ENCHANTS);
-		((Damageable) RainbowStarMeta).setMaxDamage(1);
+		((Damageable) RainbowStarMeta).setMaxDamage(6000);
 
 		OneUpMushroomMeta.setDisplayName(ChatColor.GREEN +  "1-Up Mushroom" + ChatColor.BOLD);
 		NamespacedKey OneUpMushroomNS = new NamespacedKey("ec", "oneupmushroom");
@@ -174,7 +175,7 @@ public class ItemManager {
 		RedStarMeta.setItemModel(RedStarNS);
 		RedStarMeta.addEnchant(Enchantment.INFINITY, 1, true);
 		RedStarMeta.addItemFlags(org.bukkit.inventory.ItemFlag.HIDE_ENCHANTS);
-		((Damageable) RedStarMeta).setMaxDamage(1);
+		((Damageable) RedStarMeta).setMaxDamage(6000);
 
 
 		CrimsonExtract.setItemMeta(CrimsonExtractMeta);

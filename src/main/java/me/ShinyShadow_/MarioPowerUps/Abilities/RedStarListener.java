@@ -89,7 +89,6 @@ public class RedStarListener implements Listener {
                             if (powerUpBar.getProgress() <= 0.001) {
                                 powerUpBar.removePlayer(player);
                                 flightTask.cancel();
-                                player.setCooldown(ItemManager.Red_Star, 8000);
                                 this.cancel();
                             }
                         }
@@ -127,7 +126,7 @@ public class RedStarListener implements Listener {
                 if(item instanceof Item) {
                 Material itemType = ((Item) item).getItemStack().getType();
                 if (cauldronState.equals("refinedExtractBrewing") && itemType == Material.NETHER_STAR && event.getHand() != EquipmentSlot.HAND) {
-
+                    player.sendMessage("WOWERSLOLERS");
                     new BukkitRunnable() {
                         int pulseCount = 0;
 
@@ -176,12 +175,12 @@ public class RedStarListener implements Listener {
                         item.remove();
                     }
 
-                    if (CrimsonExtractMaterials.containsAll(itemsInCaudronList) && itemsInCaudronList.size() == CrimsonExtractMaterials.size()) {
+                    if (itemsInCaudronList.containsAll(CrimsonExtractMaterials)) {
                         for (Entity i : itemsInCauldron) {
                             i.remove();
                         }
 
-                        itemsInCaudronList.removeAll(CrimsonExtractMaterials);
+                        itemsInCaudronList.clear();
                         extractBrewing(player, plugin, cauldron);
                         cauldronState = "extractBrewing";
 
