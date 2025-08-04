@@ -24,7 +24,7 @@ _Flowers have a set amount of durability that represent the amount of charges le
 
   Details:
 
-  - First hold right click to activate it. When active jump, shift and left click to summon a cloud. Up to 3 per charge. You gain a jump boost while using this Power Up.
+  - First hold right click to activate it. When active jump, shift and left click to summon a cloud. You gain a jump boost while using this Power Up.
   - With the addition of this Power Up there are also 2 new custom items, bottle with air![airbottle](https://github.com/user-attachments/assets/6fd341f8-15a5-448a-930c-64d19217e2eb)
  and cloud bucket![bucketofcloud](https://github.com/user-attachments/assets/3a72276c-c513-4405-9f2d-517b381dbd9a).
 
