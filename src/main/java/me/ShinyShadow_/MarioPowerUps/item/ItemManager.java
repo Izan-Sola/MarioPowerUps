@@ -161,7 +161,7 @@ public class ItemManager {
 		RainbowStarMeta.setItemModel(RainbowStarNS);
 		RainbowStarMeta.addEnchant(Enchantment.INFINITY, 1, true);
 		RainbowStarMeta.addItemFlags(org.bukkit.inventory.ItemFlag.HIDE_ENCHANTS);
-		((Damageable) RainbowStarMeta).setMaxDamage(6000);
+		((Damageable) RainbowStarMeta).setMaxDamage(1);
 
 		OneUpMushroomMeta.setDisplayName(ChatColor.GREEN +  "1-Up Mushroom" + ChatColor.BOLD);
 		NamespacedKey OneUpMushroomNS = new NamespacedKey("ec", "oneupmushroom");
@@ -170,12 +170,13 @@ public class ItemManager {
 		OneUpMushroomMeta.setItemModel(OneUpMushroomNS);
 
 		RedStarMeta.setDisplayName(ChatColor.RED +  "★ Red Star ★" + ChatColor.BOLD);
+		RedStarMeta.setLore(Arrays.asList("This unique star contains a strange" + "power...etcetc"));
 		NamespacedKey RedStarNS = new NamespacedKey("ec", "redstar");
 		RedStarMeta.setLore(Arrays.asList(""));
 		RedStarMeta.setItemModel(RedStarNS);
 		RedStarMeta.addEnchant(Enchantment.INFINITY, 1, true);
 		RedStarMeta.addItemFlags(org.bukkit.inventory.ItemFlag.HIDE_ENCHANTS);
-		((Damageable) RedStarMeta).setMaxDamage(6000);
+		((Damageable) RedStarMeta).setMaxDamage(1);
 
 
 		CrimsonExtract.setItemMeta(CrimsonExtractMeta);

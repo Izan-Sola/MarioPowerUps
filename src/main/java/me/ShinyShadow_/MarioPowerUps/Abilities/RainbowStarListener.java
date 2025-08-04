@@ -209,14 +209,18 @@ public RainbowStarListener(JavaPlugin plugin) {
                                 team.removeEntry(player.getName());
                                 glow.cancel();
                                 this.cancel();
+                                testCount = 0;
                             }
                         }
 
                     }.runTaskTimer(plugin, 0L, 1L);
+                    onHandDMGMeta.setDamage(onHandDMGMeta.getDamage() + 1);
+                    itemInHand.setItemMeta(onHandDMGMeta);
+                    player.setCooldown(ItemManager.Rainbow_Star, 3000);
                 }
             }
 
-            if (itemInHand.getItemMeta() != null && itemInHand.getItemMeta().getLore() != null &&
+            if (itemInHand.getItemMeta() != null && itemInHand.getItemMeta().getLore() != null  && testCount == 0 &&
                     itemInHand.getItemMeta().getLore().contains("Immense and colorful energy is") && itemInOffHand.isSimilar(ItemManager.Rainbow_Essence)) {
                 onHandDMGMeta.setDamage(onHandDMGMeta.getDamage() - 1);
                 itemInHand.setItemMeta(onHandDMGMeta);
