@@ -14,6 +14,7 @@ import java.util.Arrays;
 public class ItemManager {
 
 	public static ItemStack Fire_Flower;
+	public static ItemStack Ice_Flower;
 	public static ItemStack Rock_Mushroom;
 	public static ItemStack Cloud_Flower;
 	public static ItemStack Cloud_Bucket;
@@ -26,6 +27,7 @@ public class ItemManager {
 	public static ItemStack Crimson_Extract;
 	public static ItemStack RefinedCrimson_Extract;
 
+
 	public static void init() {
 
 		createItems();
@@ -35,6 +37,9 @@ public class ItemManager {
 
 		ItemStack FireFlower = new ItemStack(Material.TORCHFLOWER, 1);
 		ItemMeta FireFlowerMeta = FireFlower.getItemMeta();
+
+		ItemStack IceFlower = new ItemStack(Material.BLUE_ORCHID, 1);
+		ItemMeta IceFlowerMeta = IceFlower.getItemMeta();
 
 		ItemStack RockMushroom = new ItemStack(Material.APPLE, 1);
 		ItemMeta RockMushroomMeta = RockMushroom.getItemMeta();
@@ -92,6 +97,12 @@ public class ItemManager {
 		FireFlowerMeta.setMaxStackSize(1);
 		((Damageable) FireFlowerMeta).setMaxDamage(20);
 
+		IceFlowerMeta.setDisplayName(ChatColor.AQUA + "Ice Flower" + ChatColor.BOLD);
+		NamespacedKey IceFlowerNS = new NamespacedKey("ec", "iceflower");
+		IceFlowerMeta.setLore(Arrays.asList("This cold flower"));
+		IceFlowerMeta.setItemModel(IceFlowerNS);
+		IceFlowerMeta.setMaxStackSize(1);
+		((Damageable) IceFlowerMeta).setMaxDamage(20);
 
 		RockMushroomMeta.setDisplayName(ChatColor.DARK_GRAY +  "Rock Mushroom" + ChatColor.BOLD);
 		NamespacedKey RockMushroomNS = new NamespacedKey("ec", "rockmushroom");
@@ -191,8 +202,9 @@ public class ItemManager {
 		CloudFlower.setItemMeta(CloudFlowerMeta);
 		CloudBucket.setItemMeta(CloudBucketMeta);
 		AirBottle.setItemMeta(AirBottleMeta);
+		IceFlower.setItemMeta(IceFlowerMeta);
 
-
+		Ice_Flower = IceFlower;
 		Crimson_Extract = CrimsonExtract;
 		RefinedCrimson_Extract = RefinedCrimsonExtract;
 		Red_Star = RedStar;

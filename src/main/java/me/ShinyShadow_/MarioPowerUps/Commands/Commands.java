@@ -11,7 +11,6 @@ public class Commands implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String s, String[] strings) {
-		// TODO Auto-generated method stub
 		
 		if(sender instanceof Player) {	
 			Player player = (Player) sender;
@@ -32,6 +31,9 @@ public class Commands implements CommandExecutor {
 				case "givecloudbucket":
 					player.getInventory().addItem(ItemManager.Cloud_Bucket);
 					break;
+				case "giverainbowessence":
+					player.getInventory().addItem(ItemManager.Rainbow_Essence);
+					break;
 				case "giverefinedrainbowessence":
 					player.getInventory().addItem(ItemManager.RefinedRainbow_Essence);
 					break;
@@ -43,6 +45,9 @@ public class Commands implements CommandExecutor {
 					break;
 				case "giveredstar":
 					player.getInventory().addItem(ItemManager.Red_Star);
+					break;
+				case "giveiceflower":
+					player.getInventory().addItem(ItemManager.Ice_Flower);
 					break;
 			}
 
