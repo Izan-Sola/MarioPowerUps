@@ -30,7 +30,7 @@ public final class Init extends JavaPlugin {
 	private final List<Listener> listeners = Arrays.asList(
 			new FireFlowerListener(this), new RockMushroomListener(this), new CloudFlowerListener(this),
 			new CustomItemRecipeListener( this), new RainbowStarListener( this), new PreventPlayerFromFuckingUpListener( this),
-			new RedStarListener( this), new OneUpMushroomListener(this), new IceFlowerListener(this)
+			new RedStarListener( this), new OneUpMushroomListener(this), new IceFlowerListener(this), new LightBoxListener( this)
 	);
 
 	public static List<ItemStack> itemStacksWithCD = new ArrayList<>();
