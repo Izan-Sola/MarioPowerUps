@@ -107,7 +107,7 @@ _All stars require a Nether Star to be crafted, but don't worry, because they wo
        and drop it inside a cauldron filled with water, then drop a nether start to obtain a Red Star.
      - To recharge the Red Star when its cooldown ends, right click while holding Crimson Extract on your offhand and the Red Star on your main hand.
 
-# Head props(?:
+# Head Boxes:
 General details:
 _While you wear them, the durability will decrease, and you will need a certain item to repair them_
 
