@@ -20,9 +20,11 @@ _Flowers have a set amount of durability that represent the amount of charges le
       you can have blaze powder on your off hand while you shoot fireballs without wasting it, and having it ready to recharge
       your Fire Flower when its durability drops to 15.
       
-- Cloud Flower  [(ShowCase)](https://youtu.be/QSV8TEy8QVc)
+- Cloud Flower  [(ShowCase)](https://youtu.be/QSV8TEy8QVc) <img width="64" height="64" alt="cloudflower" src="https://github.com/user-attachments/assets/eaef7f2f-6754-4fc8-b2d9-ec553016787e" />
+
 
   Details:
+
 
   - First hold right click to activate it. When active jump, shift and left click to summon a cloud. You gain a jump boost while using this Power Up.
   - With the addition of this Power Up there are also 2 new custom items, bottle with air![airbottle](https://github.com/user-attachments/assets/6fd341f8-15a5-448a-930c-64d19217e2eb)
