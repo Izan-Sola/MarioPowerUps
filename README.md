@@ -33,7 +33,7 @@ _Flowers have a set amount of durability that represent the amount of charges le
     To fill a bucket with clouds you need to be atleast at 190Y and right click pointing to the air to fill it with clouds.
     To fill the bottles with air you need to be aleast at Y20 and fill it the same way as the bucket.
   - To recharge the Cloud Flower, right click while holding a cloud bucket on your offhand and the Cloud Flower on your main hand.
-<img width="164" height="166" alt="image" src="https://github.com/user-attachments/assets/e70a1c19-33f9-4ea4-b4b3-3753130e2e27" />
+  - <img width="164" height="166" alt="image" src="https://github.com/user-attachments/assets/e70a1c19-33f9-4ea4-b4b3-3753130e2e27" />
 
        
 - Ice Flower 
