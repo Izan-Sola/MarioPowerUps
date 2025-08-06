@@ -33,6 +33,7 @@ _Flowers have a set amount of durability that represent the amount of charges le
     To fill a bucket with clouds you need to be atleast at 190Y and right click pointing to the air to fill it with clouds.
     To fill the bottles with air you need to be aleast at Y20 and fill it the same way as the bucket.
   - To recharge the Cloud Flower, right click while holding a cloud bucket on your offhand and the Cloud Flower on your main hand.
+<img width="164" height="166" alt="image" src="https://github.com/user-attachments/assets/e70a1c19-33f9-4ea4-b4b3-3753130e2e27" />
 
        
 - Ice Flower 
@@ -109,11 +110,13 @@ _All stars require a Nether Star to be crafted, but don't worry, because they wo
 
 # Head Boxes:
 General details:
-_While you wear them, the durability will decrease, and you will need a certain item to repair them_
+_While you wear them, the durability will decrease, and you will need a certain item to repair them. Right click to start wearing it, and right click again to stop wearing it_
 
    - Beam Box
 
 
      Details:
 
-     - Right click to start wearing it, and right click again to stop wearing it. 
+     - It has a total usage time of 5 minutes (300 durability, decreasing by 1 each second).
+     - <img width="166" height="165" alt="image" src="https://github.com/user-attachments/assets/0f6b60c2-5465-4c5b-aa99-60907ee35f72" />
+
