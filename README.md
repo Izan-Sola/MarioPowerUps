@@ -40,7 +40,7 @@ _Flowers have a set amount of durability that represent the amount of charges le
 
   Details:
   
-     - The snowballs will slow the enemy and after multiple hits, freeze it.
+     - The snowballs will slow the enemy, with a chance of freezing it.
      - You can recharge it by right clicking with a snow powder bucket on your off hand and the Ice Flower in your main hand.
      - 1 snow powder bucket = 5 snowballs. The snow powder bucket  wont be used while the Ice Flower durability is above 15, meaning
       you can have a snow powder bucket on your off hand while you shoot snowballs without wasting it, and having it ready to recharge
