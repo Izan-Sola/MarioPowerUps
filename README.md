@@ -19,6 +19,8 @@ _Flowers have a set amount of durability that represent the amount of charges le
      - 1 blaze powder = 5 fireballs. The blaze powder wont be used while the Fire Flower durability is above 15, meaning
       you can have blaze powder on your off hand while you shoot fireballs without wasting it, and having it ready to recharge
       your Fire Flower when its durability drops to 15.
+     - <img width="166" height="163" alt="image" src="https://github.com/user-attachments/assets/e8104776-2e0a-458e-b0fd-3b1ace10723a" />
+
       
 - Cloud Flower  [(ShowCase)](https://youtu.be/QSV8TEy8QVc) <img width="64" height="64" alt="cloudflower" src="https://github.com/user-attachments/assets/eaef7f2f-6754-4fc8-b2d9-ec553016787e" />
 
