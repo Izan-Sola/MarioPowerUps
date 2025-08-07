@@ -6,6 +6,7 @@ import org.bukkit.block.Block;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
+import org.bukkit.event.server.ServerLoadEvent;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Item;
@@ -40,6 +41,7 @@ public class RedStarListener implements Listener {
     private BukkitTask extractBrewingEffect;
     private BukkitTask extractBrewingSound;
     private boolean PowerUpActive = false;
+    private BossBar powerUpBar;
 
     private final List<Color> redPallete = Arrays.asList(
             Color.fromRGB(255, 0, 0),
@@ -71,8 +73,8 @@ public class RedStarListener implements Listener {
         Damageable inHandDMGMeta = ((Damageable) itemInHand.getItemMeta());
         ItemStack itemOffHand = player.getInventory().getItemInOffHand();
 
-        if (itemInHand.getItemMeta() != null && itemInHand.getItemMeta().getLore() != null && !PowerUpActive &&
-                itemInHand.getItemMeta().getLore().contains("This unique start contains a strange") && itemOffHand.isSimilar(ItemManager.Crimson_Extract)) {
+        if (itemInHand.hasItemMeta() && itemInHand.getItemMeta().hasLore() && !PowerUpActive && event.getHand() != EquipmentSlot.HAND &&
+                itemInHand.getItemMeta().getLore().contains("This unique star contains a strange") && itemOffHand.isSimilar(ItemManager.Crimson_Extract)) {
             inHandDMGMeta.setDamage(inHandDMGMeta.getDamage() - 1) ;
             itemInHand.setItemMeta(inHandDMGMeta);
             itemOffHand.setAmount(0);
@@ -81,7 +83,6 @@ public class RedStarListener implements Listener {
                && inHandDMGMeta.getDamage() != 1 && !PowerUpActive) {
             inHandDMGMeta.setDamage(inHandDMGMeta.getDamage() + 1);
             itemInHand.setItemMeta(inHandDMGMeta);
-            player.sendMessage("SEX");
             PowerUpActive = true;
         }
         if (event.getAction() == Action.RIGHT_CLICK_AIR && PowerUpActive) {
@@ -93,7 +94,7 @@ public class RedStarListener implements Listener {
                 flight(player, plugin);
 
                 if (!timerRunning) {
-                    BossBar powerUpBar = Bukkit.createBossBar("Red Star Duration", BarColor.RED, BarStyle.SEGMENTED_6);
+                    powerUpBar = Bukkit.createBossBar("Red Star Duration", BarColor.RED, BarStyle.SEGMENTED_6);
                     powerUpBar.setProgress(1);
                     powerUpBar.addPlayer(player);
 
@@ -103,7 +104,7 @@ public class RedStarListener implements Listener {
                         public void run() {
                             powerUpBar.setProgress(powerUpBar.getProgress() - 0.00041665);
 
-                            if (powerUpBar.getProgress() <= 0.001) {
+                            if (powerUpBar.getProgress() <= 0.001 || !player.isOnline() || player.isDead()) {
                                 powerUpBar.removePlayer(player);
                                 flightTask.cancel();
                                 PowerUpActive = false;
@@ -119,7 +120,6 @@ public class RedStarListener implements Listener {
         if (event.getAction() == Action.LEFT_CLICK_AIR && PowerUpActive && boostReady) {
 
             boost = true;
-            player.sendMessage("hello");
             lineOfSight = player.getLineOfSight(ignoredBlocks, 5);
             direction = lineOfSight.getLast().getLocation().toVector().subtract(player.getEyeLocation().toVector());
             player.setVelocity(direction.multiply(0.15));
@@ -143,7 +143,6 @@ public class RedStarListener implements Listener {
                 if(item instanceof Item) {
                     Material itemType = ((Item) item).getItemStack().getType();
                     if (cauldronState.equals("refinedExtractBrewing") && itemType == Material.NETHER_STAR && event.getHand() != EquipmentSlot.HAND) {
-                        player.sendMessage("WOWERSLOLERS");
                         new BukkitRunnable() {
                             int pulseCount = 0;
 
@@ -331,4 +330,11 @@ public class RedStarListener implements Listener {
         }.runTaskTimer(plugin, 0L, 1L);
     }
 
+    public void onServerReload(ServerLoadEvent event) {
+        if(event.getType() == ServerLoadEvent.LoadType.RELOAD) {
+            powerUpBar.removePlayer(player);
+            flightTask.cancel();
+            PowerUpActive = false;
+        }
+    }
 }

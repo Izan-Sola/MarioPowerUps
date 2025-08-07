@@ -54,7 +54,6 @@ public class CloudFlowerListener implements Listener {
                 offMeta.getLore().contains("A bucket full of clouds!") &&
                 inHandDMGMeta.getDamage() == 20) {
 
-            player.sendMessage("hello");
             inHandDMGMeta.setDamage(inHandDMGMeta.getDamage() - 20);
             ItemInHand.setItemMeta(inHandDMGMeta);
             ItemOffHand.setAmount(0);

@@ -2,7 +2,6 @@ package me.ShinyShadow_.MarioPowerUps.Abilities.IceFlower;
 
 //import me.ShinyShadow_.MarioPowerUps.Abilities.FireFlower.FlowerFireBall;
 
-import me.ShinyShadow_.MarioPowerUps.Abilities.FireFlower.FlowerIceBall;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

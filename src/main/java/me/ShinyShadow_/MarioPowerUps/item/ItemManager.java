@@ -26,6 +26,7 @@ public class ItemManager {
 	public static ItemStack Red_Star;
 	public static ItemStack Crimson_Extract;
 	public static ItemStack RefinedCrimson_Extract;
+	public static ItemStack Beam_Box;
 
 
 	public static void init() {
@@ -34,6 +35,9 @@ public class ItemManager {
 	}
 
 	private static void createItems() {
+
+		ItemStack BeamBox = new ItemStack(Material.NETHER_BRICK, 1);
+		ItemMeta BeamBoxMeta = BeamBox.getItemMeta();
 
 		ItemStack FireFlower = new ItemStack(Material.TORCHFLOWER, 1);
 		ItemMeta FireFlowerMeta = FireFlower.getItemMeta();
@@ -59,13 +63,13 @@ public class ItemManager {
 		ItemStack RefinedRainbowEssence = new ItemStack(Material.BUCKET, 1);
 		ItemMeta RefinedRainbowEssenceMeta = RefinedRainbowEssence.getItemMeta();
 
-		ItemStack RainbowStar = new ItemStack(Material.POTION, 1);
+		ItemStack RainbowStar = new ItemStack(Material.NETHER_BRICK, 1);
 		ItemMeta RainbowStarMeta = RainbowStar.getItemMeta();
 
 		ItemStack OneUpMushroom = new ItemStack(Material.APPLE, 1);
 		ItemMeta OneUpMushroomMeta = OneUpMushroom.getItemMeta();
 
-		ItemStack RedStar = new ItemStack(Material.POTION, 1);
+		ItemStack RedStar = new ItemStack(Material.NETHER_BRICK, 1);
 		ItemMeta RedStarMeta = RainbowStar.getItemMeta();
 
 		ItemStack CrimsonExtract = new ItemStack(Material.BOWL, 1);
@@ -82,7 +86,14 @@ public class ItemManager {
 		NamespacedKey CrimsonExtractNS = new NamespacedKey("ec", "crimsonextract");
 		CrimsonExtractMeta.setItemModel(CrimsonExtractNS);
 
-
+		BeamBoxMeta.setDisplayName(ChatColor.RED + "Beam Box" + ChatColor.BOLD);
+		NamespacedKey BeamBoxNS = new NamespacedKey("ec", "beambox");
+		BeamBoxMeta.setItemModel(BeamBoxNS);
+//		BeamBoxMeta.addEnchant(Enchantment.INFINITY, 1, true);
+//		BeamBoxMeta.addItemFlags(org.bukkit.inventory.ItemFlag.HIDE_ENCHANTS);
+		BeamBoxMeta.setLore(Arrays.asList("Wear it on your head", "to illuminate your path"));
+		BeamBoxMeta.setMaxStackSize(1);
+		((Damageable) BeamBoxMeta).setMaxDamage(300);
 
 		FireFlowerMeta.setDisplayName(ChatColor.RED +  "Fire Flower" + ChatColor.BOLD);
 		NamespacedKey FireFlowerNS = new NamespacedKey("ec", "fireflower");
@@ -181,15 +192,15 @@ public class ItemManager {
 		OneUpMushroomMeta.setItemModel(OneUpMushroomNS);
 
 		RedStarMeta.setDisplayName(ChatColor.RED +  "★ Red Star ★" + ChatColor.BOLD);
-		RedStarMeta.setLore(Arrays.asList("This unique star contains a strange" + "power...etcetc"));
+		RedStarMeta.setLore(Arrays.asList("This unique star contains a strange",
+											"power...etcetc"));
 		NamespacedKey RedStarNS = new NamespacedKey("ec", "redstar");
-		RedStarMeta.setLore(Arrays.asList(""));
 		RedStarMeta.setItemModel(RedStarNS);
 		RedStarMeta.addEnchant(Enchantment.INFINITY, 1, true);
 		RedStarMeta.addItemFlags(org.bukkit.inventory.ItemFlag.HIDE_ENCHANTS);
 		((Damageable) RedStarMeta).setMaxDamage(1);
 
-
+		BeamBox.setItemMeta(BeamBoxMeta);
 		CrimsonExtract.setItemMeta(CrimsonExtractMeta);
 		RefinedCrimsonExtract.setItemMeta(RefinedCrimsonExtractMeta);
 		RedStar.setItemMeta(RedStarMeta);
@@ -204,6 +215,7 @@ public class ItemManager {
 		AirBottle.setItemMeta(AirBottleMeta);
 		IceFlower.setItemMeta(IceFlowerMeta);
 
+		Beam_Box = BeamBox;
 		Ice_Flower = IceFlower;
 		Crimson_Extract = CrimsonExtract;
 		RefinedCrimson_Extract = RefinedCrimsonExtract;

@@ -23,9 +23,9 @@ public class CustomItemRecipeListener implements Listener {
 
     public CustomItemRecipeListener(JavaPlugin plugin) {
         this.plugin = plugin;
-        cloudflowermatrix[0] = new ItemStack(Material.GLASS_BOTTLE);
-        cloudflowermatrix[1] = new ItemStack(Material.GLASS_BOTTLE);
-        cloudflowermatrix[2] = new ItemStack(Material.GLASS_BOTTLE);
+        cloudflowermatrix[0] = new ItemStack(Material.BUCKET);
+        cloudflowermatrix[1] = new ItemStack(Material.BUCKET);
+        cloudflowermatrix[2] = new ItemStack(Material.BUCKET);
         cloudflowermatrix[3] = new ItemStack(Material.FEATHER);
         cloudflowermatrix[4] = new ItemStack(Material.OXEYE_DAISY);
         cloudflowermatrix[5] = new ItemStack(Material.FEATHER);
@@ -48,6 +48,7 @@ public class CustomItemRecipeListener implements Listener {
 
             if (matches) {
                 if(!hasCloudBucket || airBottlesCount != 3) {
+
                     inventory.setResult(null);
                 }
             }
@@ -85,11 +86,11 @@ public class CustomItemRecipeListener implements Listener {
         if(event.getAction() == Action.RIGHT_CLICK_AIR) {
 
             if ( itemInHand.getType() == Material.BUCKET && player.getLocation().getY() >= 190 ) {
-                itemInHand.setAmount(0);
+                itemInHand.setAmount(itemInHand.getAmount()-1);
                 player.getInventory().addItem(ItemManager.Cloud_Bucket);
             }
             else if ( itemInHand.getType() == Material.GLASS_BOTTLE && !itemInHand.isSimilar(ItemManager.Cloud_Flower) && player.getLocation().getY() >= 20 && !itemInHand.isSimilar(ItemManager.Cloud_Flower)) {
-                itemInHand.setAmount(0);
+                itemInHand.setAmount(itemInHand.getAmount()-1);
                 player.getInventory().addItem(ItemManager.Air_Bottle);
             }
         }

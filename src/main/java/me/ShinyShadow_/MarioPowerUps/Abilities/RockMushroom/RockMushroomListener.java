@@ -1,5 +1,6 @@
 package me.ShinyShadow_.MarioPowerUps.Abilities.RockMushroom;
 
+
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
 import org.bukkit.Material;
@@ -20,12 +21,11 @@ public class RockMushroomListener implements Listener {
     private final JavaPlugin plugin;
     private int lastBlock = 8;
     public static boolean isRockMushRoomPowerActive = false;
-    private ProtocolManager protocolManager;
     Set<Material> ignoredBlocks = Set.of(Material.AIR, Material.GRASS_BLOCK, Material.TALL_GRASS);
     public RockMushroomListener(JavaPlugin plugin) {
         this.plugin = plugin;
     }
-
+    private ProtocolManager protocolManager;
     @EventHandler
     public void onSneakToggle(PlayerToggleSneakEvent event) {
         Player player = event.getPlayer();
@@ -67,7 +67,7 @@ public class RockMushroomListener implements Listener {
         }
         else if (player.getInventory().getItemInMainHand().getItemMeta() != null &&
                  player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().contains("Rock Mushroom")) {
-            player.setFoodLevel(19);
+            player.setFoodLevel(player.getFoodLevel() - 1);
             plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, () -> player.setFoodLevel(20), 1L);
         }
 

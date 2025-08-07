@@ -1,6 +1,5 @@
 package me.ShinyShadow_.MarioPowerUps.Abilities;
 
-import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
 import me.ShinyShadow_.MarioPowerUps.item.ItemManager;
 import org.bukkit.*;
@@ -10,6 +9,7 @@ import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
@@ -53,14 +53,18 @@ public class OneUpMushroomListener implements Listener {
         if(eatenItem == null || eatenItem.getItemMeta().getLore() == null ) {
             return;
         }
-        if (eatenItem.getItemMeta().getLore().contains("A 1Up mushroom a day, ")) {
-            player.setMaxHealth(player.getMaxHealth()+20);
-            player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 50, 4));
-            Bukkit.getScheduler().runTaskLater(plugin, () -> {
-                player.setMaxHealth(20);
-            }, 300);
+        if (eatenItem.getItemMeta().getLore().contains("A 1Up mushroom a day, ") ) {
+            if(player.getMaxHealth() > 20) {
+                player.sendMessage("You can only eat this mushroom when under 21 HP!");
+            } else {
+                player.setMaxHealth(player.getMaxHealth() + 20);
+                player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 50, 4));
+                Bukkit.getScheduler().runTaskLater(plugin, () -> {
+                    player.setMaxHealth(player.getMaxHealth() - 20);
+                }, 6000);
+            }
         }
-            protocolManager = ProtocolLibrary.getProtocolManager();
+    //        protocolManager = ProtocolLibrary.getProtocolManager();
 
     }
 
@@ -69,24 +73,17 @@ public class OneUpMushroomListener implements Listener {
 
         Player player = event.getPlayer();
         Block clickedBlock = event.getClickedBlock();
+        ItemStack inHandItem = player.getInventory().getItemInMainHand();
         if( itemsInCauldron != null ) itemsInCauldron.clear();
 
-        if(player.getFoodLevel() != 20) {
-            return;
-        }
-        else if (player.getInventory().getItemInMainHand().getItemMeta() != null &&
-                player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().contains("1-Up Mushroom")) {
-            if (player.getMaxHealth() == 20) {
-                player.setFoodLevel(19);
+         if (inHandItem.hasItemMeta() && inHandItem.getItemMeta().hasLore() &&
+                 inHandItem.getItemMeta().getLore().contains("A 1Up mushroom a day, ")) {
+                player.setFoodLevel(player.getFoodLevel() - 1);
                 plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, () -> player.setFoodLevel(20), 1L);
-            }
-            else {
-                event.setCancelled(true);
-            }
         }
 
 
-        if (clickedBlock != null && clickedBlock.getType() == Material.WATER_CAULDRON) {
+        if (event.getAction() == Action.RIGHT_CLICK_BLOCK && clickedBlock != null && clickedBlock.getType() == Material.WATER_CAULDRON) {
             itemsInCauldron = clickedBlock.getWorld().getNearbyEntities(clickedBlock.getLocation(), 1, 1, 1);
             itemsInCauldronList.clear();
 
@@ -97,14 +94,15 @@ public class OneUpMushroomListener implements Listener {
 
                     if(HerbsMixIngredients.contains(itemType) || MushroomIngredient.contains(itemType)) item.remove();
                 }
-             //
             }
+            player.sendMessage("Items in cauldron: " + itemsInCauldronList.toString());
+            player.sendMessage("Expected ingredients: " + HerbsMixIngredients.toString());
 
             if (!itemsInCauldronList.isEmpty() && new HashSet<>(itemsInCauldronList).containsAll(HerbsMixIngredients)) {
-
+                player.sendMessage("erhiujbggewijhwegrjkhet");
                 HerbsMix(clickedBlock);
             }
-            if (itemsInCauldronList.contains(Material.BROWN_MUSHROOM)  && HerbsMixReady && event.getHand()  == EquipmentSlot.HAND ) {
+            if (itemsInCauldronList.contains(Material.BROWN_MUSHROOM)  && HerbsMixReady && event.getHand() != EquipmentSlot.HAND ) {
                 itemsInCauldron = clickedBlock.getWorld().getNearbyEntities(clickedBlock.getLocation(), 1, 1, 1);
 
                     player.playSound(clickedBlock.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1, 0.5f);

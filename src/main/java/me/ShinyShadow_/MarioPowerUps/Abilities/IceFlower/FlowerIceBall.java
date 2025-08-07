@@ -1,4 +1,4 @@
-package me.ShinyShadow_.MarioPowerUps.Abilities.FireFlower;
+package me.ShinyShadow_.MarioPowerUps.Abilities.IceFlower;
 
 import org.bukkit.*;
 import org.bukkit.block.Block;
@@ -29,7 +29,7 @@ public class FlowerIceBall {
     private int bounceCount = 0;
     private double bounceHeightModifier = 2.8;
     private double t = 0.0; // Progress along the curve
-    Set<Material> ignoredBlocks = Set.of(Material.AIR, Material.GRASS_BLOCK, Material.TALL_GRASS);
+    Set<Material> ignoredBlocks = Set.of(Material.AIR, Material.GRASS_BLOCK, Material.TALL_GRASS, Material.SNOW, Material.LIGHT);
     List<Block> tempIceBlocks = new ArrayList<>();
     public FlowerIceBall(Location eyeLoc, Player player, JavaPlugin plugin, Location spawn) {
 
@@ -41,6 +41,7 @@ public class FlowerIceBall {
         if(bounceDistance > lineOfSight.size()-1) {
             bounceDistance = lineOfSight.size()-1;
         }
+
         curvePoint = lineOfSight.get(bounceDistance/2).getLocation().add(0, 2.5, 0);
         endPoint = lineOfSight.get(bounceDistance).getLocation().add(0, 0, 0);
 
@@ -143,9 +144,9 @@ public class FlowerIceBall {
     }
     public void newPoints(Marker iceballPather, List<Block> lineOfSight, Player player) {
 
-       // iceballPather.getWorld().spawnParticle(Particle.FA, iceballPather.getLocation(), 14, 0.2, 0.2, 0.2, 0.1);
-       // iceballPather.getWorld().spawnParticle(Particle.FALLING_DUST, iceballPather.getLocation(), 18, 0.2, 0.2, 0.2, 0.2, new Particle.DustOptions(Color.WHITE, 1));
-       // iceballPather.getWorld().spawnParticle(Particle.SNOWFLAKE, iceballPather.getLocation(), 12, 0.2, 0.2, 0.2, 1.8);
+        // iceballPather.getWorld().spawnParticle(Particle.FA, iceballPather.getLocation(), 14, 0.2, 0.2, 0.2, 0.1);
+        // iceballPather.getWorld().spawnParticle(Particle.FALLING_DUST, iceballPather.getLocation(), 18, 0.2, 0.2, 0.2, 0.2, new Particle.DustOptions(Color.WHITE, 1));
+        // iceballPather.getWorld().spawnParticle(Particle.SNOWFLAKE, iceballPather.getLocation(), 12, 0.2, 0.2, 0.2, 1.8);
 
         player.playSound(iceballPather.getLocation(), Sound.BLOCK_LAVA_EXTINGUISH, 0.1f, 4f);
         player.getWorld().playSound(player.getLocation(), Sound.ENTITY_BLAZE_SHOOT, 0.1f, 3.4f);
@@ -156,7 +157,7 @@ public class FlowerIceBall {
         if(snowCarpetLoc.getRelative(BlockFace.DOWN).getType() == Material.AIR) {
             snowCarpetLoc.getLocation().add(0, -1, 0).getBlock().setBlockData(Material.SNOW.createBlockData());
         } else {
-          snowCarpetLoc.setBlockData(Material.SNOW.createBlockData());
+            snowCarpetLoc.setBlockData(Material.SNOW.createBlockData());
         }
 
         double offSetY = touchedBlock.getY();

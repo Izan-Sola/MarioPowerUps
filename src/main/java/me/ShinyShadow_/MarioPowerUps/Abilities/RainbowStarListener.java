@@ -14,6 +14,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.server.ServerLoadEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
@@ -63,8 +64,11 @@ public class RainbowStarListener implements Listener {
     private ItemStack itemInHand;
     private ItemStack itemInOffHand;
     private BukkitTask glow;
+    private Player player;
+    private BossBar powerUpBar;
     Scoreboard scoreboard;
     Team team;
+    public boolean PowerUpActive = false;
 
 public RainbowStarListener(JavaPlugin plugin) {
 
@@ -72,13 +76,13 @@ public RainbowStarListener(JavaPlugin plugin) {
 }
     @EventHandler
     public void onRightClick(PlayerInteractEvent event) {
-        Player player = event.getPlayer();
+        player = event.getPlayer();
         itemInHand = player.getInventory().getItemInMainHand();
         itemInOffHand = player.getInventory().getItemInOffHand();
 
         if (itemInHand.isSimilar(ItemManager.Rainbow_Essence) && itemInOffHand.getType() == Material.PHANTOM_MEMBRANE) {
             itemInHand.setAmount(0);
-            itemInOffHand.setAmount(0);
+            itemInOffHand.setAmount(itemInOffHand.getAmount()-1);
             player.spawnParticle(Particle.ELECTRIC_SPARK, player.getLocation().add(0., 0.8, 0), 45, 0.4, 0.2, 0.4, 0.1);
             player.getInventory().addItem(ItemManager.RefinedRainbow_Essence);
         }
@@ -156,8 +160,8 @@ public RainbowStarListener(JavaPlugin plugin) {
                         }
                     }
 
-                    if (cauldronState.equals("rainbow") && player.getInventory().getItemInMainHand().getType() == Material.GLASS_BOTTLE) {
-                        player.getInventory().getItemInMainHand().setAmount(0);
+                    if (cauldronState.equals("rainbow") && itemInHand.getType() == Material.GLASS_BOTTLE) {
+                        itemInHand.setAmount(itemInOffHand.getAmount()-1);
                         player.getInventory().addItem(ItemManager.Rainbow_Essence);
                         EssenceMix.cancel();
                         EssenceBrewing.cancel();
@@ -167,19 +171,17 @@ public RainbowStarListener(JavaPlugin plugin) {
         }
 
         if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
-            itemInHand = player.getInventory().getItemInMainHand();
-            itemInOffHand = player.getInventory().getItemInOffHand();
 
             Damageable onHandDMGMeta = (Damageable) itemInHand.getItemMeta();
            // Damageable rMeta = (Damageable) itemInHand.getItemMeta();
 
-            if(itemInHand.getItemMeta() != null && itemInHand.getItemMeta().getLore() != null && itemInHand.getItemMeta().getLore().contains("Immense and colorful energy is") && player.getCooldown(ItemManager.Rainbow_Star) <= 0) {
+            if(itemInHand.hasItemMeta() && itemInHand.getItemMeta().hasLore() && itemInHand.getItemMeta().getLore().contains("Immense and colorful energy is") && player.getCooldown(ItemManager.Rainbow_Star) <= 0) {
                 if ( onHandDMGMeta.getDamage() != 1) {
-
+                    PowerUpActive = true;
                     player.spawnParticle(Particle.ELECTRIC_SPARK, player.getLocation().add(0., 0.8, 0), 80, 0.6, 0.6, 0.6, 0);
                     player.getWorld().playSound(player.getLocation(), Sound.ENTITY_BREEZE_JUMP, 2f, 1.4f);
                     player.getWorld().playSound(player.getLocation(), Sound.ENTITY_BREEZE_SHOOT, 2f, 1.2f);
-                    BossBar powerUpBar = Bukkit.createBossBar("RainbowStar Duration", BarColor.WHITE, BarStyle.SOLID);
+                    powerUpBar = Bukkit.createBossBar("RainbowStar Duration", BarColor.WHITE, BarStyle.SOLID);
                     powerUpBar.setProgress(1);
                     powerUpBar.addPlayer(player);
                     rainbowGlow(player);
@@ -216,15 +218,15 @@ public RainbowStarListener(JavaPlugin plugin) {
                     }.runTaskTimer(plugin, 0L, 1L);
                     onHandDMGMeta.setDamage(onHandDMGMeta.getDamage() + 1);
                     itemInHand.setItemMeta(onHandDMGMeta);
-                    player.setCooldown(ItemManager.Rainbow_Star, 3000);
                 }
             }
 
-            if (itemInHand.getItemMeta() != null && itemInHand.getItemMeta().getLore() != null  && testCount == 0 &&
-                    itemInHand.getItemMeta().getLore().contains("Immense and colorful energy is") && itemInOffHand.isSimilar(ItemManager.Rainbow_Essence)) {
+            if (itemInHand.hasItemMeta() && itemInHand.getItemMeta().hasLore() && !PowerUpActive &&
+                    itemInHand.getItemMeta().getLore().contains("Immense and colorful energy is") &&
+                    itemInOffHand.isSimilar(ItemManager.Rainbow_Essence) && event.getHand() == EquipmentSlot.HAND) {
                 onHandDMGMeta.setDamage(onHandDMGMeta.getDamage() - 1);
                 itemInHand.setItemMeta(onHandDMGMeta);
-                itemInOffHand.setAmount(0);
+                itemInOffHand.setAmount(itemInOffHand.getAmount()-1);
             }
 
         }
@@ -243,7 +245,7 @@ public RainbowStarListener(JavaPlugin plugin) {
 
             @Override
             public void run() {
-                if (!player.isOnline()) {
+                if (!player.isOnline() || player.isDead()) {
 
                     this.cancel();
                     return;
@@ -299,4 +301,14 @@ public RainbowStarListener(JavaPlugin plugin) {
             }
         }.runTaskTimer(plugin, 0L, 12L);
     }
+
+    public void onServerReload(ServerLoadEvent event) {
+        if(event.getType() == ServerLoadEvent.LoadType.RELOAD) {
+            powerUpBar.removePlayer(player);
+            glow.cancel();
+            team.removeEntry(player.getName());
+            PowerUpActive = false;
+        }
+    }
 }
+

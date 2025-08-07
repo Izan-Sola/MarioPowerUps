@@ -1,9 +1,6 @@
 package me.ShinyShadow_.MarioPowerUps.Abilities.FireFlower;
 
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.Particle;
-import org.bukkit.Sound;
+import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.*;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -93,6 +90,16 @@ public class FlowerFireBall {
 
                     fireBallPather.getWorld().spawnParticle(Particle.FLAME, currentLocation, 8, 0.1, 0.1, 0.1, 0);
                     fireBallPather.getWorld().spawnParticle(Particle.SMOKE, currentLocation, 8, 0.1, 0.1, 0.1, 0);
+
+
+                    if(currentLocation.getBlock().getType() == Material.AIR) {
+                        Block tempLightBlock = currentLocation.getBlock();
+                        currentLocation.getBlock().setBlockData(Bukkit.createBlockData("minecraft:light[level=10]"), false);
+
+                        Bukkit.getScheduler().runTaskLater(plugin, () -> {
+                            tempLightBlock.setBlockData(Material.AIR.createBlockData());
+                        }, 10);
+                    }
                     Collection<Entity> nearbyEntities = fireBallPather.getWorld().getNearbyEntities(currentLocation, 1, 1, 1);
 
                     for(Entity entity : nearbyEntities) {

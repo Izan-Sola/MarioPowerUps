@@ -1,5 +1,6 @@
 package me.ShinyShadow_.MarioPowerUps.Abilities.CloudFlower;
 
+import me.ShinyShadow_.MarioPowerUps.Init;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -38,6 +39,7 @@ public class CloudFlowerCloud {
             if( !bLoc.getBlock().getType().isSolid()) {
                 bLoc.getBlock().setType(Material.PALE_OAK_SLAB);
                 placedBlocksList.add(bLoc);
+                Init.tempBlocks.add(bLoc.getBlock());
             }
         }
         player.getWorld().spawnParticle(Particle.CLOUD, placedBlocksList.getFirst().getBlock().getLocation().add(0.5, 0, 0.5), 50, 0.4, 0.4, 0.4, 1);
@@ -45,6 +47,7 @@ public class CloudFlowerCloud {
         Bukkit.getScheduler().runTaskLater(plugin, () -> {
             for (Location block : placedBlocksList) {
                  block.getBlock().setType(Material.AIR);
+                 Init.tempBlocks.remove(block.getBlock());
                  cloudParticlesTask.cancel();
             }
         }, 300);
