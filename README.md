@@ -119,6 +119,6 @@ _While you wear them, the durability will decrease, and you will need a certain 
 
      Details:
 
-     - It has a total usage time of 5 minutes (300 durability, decreasing by 1 each second).
+     - It has a total usage time of 5 minutes (300 durability, decreasing by 1 each second). To recharge it, you need to hold coal in your off hand, and the Beam Box in your main hand, then right click. Each time 1 coal will be consumed to recharge 10 durability.
      - <img width="166" height="165" alt="image" src="https://github.com/user-attachments/assets/0f6b60c2-5465-4c5b-aa99-60907ee35f72" />
 
