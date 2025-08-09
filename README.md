@@ -1,5 +1,6 @@
 # MarioPowerUps Plugin 1.21.4+ (WIP)
 A minecraft plugin that adds various Mario PowerUps. Requires ProtocolLib.
+In future updates, the next power ups and changes will be made: 3d model for Beam Box instead of display blocks and future head boxes, Ice Flower freezing the water, Super Mushroom, Cannon Box, ? Box...
 
 # List of PowerUps:
 
