@@ -1,4 +1,4 @@
-<img width="164" height="165" alt="image" src="https://github.com/user-attachments/assets/663b7da7-e363-480d-8a63-ad3ed2379a5e" /># MarioPowerUps Plugin 1.21.4+ (WIP)
+# MarioPowerUps Plugin 1.21.4+ (WIP)
 A minecraft plugin that adds various Mario PowerUps. Requires ProtocolLib.
 
 # List of PowerUps:
