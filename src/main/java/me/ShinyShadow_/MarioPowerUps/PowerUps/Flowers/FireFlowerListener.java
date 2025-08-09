@@ -60,7 +60,7 @@ public class FireFlowerListener implements Listener{
 
         }
         //Shoot Fire Balls
-        if (onHandItem.getItemMeta().getLore() != null &&  onHandItem.getItemMeta().getLore().contains("This innocent looking flower ")) {
+        if (onHandItem.getItemMeta().hasLore() &&  onHandItem.getItemMeta().getLore().contains("This innocent looking flower ")) {
             if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
 
 

@@ -51,8 +51,10 @@ public class Commands implements CommandExecutor {
 					break;
 				case "givecrimsonextract":
 					player.getInventory().addItem(ItemManager.Crimson_Extract);
+					break;
 				case "giverefinedcrimsonextract":
 					player.getInventory().addItem(ItemManager.RefinedCrimson_Extract);
+					break;
 				case "powerupshelp":
 					player.sendMessage("Help: You can get a copy of a powerup or custom item typing, per example, /givefireflower, /givecloudbucket"+
 							"");

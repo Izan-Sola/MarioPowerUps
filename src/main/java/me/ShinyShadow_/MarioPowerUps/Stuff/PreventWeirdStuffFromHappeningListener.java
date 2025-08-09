@@ -94,7 +94,9 @@ public class PreventWeirdStuffFromHappeningListener implements Listener {
     }
     @EventHandler
     public void onServerReload(ServerLoadEvent event) {
+        if(event.getType() == ServerLoadEvent.LoadType.RELOAD) {
         Init.removeAndClearStuff();
+        }
     }
 
 

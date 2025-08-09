@@ -213,10 +213,7 @@ public RainbowStarListener(JavaPlugin plugin) {
 
                             testCount += 1;
                             if (testCount >= 2400) {
-                                powerUpBar.removePlayer(player);
-                                team.removeEntry(player.getName());
-                                glow.cancel();
-                                this.cancel();
+                                disablePowerUp();
                                 testCount = 0;
                             }
                         }
@@ -310,9 +307,9 @@ public RainbowStarListener(JavaPlugin plugin) {
 
     public static void disablePowerUp() {
 
-        powerUpBar.removePlayer(player);
-        glow.cancel();
-        team.removeEntry(player.getName());
+        if(powerUpBar != null) powerUpBar.removePlayer(player);
+        if(glow != null) glow.cancel();
+        if(team != null) team.removeEntry(player.getName());
         PowerUpActive = false;
         cauldronState = "none";
     }

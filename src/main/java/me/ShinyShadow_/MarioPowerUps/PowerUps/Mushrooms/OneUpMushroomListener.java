@@ -125,7 +125,7 @@ public class OneUpMushroomListener implements Listener {
                 if(!HerbsMixReady) cancel();
                 cauldron.getWorld().spawnParticle(Particle.DUST, cauldron.getLocation().add(0.5, 0.6, 0.5), 20, 0.18, 0.2, 0.18, 0.1,
                         new Particle.DustOptions(Color.GREEN, 1));
-                cauldron.getWorld().spawnParticle(Particle.HAPPY_VILLAGER,cauldron.getLocation().add(0.5, 0.6, 0.5), 8, 0.18, 0.2, 0.18, 0.1);
+               // cauldron.getWorld().spawnParticle(Particle.HAPPY_VILLAGER,cauldron.getLocation().add(0.5, 0.6, 0.5), 8, 0.18, 0.2, 0.18, 0.1);
                 cauldron.getWorld().spawnParticle(Particle.BUBBLE_POP,  cauldron.getLocation().add(0.5, 1, 0.5), 6, 0.2, 0.2, 0.2, 0);
                 cauldron.getWorld().spawnParticle(Particle.CAMPFIRE_COSY_SMOKE,  cauldron.getLocation().add(0.5, 0.6, 0.5), 2, 0.1, 0.2, 0.1, 0);
 

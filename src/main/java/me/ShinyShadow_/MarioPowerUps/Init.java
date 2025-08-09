@@ -1,15 +1,15 @@
 package me.ShinyShadow_.MarioPowerUps;
 
+import me.ShinyShadow_.MarioPowerUps.Commands.Commands;
 import me.ShinyShadow_.MarioPowerUps.PowerUps.Flowers.CloudFlower.CloudFlowerListener;
 import me.ShinyShadow_.MarioPowerUps.PowerUps.Flowers.FireFlowerListener;
 import me.ShinyShadow_.MarioPowerUps.PowerUps.Flowers.IceFlowerListener;
 import me.ShinyShadow_.MarioPowerUps.PowerUps.HeadBoxes.LightBoxListener;
 import me.ShinyShadow_.MarioPowerUps.PowerUps.Mushrooms.OneUpMushroomListener;
+import me.ShinyShadow_.MarioPowerUps.PowerUps.Mushrooms.RockMushroom.RockMushroomListener;
+import me.ShinyShadow_.MarioPowerUps.PowerUps.Mushrooms.RockMushroom.RockMushroomSphere;
 import me.ShinyShadow_.MarioPowerUps.PowerUps.Stars.RainbowStarListener;
 import me.ShinyShadow_.MarioPowerUps.PowerUps.Stars.RedStarListener;
-import me.ShinyShadow_.MarioPowerUps.PowerUps.Mushrooms.RockMushroom.RockMushroomListener;
-import me.ShinyShadow_.MarioPowerUps.Commands.Commands;
-import me.ShinyShadow_.MarioPowerUps.PowerUps.Mushrooms.RockMushroom.RockMushroomSphere;
 import me.ShinyShadow_.MarioPowerUps.Stuff.CustomItemRecipeListener;
 import me.ShinyShadow_.MarioPowerUps.Stuff.PreventWeirdStuffFromHappeningListener;
 import me.ShinyShadow_.MarioPowerUps.item.ItemManager;
@@ -17,6 +17,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.block.Block;
+import org.bukkit.command.PluginCommand;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
@@ -34,7 +35,7 @@ public final class Init extends JavaPlugin {
 	private final List<String> commands = Arrays.asList(
 			"givefireflower", "giverockmushroom", "givecloudflower", "giveairbottle", "givecloudbucket",
 			"giverefinedrainbowessence", "giverainbowstar", "give1upmushroom", "giveredstar", "giverainbowessence",
-			"giveiceflower", "powerupshelp", "givecrimsonexract", "giverefinedcrimsonextract"
+			"giveiceflower", "powerupshelp", "givecrimsonextract", "giverefinedcrimsonextract"
 	);
 
 	private final List<Listener> listeners = Arrays.asList(
@@ -53,7 +54,12 @@ public final class Init extends JavaPlugin {
 		ItemManager.init();
 
 		for (String command : commands) {
-			getCommand(command).setExecutor(new Commands());
+			PluginCommand pluginCommand = getCommand(command);
+			if (pluginCommand != null) {
+				pluginCommand.setExecutor(new Commands());
+			} else {
+
+			}
 		}
 		for (Listener listener : listeners) {
 			Bukkit.getPluginManager().registerEvents(listener, this);

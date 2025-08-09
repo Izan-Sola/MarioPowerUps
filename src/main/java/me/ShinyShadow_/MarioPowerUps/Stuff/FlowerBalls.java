@@ -145,8 +145,9 @@ public class FlowerBalls {
             entity.setFireTicks(80);
             entity.damage(6);
         } else {
-            entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 60, 8));
+            entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 60, 1));
             if (rInt.nextInt(3) == 2) {
+                entity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 60, 8));
                 Block IceBlock1 = entity.getLocation().getBlock();
                 Block IceBlock2 = IceBlock1.getRelative(BlockFace.UP);
                 IceBlock1.setBlockData(Material.ICE.createBlockData());

@@ -10,7 +10,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.server.ServerLoadEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -51,7 +50,7 @@ public class LightBoxListener implements Listener {
         ItemStack itemOffHand = player.getInventory().getItemInOffHand();
         Damageable itemInHandDMGMeta = ((Damageable) itemInHand.getItemMeta());
 
-        if (event.getAction() == Action.RIGHT_CLICK_AIR && itemInHand.getItemMeta().hasLore() &&
+        if (event.getAction() == Action.RIGHT_CLICK_AIR && itemInHand.hasItemMeta() && itemInHand.getItemMeta().hasLore() &&
                 itemInHand.getItemMeta().getLore().contains("Wear it on your head") && itemInHandDMGMeta.getDamage() != 300) {
 
             if(wearingBeamBox) {
@@ -122,7 +121,7 @@ public class LightBoxListener implements Listener {
 
                 Vector offset = new Vector(-0.5, 0, -0.75);
                 Vector offset2 = new Vector(0.18, 0.15, 0.55);
-                Vector offset3 = new Vector(-0.025, 0.04, 0.);
+                Vector offset3 = new Vector(-0.025, 0.03, 0.);
                 offset.rotateAroundY(-Math.toRadians(headCenter.getYaw()));
                 offset2.rotateAroundY(-Math.toRadians(headCenter.getYaw()));
                 offset3.rotateAroundY(-Math.toRadians(headCenter.getYaw()));
@@ -236,23 +235,13 @@ public class LightBoxListener implements Listener {
     public static void removeBeamBox() {
 
         wearingBeamBox = false;
-        particleTask.cancel();
-        lightTask.cancel();
-        display1.remove();
-        display2.remove();
-        display3.remove();
-
-    }
-
-    @EventHandler
-    public void onServerReload(ServerLoadEvent event) {
-        if(event.getType() == ServerLoadEvent.LoadType.RELOAD) {
-            wearingBeamBox = false;
-            particleTask.cancel();
-            lightTask.cancel();
+        if(particleTask != null) particleTask.cancel();
+        if(lightTask != null) lightTask.cancel();
+        if(display1 != null && display2 != null && display3 != null) {
             display1.remove();
             display2.remove();
             display3.remove();
         }
     }
+
 }

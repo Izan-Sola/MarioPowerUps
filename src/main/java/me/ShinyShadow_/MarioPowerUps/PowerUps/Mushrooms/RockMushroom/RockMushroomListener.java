@@ -60,7 +60,8 @@ public class RockMushroomListener implements Listener {
 
             } else {
                 player.sendMessage("You can't use the Rock Mushroom right now!");
-                player.getInventory().addItem(eatenItem);
+
+
             }
         }
     }

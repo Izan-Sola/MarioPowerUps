@@ -82,7 +82,7 @@ public class RedStarListener implements Listener {
         if (event.getAction() == Action.RIGHT_CLICK_AIR && event.getHand() == EquipmentSlot.HAND && itemInHand.isSimilar(ItemManager.Red_Star)
                && inHandDMGMeta.getDamage() != 1 && !PowerUpActive) {
 
-            if (!PreventWeirdStuffFromHappeningListener.isAnyConflictivePowerActive()) {
+            if (PreventWeirdStuffFromHappeningListener.isAnyConflictivePowerActive()) {
                 player.sendMessage("You can't use the Red Star right now!");
                 return;
             }
@@ -111,10 +111,7 @@ public class RedStarListener implements Listener {
                             powerUpBar.setProgress(powerUpBar.getProgress() - 0.00041665);
 
                             if (powerUpBar.getProgress() <= 0.001 || !player.isOnline() || player.isDead()) {
-                                powerUpBar.removePlayer(player);
-                                flightTask.cancel();
-                                PowerUpActive = false;
-                                this.cancel();
+                                 disablePowerUp();
                             }
                         }
                     }.runTaskTimer(plugin, 0L, 1L);
@@ -337,8 +334,8 @@ public class RedStarListener implements Listener {
     }
 
     public static void disablePowerUp() {
-        powerUpBar.removePlayer(player);
-        flightTask.cancel();
+        if(powerUpBar != null) powerUpBar.removePlayer(player);
+        if(flightTask != null) flightTask.cancel();
         PowerUpActive = false;
         cauldronState = "none";
     }

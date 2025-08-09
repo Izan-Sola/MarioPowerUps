@@ -202,8 +202,8 @@ public class RockMushroomSphere {
     }
 
     public static void disablePowerUp() {
-        task1.cancel();
-        task2.cancel();
-        powerUpBar.removePlayer(player);
+        if(task1 != null) task1.cancel();
+        if(task2 != null) task2.cancel();
+        if(powerUpBar != null) powerUpBar.removePlayer(player);
     }
 }

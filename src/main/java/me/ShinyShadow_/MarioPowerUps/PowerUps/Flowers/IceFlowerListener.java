@@ -65,7 +65,7 @@ public class IceFlowerListener implements Listener{
 
         }
         //Shoot Ice Balls
-        if (onHandItem.getItemMeta().getLore() != null &&  onHandItem.getItemMeta().getLore().contains("This cold flower")) {
+        if (onHandItem.getItemMeta().hasLore() && onHandItem.getItemMeta().getLore().contains("This cold flower")) {
             if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
 
 
@@ -76,9 +76,8 @@ public class IceFlowerListener implements Listener{
 
                     ((Damageable) meta).setDamage( ((Damageable) meta).getDamage()+1);
                     onHandItem.setItemMeta(meta);
-                    player.playSound(player.getLocation(), Sound.ITEM_FLINTANDSTEEL_USE, 0.1f, 0.1f);
-                    player.playSound(player.getLocation(), Sound.BLOCK_LAVA_POP, 0.6f, 0.3f);
-                    player.getWorld().playSound(player.getLocation(), Sound.ENTITY_BLAZE_SHOOT, 0.5f, 0.4f);
+                    player.playSound(player.getLocation(), Sound.BLOCK_SNOW_HIT, 1f, 1f);
+                    player.getWorld().playSound(player.getLocation(), Sound.ENTITY_SNOWBALL_THROW, 0.5f, 0.1f);
 
                     float angle = player.getLocation().add(0, 0.25, 0).getYaw() / 60;
                     Location spawn = player.getLocation().clone().add(new Vector(Math.cos(angle), 0, Math.sin(angle)).normalize().multiply(-1));
