@@ -1,4 +1,4 @@
-# MarioPowerUps Plugin 1.21.4+ (WIP)
+<img width="164" height="165" alt="image" src="https://github.com/user-attachments/assets/663b7da7-e363-480d-8a63-ad3ed2379a5e" /># MarioPowerUps Plugin 1.21.4+ (WIP)
 A minecraft plugin that adds various Mario PowerUps. Requires ProtocolLib.
 
 # List of PowerUps:
@@ -38,16 +38,20 @@ _Flowers have a set amount of durability that represent the amount of charges le
   - <img width="164" height="166" alt="image" src="https://github.com/user-attachments/assets/e70a1c19-33f9-4ea4-b4b3-3753130e2e27" />
 
        
-- Ice Flower <img width="164" height="165" alt="image" src="https://github.com/user-attachments/assets/c70873eb-708e-4d2f-ab58-45027e9a848b" />
+- Ice Flower <img width="64" height="64" alt="iceflower" src="https://github.com/user-attachments/assets/32a0331f-4d4b-45f3-b130-9926774044fe" />
+
+
 
 
   Details:
   
      - The snowballs will slow the enemy, with a chance of freezing it.
      - You can recharge it by right clicking with a snow powder bucket on your off hand and the Ice Flower in your main hand.
-     - 1 snow powder bucket = 5 snowballs. The snow powder bucket  wont be used while the Ice Flower durability is above 15, meaning
+     - 1 snow powder bucket = 20 snowballs. The snow powder bucket  wont be used while the Ice Flower durability is above 0, meaning
       you can have a snow powder bucket on your off hand while you shoot snowballs without wasting it, and having it ready to recharge
-      your Ice Flower when its durability drops to 15.
+      your Ice Flower when its durability drops to 0.
+     - <img width="164" height="165" alt="image" src="https://github.com/user-attachments/assets/d09df192-dab8-4820-b9f0-bdc45630924e" />
+
 
 - Gold Flower 
 
