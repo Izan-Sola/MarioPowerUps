@@ -1,4 +1,4 @@
-# MarioPowerUps Plugin 1.20.4+, 1.21.x (WIP)
+# MarioPowerUps Plugin 1.21.4 (WIP)
 A minecraft plugin that adds various Mario PowerUps.
 
 # List of PowerUps:
