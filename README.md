@@ -38,7 +38,8 @@ _Flowers have a set amount of durability that represent the amount of charges le
   - <img width="164" height="166" alt="image" src="https://github.com/user-attachments/assets/e70a1c19-33f9-4ea4-b4b3-3753130e2e27" />
 
        
-- Ice Flower 
+- Ice Flower <img width="164" height="165" alt="image" src="https://github.com/user-attachments/assets/c70873eb-708e-4d2f-ab58-45027e9a848b" />
+
 
   Details:
   
