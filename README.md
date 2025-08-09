@@ -113,8 +113,9 @@ _All stars require a Nether Star to be crafted, but don't worry, because they wo
 # Head Boxes:
 General details:
 _While you wear them, the durability will decrease, and you will need a certain item to repair them. Right click to start wearing it, and right click again to stop wearing it_
+(Atm it uses display blocks, will probably make a 3d texture)
 
-   - Beam Box
+   - Beam Box [(ShowCase)](https://youtu.be/O99mJIcfKQM)
 
 
      Details:
