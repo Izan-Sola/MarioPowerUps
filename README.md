@@ -66,7 +66,7 @@ _Mushrooms are consumed after one use_
 
   Details:
 
-  - When consumed, restores your health to max, and boosts your armor points. They will go back to normal after a few hits.
+  - When consumed, restores your health to max and gives resistance.
     
 - 1-UP Mushroom [(ShowCase)](https://youtu.be/Ehf0W8lpP9k) ![1upmushroom](https://github.com/user-attachments/assets/e261477f-f49c-4179-94ec-b9c321a6c57a)
 
