@@ -17,6 +17,7 @@ public class FlowerBalls {
 
     public enum BallType { FIRE, ICE, GOLD }
 
+    private JavaPlugin plugin;
     private Player player;
     private final BallType ballType;
     private final Random rInt = new Random();
@@ -40,6 +41,7 @@ public class FlowerBalls {
         this.ballType = ballType;
         this.player = player;
         this.ignoredBlocks = Set.of(Material.AIR, Material.GRASS_BLOCK, Material.TALL_GRASS, Material.SNOW, Material.LIGHT);
+        this.plugin = plugin;
 
         lineOfSight = player.getLineOfSight(ignoredBlocks, 13);
         Marker pather = (Marker) player.getWorld().spawnEntity(spawn, EntityType.MARKER);
@@ -132,6 +134,14 @@ public class FlowerBalls {
         if (ballType == BallType.FIRE) {
             pather.getWorld().spawnParticle(Particle.FLAME, currentLocation, 8, 0.1, 0.1, 0.1, 0);
             pather.getWorld().spawnParticle(Particle.SMOKE, currentLocation, 8, 0.1, 0.1, 0.1, 0);
+
+            Block lightTempBlock = pather.getLocation().getBlock();
+            if(!lightTempBlock.getType().isSolid()) {
+                lightTempBlock.setBlockData(Bukkit.createBlockData("minecraft:light[level=10]"));
+                Bukkit.getScheduler().runTaskLater(plugin, () -> {
+                    lightTempBlock.setBlockData(Material.AIR.createBlockData());
+                }, 5L);
+            }
         } else {
             pather.getWorld().spawnParticle(Particle.SNOWFLAKE, currentLocation, 10, 0.1, 0.1, 0.1, 0);
             pather.getWorld().spawnParticle(Particle.DUST, currentLocation, 4, 0.2, 0.2, 0.2, 0.1, new Particle.DustOptions(Color.fromRGB(252, 252, 252), 1));

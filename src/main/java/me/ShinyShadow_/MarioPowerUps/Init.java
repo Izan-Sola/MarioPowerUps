@@ -8,9 +8,11 @@ import me.ShinyShadow_.MarioPowerUps.PowerUps.HeadBoxes.LightBoxListener;
 import me.ShinyShadow_.MarioPowerUps.PowerUps.Mushrooms.OneUpMushroomListener;
 import me.ShinyShadow_.MarioPowerUps.PowerUps.Mushrooms.RockMushroom.RockMushroomListener;
 import me.ShinyShadow_.MarioPowerUps.PowerUps.Mushrooms.RockMushroom.RockMushroomSphere;
+import me.ShinyShadow_.MarioPowerUps.PowerUps.Mushrooms.SuperMushroomListener;
 import me.ShinyShadow_.MarioPowerUps.PowerUps.Stars.RainbowStarListener;
 import me.ShinyShadow_.MarioPowerUps.PowerUps.Stars.RedStarListener;
 import me.ShinyShadow_.MarioPowerUps.Stuff.CustomItemRecipeListener;
+import me.ShinyShadow_.MarioPowerUps.Stuff.PowerupsUtil;
 import me.ShinyShadow_.MarioPowerUps.Stuff.PreventWeirdStuffFromHappeningListener;
 import me.ShinyShadow_.MarioPowerUps.item.ItemManager;
 import org.bukkit.Bukkit;
@@ -35,13 +37,14 @@ public final class Init extends JavaPlugin {
 	private final List<String> commands = Arrays.asList(
 			"givefireflower", "giverockmushroom", "givecloudflower", "giveairbottle", "givecloudbucket",
 			"giverefinedrainbowessence", "giverainbowstar", "give1upmushroom", "giveredstar", "giverainbowessence",
-			"giveiceflower", "powerupshelp", "givecrimsonextract", "giverefinedcrimsonextract"
+			"giveiceflower", "powerupshelp","givebeambox", "givecrimsonextract", "giverefinedcrimsonextract", "givesupermushroom"
 	);
 
 	private final List<Listener> listeners = Arrays.asList(
 			new FireFlowerListener(this), new RockMushroomListener(this), new CloudFlowerListener(this),
 			new CustomItemRecipeListener( this), new RainbowStarListener( this), new PreventWeirdStuffFromHappeningListener( this),
-			new RedStarListener( this), new OneUpMushroomListener(this), new IceFlowerListener(this), new LightBoxListener( this)
+			new RedStarListener( this), new OneUpMushroomListener(this), new IceFlowerListener(this), new LightBoxListener( this),
+			new SuperMushroomListener(this), new PowerupsUtil(this)
 	);
 
 	public static List<ItemStack> itemStacksWithCD = new ArrayList<>();

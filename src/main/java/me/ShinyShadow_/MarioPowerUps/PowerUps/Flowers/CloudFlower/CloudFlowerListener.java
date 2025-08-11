@@ -1,6 +1,5 @@
 package me.ShinyShadow_.MarioPowerUps.PowerUps.Flowers.CloudFlower;
 
-import me.ShinyShadow_.MarioPowerUps.item.ItemManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -34,17 +33,19 @@ public class CloudFlowerListener implements Listener {
         ItemMeta offMeta = ItemOffHand.getItemMeta();
 
         Damageable inHandDMGMeta = (Damageable) ItemInHand.getItemMeta();
-            if (inMeta != null && ItemInHand.isSimilar(ItemManager.Cloud_Flower)) {
-                isPowerUpActive = true;
-                effects(player);
-        }
 
-            if(isPowerUpActive && inMeta != null && inMeta.hasLore() && inMeta.getLore().contains("This flower has a tendency ")&&
+
+            if(!isPowerUpActive && inMeta != null && inMeta.hasLore() && inMeta.getLore().contains("This flower has a tendency ")&&
                !player.getLocation().add(0, -1, 0).getBlock().getType().isSolid() && inHandDMGMeta.getDamage() != 20) {
                inHandDMGMeta.setDamage(inHandDMGMeta.getDamage() + 1);
                ItemInHand.setItemMeta(inHandDMGMeta);
-                new CloudFlowerCloud(player, plugin);
+                isPowerUpActive = true;
+                effects(player);
 
+
+            }
+            if(isPowerUpActive) {
+                new CloudFlowerCloud(player, plugin);
             }
 
 
@@ -64,20 +65,26 @@ public class CloudFlowerListener implements Listener {
     public void effects(Player player) {
 
         effectsTask = new BukkitRunnable() {
-                ItemMeta inMeta = player.getInventory().getItemInMainHand().getItemMeta();
+
                 @Override
 
                 public void run () {
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP_BOOST, 20, 7));
+                    ItemMeta inMeta = player.getInventory().getItemInMainHand().getItemMeta();
+
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP_BOOST, 60, 7));
                   //  player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_FALLING, 20, 0));
 
                     if(inMeta != null && inMeta.hasLore() && !inMeta.getLore().contains("This flower has a tendency ")) {
-                      //  isPowerUpActive = false;
+                        isPowerUpActive = false;
+                        this.cancel();
+                    }
+                    else if(inMeta == null || !inMeta.hasLore()) {
+                        isPowerUpActive = false;
                         this.cancel();
                     }
 
                 }
-            }.runTaskTimer(plugin, 0L, 2L);
+            }.runTaskTimer(plugin, 0L, 50L);
 
     }
 }

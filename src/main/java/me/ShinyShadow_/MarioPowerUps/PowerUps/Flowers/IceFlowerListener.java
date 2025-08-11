@@ -47,7 +47,7 @@ public class IceFlowerListener implements Listener{
         Damageable onHandDMGMeta = (Damageable) onHandItem.getItemMeta();
 
         //Recharge Fire Flower
-        if(offHandItem.getType() == Material.POWDER_SNOW_BUCKET && onHandItem.getItemMeta().getLore().contains("This cold flower") &&
+        if(offHandItem.getType() == Material.POWDER_SNOW_BUCKET && onHandItem.getItemMeta().getLore().contains("This cold flower launches") &&
                 onHandDMGMeta.getDamage() >= 20) {
 
             float angle = player.getLocation().add(0, 0.25, 0).getYaw() / 60;
@@ -65,7 +65,7 @@ public class IceFlowerListener implements Listener{
 
         }
         //Shoot Ice Balls
-        if (onHandItem.getItemMeta().hasLore() && onHandItem.getItemMeta().getLore().contains("This cold flower")) {
+        if (onHandItem.getItemMeta().hasLore() && onHandItem.getItemMeta().getLore().contains("This cold flower launches")) {
             if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
 
 

@@ -36,9 +36,12 @@ public class LightBoxListener implements Listener {
     private static BukkitTask particleTask;
     private static BukkitTask lightTask;
     //public static List<Block> tempLightBlocks = new ArrayList<>();
-    static BlockDisplay display1;
-    static BlockDisplay display2;
-    static BlockDisplay display3;
+    private static BlockDisplay box;
+    private static BlockDisplay light;
+    private static BlockDisplay bars;
+    private static BlockDisplay borderTop;
+
+
     public LightBoxListener(JavaPlugin plugin) {
         this.plugin = plugin;
     }
@@ -64,13 +67,13 @@ public class LightBoxListener implements Listener {
             }
         }
 
-        if (event.getAction() == Action.RIGHT_CLICK_AIR && itemInHand.getItemMeta().hasLore() &&
+        if (event.getAction() == Action.RIGHT_CLICK_AIR && itemInHand.hasItemMeta() && itemInHand.getItemMeta().hasLore() &&
                 itemInHand.getItemMeta().getLore().contains("Wear it on your head") && itemInHandDMGMeta.getDamage() != 0 &&
                 itemOffHand.getType() == Material.COAL) {
 
-                itemInHandDMGMeta.setDamage(itemInHandDMGMeta.getDamage() - 10);
-                itemInHand.setItemMeta(itemInHandDMGMeta);
-                itemOffHand.setAmount(itemOffHand.getAmount()-1);
+            itemInHandDMGMeta.setDamage(itemInHandDMGMeta.getDamage() - 10);
+            itemInHand.setItemMeta(itemInHandDMGMeta);
+            itemOffHand.setAmount(itemOffHand.getAmount()-1);
         }
 
     }
@@ -79,55 +82,80 @@ public class LightBoxListener implements Listener {
 
     public void wearBeamBox(Player player, ItemStack BeamBoxItem, Damageable BeamBoxDMGMeta) {
 
-        this.world = player.getWorld();
-        display1 = world.spawn(player.getLocation(), BlockDisplay.class);
-        display2 = world.spawn(player.getLocation(), BlockDisplay.class);
-        display3 = world.spawn(player.getLocation(), BlockDisplay.class);
 
-        display3.setBlock(Bukkit.createBlockData(Material.COPPER_GRATE));
-        display3.setTransformation(new Transformation(
+        this.world = player.getWorld();
+
+        box = world.spawn(player.getLocation(), BlockDisplay.class);
+        light = world.spawn(player.getLocation(), BlockDisplay.class);
+        bars = world.spawn(player.getLocation(), BlockDisplay.class);
+        borderTop = world.spawn(player.getLocation(), BlockDisplay.class);
+
+        borderTop.setBlock(Bukkit.createBlockData(Material.LIGHT_WEIGHTED_PRESSURE_PLATE));
+        borderTop.setTransformation(new Transformation(
+                new Vector3f(0, 0, 0),
+                new Quaternionf(),
+                new Vector3f(0.82f, 0.875f, 0.45f),
+                new Quaternionf()
+        ));
+
+        bars.setBlock(Bukkit.createBlockData(Material.COPPER_GRATE));
+        bars.setTransformation(new Transformation(
                 new Vector3f(0, 0, 0),
                 new Quaternionf(),
                 new Vector3f(0.7f, 0.7f, 0.7f),
                 new Quaternionf()
         ));
-        display3.setBillboard(Display.Billboard.FIXED);
+        bars.setBillboard(Display.Billboard.FIXED);
 
-        display2.setBlock(Bukkit.createBlockData(Material.GOLD_BLOCK));
-        display2.setTransformation(new Transformation(
+        light.setBlock(Bukkit.createBlockData(Material.OCHRE_FROGLIGHT));
+        light.setTransformation(new Transformation(
                 new Vector3f(0, 0, 0),
                 new Quaternionf(),
                 new Vector3f(0.65f, 0.65f, 0.65f),
                 new Quaternionf()
         ));
 
-        display2.setBillboard(Display.Billboard.FIXED);
+        light.setBillboard(Display.Billboard.FIXED);
 
-        display1.setBrightness(new Display.Brightness(15, 15));
-        display1.setBlock(Bukkit.createBlockData(Material.RED_CONCRETE));
-        display1.setBillboard(Display.Billboard.FIXED);
+        box.setBrightness(new Display.Brightness(15, 15));
+        box.setBlock(Bukkit.createBlockData(Material.RED_CONCRETE));
+        box.setBillboard(Display.Billboard.FIXED);
 
         lightTask = new BukkitRunnable() {
             @Override
             public void run() {
                 if (!player.isOnline() || player.isDead()) {
-                    display1.remove();
+                    box.remove();
                     cancel();
                     return;
                 }
 
                 // Head positioning
-                Location headCenter = player.getLocation().clone().add(0, 1.25, 0);
+                Location playerLocation = player.getLocation().clone();
+                float yawDegrees = playerLocation.getYaw();
+                float yawRadians = (float) Math.toRadians(-yawDegrees); // negative because of your original code
 
-                Vector offset = new Vector(-0.5, 0, -0.75);
-                Vector offset2 = new Vector(0.18, 0.15, 0.55);
-                Vector offset3 = new Vector(-0.025, 0.03, 0.);
-                offset.rotateAroundY(-Math.toRadians(headCenter.getYaw()));
-                offset2.rotateAroundY(-Math.toRadians(headCenter.getYaw()));
-                offset3.rotateAroundY(-Math.toRadians(headCenter.getYaw()));
-                display1.teleport(headCenter.add(offset));
-                display2.teleport(headCenter.add(offset2));
-                display3.teleport(headCenter.add(offset3));
+// zero out pitch, so the location is flat on the horizontal plane
+                playerLocation.setPitch(0);
+                playerLocation.setYaw(yawDegrees);
+
+                Vector offset = new Vector(-0.55, 0, -0.7);
+                Vector offset2 = new Vector(-0.35, 0.12, -0.2);
+                Vector offset3 = new Vector(-0.375, 0.108, -0.2);
+                Vector offset4 = new Vector(-0.425, 0.8,0.25);
+
+
+                offset.rotateAroundY(yawRadians);
+                offset2.rotateAroundY(yawRadians);
+                offset3.rotateAroundY(yawRadians);
+                offset4.rotateAroundY(yawRadians);
+
+                Location headCenter = playerLocation.add(0, 1.25, 0);
+
+                box.teleport(headCenter.clone().add(offset));
+                light.teleport(headCenter.clone().add(offset2));
+                bars.teleport(headCenter.clone().add(offset3));
+                borderTop.teleport(headCenter.clone().add(offset4));
 
                 // Set cone parameters
                 eyeLoc = player.getEyeLocation();
@@ -237,10 +265,11 @@ public class LightBoxListener implements Listener {
         wearingBeamBox = false;
         if(particleTask != null) particleTask.cancel();
         if(lightTask != null) lightTask.cancel();
-        if(display1 != null && display2 != null && display3 != null) {
-            display1.remove();
-            display2.remove();
-            display3.remove();
+        if(box != null && light != null && bars != null && borderTop != null) {
+            box.remove();
+            light.remove();
+            bars.remove();
+            borderTop.remove();
         }
     }
 

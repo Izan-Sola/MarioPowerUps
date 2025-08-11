@@ -15,29 +15,31 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
 
 import java.util.*;
 
-public class OneUpMushroomListener implements Listener {
+public class SuperMushroomListener implements Listener {
 
     private ProtocolManager protocolManager;
     private JavaPlugin plugin;
     private Player player;
-    private Boolean HerbsMixReady = false;
-    List<Material> HerbsMixIngredients = Arrays.asList(
+    private Boolean SuperMixReady = false;
+    List<Material> SuperMixIngredients = Arrays.asList(
             Material.SHORT_GRASS,
             Material.BONE_MEAL,
-            Material.PUMPKIN_SEEDS
+            Material.POTION
     );
     List<Material> MushroomIngredient = Arrays.asList(
-            Material.BROWN_MUSHROOM
+            Material.RED_MUSHROOM
     );
-    BukkitTask HerbsMixTask;
+    BukkitTask SuperMixTask;
     Collection<Entity> itemsInCauldron;
-    public OneUpMushroomListener(JavaPlugin plugin) {
+    public SuperMushroomListener(JavaPlugin plugin) {
         this.plugin = plugin;
     }
     Set<Material> itemsInCauldronList = new HashSet<>();
@@ -51,19 +53,19 @@ public class OneUpMushroomListener implements Listener {
         if(eatenItem == null || eatenItem.getItemMeta().getLore() == null ) {
             return;
         }
-        if (eatenItem.getItemMeta().getLore().contains("A 1Up mushroom a day, ") ) {
-            if(player.getMaxHealth() > 20) {
-                player.sendMessage("You can only eat this mushroom when under 21 HP!");
-            } else {
-                player.setMaxHealth(player.getMaxHealth() + 20);
+        if (eatenItem.getItemMeta().getLore().contains("One Super Mushroom a day, ") ) {
+
+                player.setHealth(player.getMaxHealth());
+                player.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, 10000, 1));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.STRENGTH, 10000, 0));
                 Bukkit.getScheduler().runTaskLater(plugin, () -> {
-                    player.setMaxHealth(player.getMaxHealth() - 20);
+                    player.removePotionEffect(PotionEffectType.RESISTANCE);
+                    player.removePotionEffect(PotionEffectType.STRENGTH);
                 }, 6000);
             }
         }
-    //        protocolManager = ProtocolLibrary.getProtocolManager();
 
-    }
+
 
     @EventHandler
     public void onRightClick(PlayerInteractEvent event) {
@@ -73,47 +75,41 @@ public class OneUpMushroomListener implements Listener {
         ItemStack inHandItem = player.getInventory().getItemInMainHand();
         if( itemsInCauldron != null ) itemsInCauldron.clear();
 
+
+
         if (event.getAction() == Action.RIGHT_CLICK_BLOCK && clickedBlock != null && clickedBlock.getType() == Material.WATER_CAULDRON) {
             itemsInCauldron = clickedBlock.getWorld().getNearbyEntities(clickedBlock.getLocation(), 1, 1, 1);
             itemsInCauldronList.clear();
 
-//            for (Entity item : itemsInCauldron) {
-//                if (item instanceof Item) {
-//                    Material itemType = ((Item) item).getItemStack().getType();
-//                    itemsInCauldronList.add(itemType);
-//
-//                    if(HerbsMixIngredients.contains(itemType) || MushroomIngredient.contains(itemType)) item.remove();
-//                }
-//            }
-             Boolean checkIngredients = PowerupsUtil.checkIngredients(itemsInCauldron, itemsInCauldronList, HerbsMixIngredients, MushroomIngredient);
+            Boolean checkIngredients = PowerupsUtil.checkIngredients(itemsInCauldron, itemsInCauldronList, SuperMixIngredients, MushroomIngredient);
 
             if (checkIngredients) {
-                HerbsMix(clickedBlock);
+                SuperMix(clickedBlock);
             }
-            if (itemsInCauldronList.contains(Material.BROWN_MUSHROOM)  && HerbsMixReady && event.getHand() == EquipmentSlot.HAND ) {
+            if (itemsInCauldronList.contains(Material.RED_MUSHROOM)  && SuperMixReady && event.getHand() == EquipmentSlot.HAND ) {
                 itemsInCauldron = clickedBlock.getWorld().getNearbyEntities(clickedBlock.getLocation(), 1, 1, 1);
-
-                    player.playSound(clickedBlock.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1, 0.5f);
-                    Entity OneUpMushroom = clickedBlock.getWorld().dropItem(clickedBlock.getLocation(), ItemManager.OneUp_Mushroom);
-                    OneUpMushroom.setVelocity(new Vector(0, 0.45, 0));
-                    HerbsMixReady = false;
+                player.sendMessage("HERE3");
+                player.playSound(clickedBlock.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1, 0.5f);
+                Entity UpMushroom = clickedBlock.getWorld().dropItem(clickedBlock.getLocation(), ItemManager.Super_Mushroom);
+                UpMushroom.setVelocity(new Vector(0, 0.45, 0));
+                SuperMixReady = false;
 
             }
 
         }
     }
-    public void HerbsMix(Block clickedBlock) {
+    public void SuperMix(Block clickedBlock) {
         Block cauldron = clickedBlock;
-        HerbsMixReady = true;
+        SuperMixReady = true;
 
-        HerbsMixTask = new BukkitRunnable() {
+        SuperMixTask = new BukkitRunnable() {
 
             @Override
             public void run() {
-                if(!HerbsMixReady) cancel();
+                if(!SuperMixReady) cancel();
                 cauldron.getWorld().spawnParticle(Particle.DUST, cauldron.getLocation().add(0.5, 0.6, 0.5), 20, 0.18, 0.2, 0.18, 0.1,
-                        new Particle.DustOptions(Color.GREEN, 1));
-                cauldron.getWorld().spawnParticle(Particle.HAPPY_VILLAGER,cauldron.getLocation().add(0.5, 0.6, 0.5), 8, 0.18, 0.2, 0.18, 0.1);
+                        new Particle.DustOptions(Color.RED, 1));
+                cauldron.getWorld().spawnParticle(Particle.CRIT,cauldron.getLocation().add(0.5, 0.6, 0.5), 8, 0.18, 0.2, 0.18, 0.1);
                 cauldron.getWorld().spawnParticle(Particle.BUBBLE_POP,  cauldron.getLocation().add(0.5, 1, 0.5), 6, 0.2, 0.2, 0.2, 0);
                 cauldron.getWorld().spawnParticle(Particle.CAMPFIRE_COSY_SMOKE,  cauldron.getLocation().add(0.5, 0.6, 0.5), 2, 0.1, 0.2, 0.1, 0);
 

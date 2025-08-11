@@ -5,6 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 
 
 public class Commands implements CommandExecutor {
@@ -14,50 +15,55 @@ public class Commands implements CommandExecutor {
 		
 		if(sender instanceof Player) {	
 			Player player = (Player) sender;
-			player.sendMessage(command.getName());
+			Inventory inventory = player.getInventory();
 			switch (command.getName()) {
 				case "givefireflower":
-					player.getInventory().addItem(ItemManager.Fire_Flower);
+					inventory.addItem(ItemManager.Fire_Flower);
 					break;
 				case "giverockmushroom":
-					player.getInventory().addItem(ItemManager.Rock_Mushroom);
+					inventory.addItem(ItemManager.Rock_Mushroom);
 					break;
 				case "givecloudflower":
-					player.getInventory().addItem(ItemManager.Cloud_Flower);
+					inventory.addItem(ItemManager.Cloud_Flower);
 					break;
 				case "giveairbottle":
-					player.getInventory().addItem(ItemManager.Air_Bottle);
+					inventory.addItem(ItemManager.Air_Bottle);
 					break;
 				case "givecloudbucket":
-					player.getInventory().addItem(ItemManager.Cloud_Bucket);
+					inventory.addItem(ItemManager.Cloud_Bucket);
 					break;
 				case "giverainbowessence":
-					player.getInventory().addItem(ItemManager.Rainbow_Essence);
+					inventory.addItem(ItemManager.Rainbow_Essence);
 					break;
 				case "giverefinedrainbowessence":
-					player.getInventory().addItem(ItemManager.RefinedRainbow_Essence);
+					inventory.addItem(ItemManager.RefinedRainbow_Essence);
 					break;
 				case "giverainbowstar":
-					player.getInventory().addItem(ItemManager.Rainbow_Star);
+					inventory.addItem(ItemManager.Rainbow_Star);
 					break;
 				case "give1upmushroom":
-					player.getInventory().addItem(ItemManager.OneUp_Mushroom);
+					inventory.addItem(ItemManager.OneUp_Mushroom);
 					break;
 				case "giveredstar":
-					player.getInventory().addItem(ItemManager.Red_Star);
+					inventory.addItem(ItemManager.Red_Star);
 					break;
 				case "giveiceflower":
 					player.getInventory().addItem(ItemManager.Ice_Flower);
 					break;
 				case "givecrimsonextract":
-					player.getInventory().addItem(ItemManager.Crimson_Extract);
+					inventory.addItem(ItemManager.Crimson_Extract);
 					break;
 				case "giverefinedcrimsonextract":
-					player.getInventory().addItem(ItemManager.RefinedCrimson_Extract);
+					inventory.addItem(ItemManager.RefinedCrimson_Extract);
+					break;
+				case "givebeambox":
+					inventory.addItem(ItemManager.Beam_Box);
 					break;
 				case "powerupshelp":
 					player.sendMessage("Help: You can get a copy of a powerup or custom item typing, per example, /givefireflower, /givecloudbucket"+
 							"");
+				case "givesupermushroom":
+					inventory.addItem(ItemManager.Super_Mushroom);
 			}
 
 		}

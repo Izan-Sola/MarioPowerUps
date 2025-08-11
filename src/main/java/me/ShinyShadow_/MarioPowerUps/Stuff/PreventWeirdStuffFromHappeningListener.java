@@ -99,8 +99,6 @@ public class PreventWeirdStuffFromHappeningListener implements Listener {
         }
     }
 
-
-
 }
 
 
