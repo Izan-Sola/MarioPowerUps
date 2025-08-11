@@ -85,6 +85,8 @@ _Mushrooms are consumed after one use_
   - Once consumed, the Power Up lasts for 30 seconds.
   - To dash, you have to shift for 2s and release. (You will hear a sound cue)
   - Hitting enemies will push them away with force and colliding with the terrain, walls etc... will cause them to break.
+  - <img width="164" height="163" alt="image" src="https://github.com/user-attachments/assets/7c032206-f44c-48af-8d8a-b3a1ab60a3c9" />
+
  
 
 # Stars:
