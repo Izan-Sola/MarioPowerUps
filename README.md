@@ -61,11 +61,12 @@ _Flowers have a set amount of durability that represent the amount of charges le
 General details:
 _Mushrooms are consumed after one use_
 
-- Super Mushroom 
+- Super Mushroom <img width="64" height="64" alt="supermushroom" src="https://github.com/user-attachments/assets/6f083fd5-d9e1-447d-9915-c2f5fa0b636f" />
+
 
   Details:
 
-  - When consumed, restores your health to max.
+  - When consumed, restores your health to max, and boosts your armor points. They will go back to normal after a few hits.
     
 - 1-UP Mushroom [(ShowCase)](https://youtu.be/Ehf0W8lpP9k) ![1upmushroom](https://github.com/user-attachments/assets/e261477f-f49c-4179-94ec-b9c321a6c57a)
 
